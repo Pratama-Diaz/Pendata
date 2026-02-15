@@ -1,4 +1,6 @@
-# Welcome to your Jupyter Book
+# 240411100065
+# Nama: Diaz Rizki Pratama
+
 
 This is a small sample book to give you a feel for how book content is
 structured.
