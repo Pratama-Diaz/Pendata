@@ -1,23 +1,24 @@
 # Business Understanding
 
-### 1. Latar Belakang
+## 1. Latar Belakang
 
-Dataset ini berisi data karakteristik bunga iris yang terdiri dari tiga spesies berbeda, yaitu Iris setosa, Iris versicolor, dan Iris virginica.
-Setiap spesies memiliki ciri morfologi yang diukur melalui empat atribut numerik, yaitu sepal length, sepal width, petal length, dan petal width.
-Dalam konteks analisis data, permasalahan yang ingin diselesaikan adalah bagaimana memanfaatkan data karakteristik bunga tersebut untuk mengidentifikasi atau mengklasifikasikan spesies bunga iris secara akurat berdasarkan atribut yang dimilikinya.
+Dataset yang digunakan memuat informasi mengenai karakteristik morfologi bunga iris yang terbagi ke dalam tiga jenis, yaitu Iris setosa, Iris versicolor, dan Iris virginica. Masing-masing jenis bunga memiliki perbedaan ukuran pada bagian kelopak (sepal) dan mahkota (petal), yang direpresentasikan melalui empat atribut numerik: sepal length, sepal width, petal length, dan petal width.
 
-### 2. Tujuan Bisnis
+Dalam analisis data, permasalahan yang diangkat adalah bagaimana memanfaatkan atribut-atribut tersebut untuk menentukan jenis spesies bunga iris secara tepat. Dengan kata lain, diperlukan suatu pendekatan analitik yang mampu mengelompokkan atau mengklasifikasikan spesies berdasarkan pola ukuran morfologi yang dimiliki setiap bunga.
 
-Tujuan utama dari proses analisis data ini adalah:
+## 2. Tujuan Bisnis
 
-- Mengidentifikasi pola hubungan antara ukuran sepal dan petal dengan jenis spesies bunga iris.
-- Membangun model klasifikasi yang mampu memprediksi spesies bunga iris berdasarkan atribut morfologi yang tersedia.
-- Membantu proses pengenalan spesies bunga secara lebih cepat, objektif, dan konsisten tanpa harus bergantung sepenuhnya pada pengamatan manual oleh ahli botani.
+Adapun tujuan dari analisis ini adalah sebagai berikut:
+
+- Menganalisis hubungan antara ukuran sepal dan petal terhadap perbedaan spesies bunga iris.
+- Mengembangkan model klasifikasi yang dapat digunakan untuk memprediksi jenis bunga iris berdasarkan data pengukuran yang tersedia.
+- Menghasilkan sistem identifikasi spesies yang lebih efisien dan konsisten sehingga dapat mengurangi ketergantungan pada proses identifikasi manual.
 
 
 ### 3. Manfaat
 
-- Memberikan pemahaman dasar mengenai penerapan CRISP-DM dalam kasus klasifikasi data.
-- Menjadi contoh penerapan machine learning untuk pengenalan pola dan klasifikasi.
-- Mendukung pembelajaran dan pengembangan sistem klasifikasi otomatis berbasis data.
+Pelaksanaan analisis ini diharapkan memberikan beberapa manfaat, antara lain:
+- Memberikan gambaran penerapan tahapan metodologi CRISP-DM dalam studi kasus klasifikasi.
+- Menjadi ilustrasi penggunaan teknik machine learning dalam pengenalan pola data.
+- Mendukung proses pembelajaran terkait pembangunan model klasifikasi berbasis data secara sistematis.
 

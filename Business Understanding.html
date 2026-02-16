@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Business Understanding';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Content with notebooks" href="notebooks.html" />
+    <link rel="next" title="Data Understanding" href="Data%20Understanding.html" />
     <link rel="prev" title="240411100065" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -181,7 +181,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Business Understanding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Understanding.html">Data Understanding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 </ul>
 
@@ -379,8 +379,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">1. Latar Belakang</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-bisnis">2. Tujuan Bisnis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat">3. Manfaat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-bisnis">2. Tujuan Bisnis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat">3. Manfaat</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -396,26 +398,26 @@ document.write(`
 <h1>Business Understanding<a class="headerlink" href="#business-understanding" title="Link to this heading">#</a></h1>
 <section id="latar-belakang">
 <h2>1. Latar Belakang<a class="headerlink" href="#latar-belakang" title="Link to this heading">#</a></h2>
-<p>Dataset ini berisi data karakteristik bunga iris yang terdiri dari tiga spesies berbeda, yaitu Iris setosa, Iris versicolor, dan Iris virginica.
-Setiap spesies memiliki ciri morfologi yang diukur melalui empat atribut numerik, yaitu sepal length, sepal width, petal length, dan petal width.
-Dalam konteks analisis data, permasalahan yang ingin diselesaikan adalah bagaimana memanfaatkan data karakteristik bunga tersebut untuk mengidentifikasi atau mengklasifikasikan spesies bunga iris secara akurat berdasarkan atribut yang dimilikinya.</p>
+<p>Dataset yang digunakan memuat informasi mengenai karakteristik morfologi bunga iris yang terbagi ke dalam tiga jenis, yaitu Iris setosa, Iris versicolor, dan Iris virginica. Masing-masing jenis bunga memiliki perbedaan ukuran pada bagian kelopak (sepal) dan mahkota (petal), yang direpresentasikan melalui empat atribut numerik: sepal length, sepal width, petal length, dan petal width.</p>
+<p>Dalam analisis data, permasalahan yang diangkat adalah bagaimana memanfaatkan atribut-atribut tersebut untuk menentukan jenis spesies bunga iris secara tepat. Dengan kata lain, diperlukan suatu pendekatan analitik yang mampu mengelompokkan atau mengklasifikasikan spesies berdasarkan pola ukuran morfologi yang dimiliki setiap bunga.</p>
 </section>
 <section id="tujuan-bisnis">
 <h2>2. Tujuan Bisnis<a class="headerlink" href="#tujuan-bisnis" title="Link to this heading">#</a></h2>
-<p>Tujuan utama dari proses analisis data ini adalah:</p>
+<p>Adapun tujuan dari analisis ini adalah sebagai berikut:</p>
 <ul class="simple">
-<li><p>Mengidentifikasi pola hubungan antara ukuran sepal dan petal dengan jenis spesies bunga iris.</p></li>
-<li><p>Membangun model klasifikasi yang mampu memprediksi spesies bunga iris berdasarkan atribut morfologi yang tersedia.</p></li>
-<li><p>Membantu proses pengenalan spesies bunga secara lebih cepat, objektif, dan konsisten tanpa harus bergantung sepenuhnya pada pengamatan manual oleh ahli botani.</p></li>
+<li><p>Menganalisis hubungan antara ukuran sepal dan petal terhadap perbedaan spesies bunga iris.</p></li>
+<li><p>Mengembangkan model klasifikasi yang dapat digunakan untuk memprediksi jenis bunga iris berdasarkan data pengukuran yang tersedia.</p></li>
+<li><p>Menghasilkan sistem identifikasi spesies yang lebih efisien dan konsisten sehingga dapat mengurangi ketergantungan pada proses identifikasi manual.</p></li>
+</ul>
+<section id="manfaat">
+<h3>3. Manfaat<a class="headerlink" href="#manfaat" title="Link to this heading">#</a></h3>
+<p>Pelaksanaan analisis ini diharapkan memberikan beberapa manfaat, antara lain:</p>
+<ul class="simple">
+<li><p>Memberikan gambaran penerapan tahapan metodologi CRISP-DM dalam studi kasus klasifikasi.</p></li>
+<li><p>Menjadi ilustrasi penggunaan teknik machine learning dalam pengenalan pola data.</p></li>
+<li><p>Mendukung proses pembelajaran terkait pembangunan model klasifikasi berbasis data secara sistematis.</p></li>
 </ul>
 </section>
-<section id="manfaat">
-<h2>3. Manfaat<a class="headerlink" href="#manfaat" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Memberikan pemahaman dasar mengenai penerapan CRISP-DM dalam kasus klasifikasi data.</p></li>
-<li><p>Menjadi contoh penerapan machine learning untuk pengenalan pola dan klasifikasi.</p></li>
-<li><p>Mendukung pembelajaran dan pengembangan sistem klasifikasi otomatis berbasis data.</p></li>
-</ul>
 </section>
 </section>
 
@@ -459,11 +461,11 @@ Dalam konteks analisis data, permasalahan yang ingin diselesaikan adalah bagaima
       </div>
     </a>
     <a class="right-next"
-       href="notebooks.html"
+       href="Data%20Understanding.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Content with notebooks</p>
+        <p class="prev-next-title">Data Understanding</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -484,8 +486,10 @@ Dalam konteks analisis data, permasalahan yang ingin diselesaikan adalah bagaima
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">1. Latar Belakang</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-bisnis">2. Tujuan Bisnis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat">3. Manfaat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-bisnis">2. Tujuan Bisnis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat">3. Manfaat</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
