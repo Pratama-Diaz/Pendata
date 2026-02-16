@@ -1,4 +1,9 @@
 # Data Understanding
+
+Tahap Data Understanding merupakan fase awal dalam metodologi CRISP-DM setelah tahap Business Understanding selesai dilakukan. Pada tahap ini, fokus utama adalah memahami data yang akan digunakan dalam proses analisis sebelum dilakukan persiapan atau pemodelan lebih lanjut.
+
+Tujuan utama dari tahap Data Understanding adalah memperoleh pemahaman menyeluruh terhadap data sehingga peneliti atau analis dapat menentukan langkah yang tepat pada tahap berikutnya, yaitu Data Preparation. Dengan pemahaman yang baik terhadap kondisi dan karakteristik data, proses analisis dapat dilakukan secara lebih terarah dan meminimalkan kesalahan dalam pembangunan model.
+
 ### 1. Sumber Data
 
 Dataset yang digunakan dalam penelitian ini adalah Iris Flower Dataset yang diperoleh dari platform Kaggle. Dataset ini berisi data pengukuran morfologi bunga iris yang terdiri dari tiga spesies, yaitu Iris-setosa, Iris-versicolor, dan Iris-virginica.
