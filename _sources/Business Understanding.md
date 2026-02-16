@@ -15,7 +15,7 @@ Adapun tujuan dari analisis ini adalah sebagai berikut:
 - Menghasilkan sistem identifikasi spesies yang lebih efisien dan konsisten sehingga dapat mengurangi ketergantungan pada proses identifikasi manual.
 
 
-### 3. Manfaat
+## 3. Manfaat
 
 Pelaksanaan analisis ini diharapkan memberikan beberapa manfaat, antara lain:
 - Memberikan gambaran penerapan tahapan metodologi CRISP-DM dalam studi kasus klasifikasi.
