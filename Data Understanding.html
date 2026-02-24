@@ -380,19 +380,32 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">1. Sumber Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-dataset">2. Eksplorasi Dataset</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-library-dan-perizinan-drive">- Persiapan library dan perizinan drive</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-drive">- Menentukan path drive</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-dataset">- Struktur Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif-awal">-Statistik Deskriptif Awal</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-duplikat">- Pengecekan Data Duplikat</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-null">- Pengecekan Data Null</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-library-dan-perizinan-drive">2.1 Persiapan library dan perizinan drive</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-drive">2.1.2 Menentukan path drive</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-dataset">2.2 Struktur Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif-awal">2.3 Statistik Deskriptif Awal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-duplikat">2.4 Pengecekan Data Duplikat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-null">2.5 Pengecekan Data Null</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-data">3. Verifikasi Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">4. Visualisasi Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-jumlah-data-per-species">- Distribusi Jumlah Data per Species</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-data-fitur-numerik-pada-dataset-iris">- Distribusi Data Fitur Numerik pada Dataset Iris</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-penyebaran-data-dan-deteksi-outlier-menggunakan-boxplot">- Analisis Penyebaran Data dan Deteksi Outlier Menggunakan Boxplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-menggunakan-python">4.1 Visualisasi data menggunakan Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-jumlah-data-per-species">- Distribusi Jumlah Data per Species</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-data-fitur-numerik-pada-dataset-iris">- Distribusi Data Fitur Numerik pada Dataset Iris</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-scatter-plot-sepal-dan-petal">- Visualisasi scatter plot sepal dan petal</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-penyebaran-data-dan-deteksi-outlier-menggunakan-boxplot">- Analisis Penyebaran Data dan Deteksi Outlier Menggunakan Boxplot</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-menggunakan-orange">4.1 Visualisasi data menggunakan Orange</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-jumlah-keseluruhan-data">- Statistik jumlah keseluruhan data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-bar-chart">- Visualisasi Bar Chart</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">- Visualisasi scatter plot sepal dan petal</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-box-plot">- Visualisasi Box plot</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -412,14 +425,14 @@ document.write(`
 <p>Tujuan utama dari tahap Data Understanding adalah memperoleh pemahaman menyeluruh terhadap data sehingga peneliti atau analis dapat menentukan langkah yang tepat pada tahap berikutnya, yaitu Data Preparation. Dengan pemahaman yang baik terhadap kondisi dan karakteristik data, proses analisis dapat dilakukan secara lebih terarah dan meminimalkan kesalahan dalam pembangunan model.</p>
 <section id="sumber-data">
 <h2>1. Sumber Data<a class="headerlink" href="#sumber-data" title="Link to this heading">#</a></h2>
-<p>Dataset yang digunakan dalam penelitian ini adalah Iris Flower Dataset yang diperoleh dari platform Kaggle. Dataset ini berisi data pengukuran morfologi bunga iris yang terdiri dari tiga spesies, yaitu Iris-setosa, Iris-versicolor, dan Iris-virginica.
+<p>Dataset yang digunakan dalam penelitian ini adalah Iris Flower Dataset yang diperoleh dari platform Kaggle. Dataset ini berisi data pengukuran morfologi bunga iris yang terdiri dari tiga spesies, yaitu Iris-setosa, Iris-versicolor, dan Iris-virginica. Dataset Iris Flower terdiri dari 150 data observasi dengan 5 atribut utama. Empat atribut pertama merupakan variabel numerik yang berisi hasil pengukuran fisik bunga, yaitu sepal length, sepal width, petal length, dan petal width. Keempat atribut tersebut bertipe numerik karena nilainya berupa angka hasil pengukuran dalam satuan tertentu. Atribut kelima adalah species, yang merupakan variabel kategorikal dan berfungsi sebagai label atau target dalam proses klasifikasi.
 <a class="reference external" href="https://www.kaggle.com/datasets/arshid/iris-flower-dataset?resource=download">Dataset Iris</a></p>
 </section>
 <section id="eksplorasi-dataset">
 <h2>2. Eksplorasi Dataset<a class="headerlink" href="#eksplorasi-dataset" title="Link to this heading">#</a></h2>
-<p>Dalam proses mengidentifikasi dataset ini, python membantu untuk mempermudah pengidentifikasiannya.</p>
+<p>Dalam proses mengidentifikasi dataset ini, salah satu tools yang dapat dimanfaatkan untuk pengidentifikasian nya adalah python</p>
 <section id="persiapan-library-dan-perizinan-drive">
-<h3>- Persiapan library dan perizinan drive<a class="headerlink" href="#persiapan-library-dan-perizinan-drive" title="Link to this heading">#</a></h3>
+<h3>2.1 Persiapan library dan perizinan drive<a class="headerlink" href="#persiapan-library-dan-perizinan-drive" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">drive</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -427,18 +440,22 @@ document.write(`
 <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Pengizinan pembacaan file dalam google drive, ini digunakan agar google collaboratory dapat membaca file IRIS.csv yang kita taruh di dalam google drive</p>
-</section>
+<ul class="simple">
+<li><p>import drive : Pengizinan pembacaan file dalam google drive, ini digunakan agar google collaboratory dapat membaca file IRIS.csv yang kita taruh di dalam google drive.</p></li>
+<li><p>import pandas : Digunakan untuk menganalisis dan memanipulasi data yang dimiliki</p></li>
+<li><p>import matplotlib : Untuk melakukan visualisasi data</p></li>
+</ul>
 <section id="menentukan-path-drive">
-<h3>- Menentukan path drive<a class="headerlink" href="#menentukan-path-drive" title="Link to this heading">#</a></h3>
+<h4>2.1.2 Menentukan path drive<a class="headerlink" href="#menentukan-path-drive" title="Link to this heading">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/content/drive/MyDrive/tugas/IRIS.csv&quot;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Dalam kasus ini file IRIS.csv berada dalam folder tugas, maka path kita arahkan menuju folder tugas, lalu gunakan library pandas untuk membaca isi file nya</p>
 </section>
+</section>
 <section id="struktur-dataset">
-<h3>- Struktur Dataset<a class="headerlink" href="#struktur-dataset" title="Link to this heading">#</a></h3>
+<h3>2.2 Struktur Dataset<a class="headerlink" href="#struktur-dataset" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -510,7 +527,7 @@ Selain itu, terdapat satu atribut kategorikal yaitu:</p></li>
 </ol>
 </section>
 <section id="statistik-deskriptif-awal">
-<h3>-Statistik Deskriptif Awal<a class="headerlink" href="#statistik-deskriptif-awal" title="Link to this heading">#</a></h3>
+<h3>2.3 Statistik Deskriptif Awal<a class="headerlink" href="#statistik-deskriptif-awal" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -580,7 +597,7 @@ Selain itu, terdapat satu atribut kategorikal yaitu:</p></li>
 <p>Standar deviasi tertinggi terdapat pada atribut petal length sebesar 1.76, yang menunjukkan bahwa variasi panjang petal lebih besar dibandingkan atribut lainnya. Nilai minimum dan maksimum menunjukkan rentang data yang masih dalam batas wajar, yaitu sepal length antara 4.3 hingga 7.9 cm dan petal width antara 0.1 hingga 2.5 cm. Selain itu, nilai kuartil (25%, 50%, dan 75%) menunjukkan distribusi data yang relatif stabil tanpa adanya penyimpangan ekstrem yang signifikan.</p>
 </section>
 <section id="pengecekan-data-duplikat">
-<h3>- Pengecekan Data Duplikat<a class="headerlink" href="#pengecekan-data-duplikat" title="Link to this heading">#</a></h3>
+<h3>2.4 Pengecekan Data Duplikat<a class="headerlink" href="#pengecekan-data-duplikat" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -591,7 +608,7 @@ Selain itu, terdapat satu atribut kategorikal yaitu:</p></li>
 <p>Jadi setelah dilakukan pengecekan, terdapat data duplikat yaitu ada 3 data duplikat.</p>
 </section>
 <section id="pengecekan-data-null">
-<h3>- Pengecekan Data Null<a class="headerlink" href="#pengecekan-data-null" title="Link to this heading">#</a></h3>
+<h3>2.5 Pengecekan Data Null<a class="headerlink" href="#pengecekan-data-null" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -631,18 +648,27 @@ Selain itu, terdapat satu atribut kategorikal yaitu:</p></li>
 </section>
 <section id="visualisasi-data">
 <h2>4. Visualisasi Data<a class="headerlink" href="#visualisasi-data" title="Link to this heading">#</a></h2>
+<section id="visualisasi-data-menggunakan-python">
+<h3>4.1 Visualisasi data menggunakan Python<a class="headerlink" href="#visualisasi-data-menggunakan-python" title="Link to this heading">#</a></h3>
 <section id="distribusi-jumlah-data-per-species">
-<h3>- Distribusi Jumlah Data per Species<a class="headerlink" href="#distribusi-jumlah-data-per-species" title="Link to this heading">#</a></h3>
+<h4>- Distribusi Jumlah Data per Species<a class="headerlink" href="#distribusi-jumlah-data-per-species" title="Link to this heading">#</a></h4>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/Gt4lANFXJ1tvApce6vXv0vo4hu08VXJb7_bTkbfgn-M.original.fullsize.png" /></p>
 <p>Grafik bar digunakan untuk melihat jumlah data pada setiap species. Berdasarkan grafik, diketahui bahwa setiap species yaitu Iris-setosa, Iris-versicolor, dan Iris-virginica masing-masing memiliki 50 data. Hal ini menunjukkan bahwa dataset dalam kondisi seimbang (balanced dataset), sehingga tidak terdapat ketimpangan jumlah data antar kelas. Kondisi ini sangat baik untuk proses modeling karena dapat membantu menghasilkan model klasifikasi yang lebih akurat dan tidak bias terhadap kelas tertentu.</p>
 </section>
 <section id="distribusi-data-fitur-numerik-pada-dataset-iris">
-<h3>- Distribusi Data Fitur Numerik pada Dataset Iris<a class="headerlink" href="#distribusi-data-fitur-numerik-pada-dataset-iris" title="Link to this heading">#</a></h3>
+<h4>- Distribusi Data Fitur Numerik pada Dataset Iris<a class="headerlink" href="#distribusi-data-fitur-numerik-pada-dataset-iris" title="Link to this heading">#</a></h4>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/6u595jYczu5oHxd1yDMvEGkfvzQYsyvFrhOICQnLnGY.original.fullsize.png" /></p>
 <p>Berdasarkan histogram, dapat disimpulkan bahwa seluruh fitur numerik memiliki distribusi yang bervariasi dan tidak terdapat anomali yang ekstrem. Fitur petal_length dan petal_width menunjukkan pola distribusi yang lebih jelas dalam membedakan kelompok data, sehingga kedua fitur ini sangat berpotensi menjadi fitur penting dalam proses klasifikasi pada tahap modeling. Visualisasi ini membantu dalam memahami karakteristik dan penyebaran data pada tahap Data Understanding dalam metodologi CRISP-DM.</p>
 </section>
+<section id="visualisasi-scatter-plot-sepal-dan-petal">
+<h4>- Visualisasi scatter plot sepal dan petal<a class="headerlink" href="#visualisasi-scatter-plot-sepal-dan-petal" title="Link to this heading">#</a></h4>
+<p><img alt="original image" src="https://cdn.mathpix.com/snip/images/Y0D4Vc_bKZyv6KgPthBSm8pOPKFWZf-ZcZEN1qaBDpM.original.fullsize.png" /></p>
+<p>Scatter plot diatas menunjukan hubungan antara sepal_length pada sumbu X dan sepal_width pada sumbu Y. Pada visualisasi ini pola hubungan terlihat lebih menyebar dan tidak membentuk pola linear yang kuat. Penyebaran titik data cenderung acak dan tidak menunjukkan korelasi yang signifikan. Hal ini menunjukkan bahwa hubungan antara kedua fitur tersebut relatif lemah dibandingkan fitur petal. Dengan demikian, fitur sepal kurang efektif dalam membedakan species dibandingkan fitur petal.</p>
+<p><img alt="original image" src="https://cdn.mathpix.com/snip/images/cbXgTI0n7n5F-Hm_QEabnsoY06-1zrCTGJM6BGw0VT4.original.fullsize.png" /></p>
+<p>Scatter plot selanjutnya ini menunjukan hubungan antara petal_length pada sumbu X dan petal_width pada sumbu Y. Titik-titik data membentuk pola naik yang cukup linear, yang menunjukkan bahwa semakin panjang petal, maka semakin lebar petal. Selain itu, terlihat adanya pengelompokan data yang cukup jelas, yang mengindikasikan bahwa kedua fitur ini mampu membedakan species dengan baik. Hal ini mendukung hasil analisis korelasi yang menunjukkan bahwa petal_length dan petal_width memiliki nilai korelasi yang tinggi.</p>
+</section>
 <section id="analisis-penyebaran-data-dan-deteksi-outlier-menggunakan-boxplot">
-<h3>- Analisis Penyebaran Data dan Deteksi Outlier Menggunakan Boxplot<a class="headerlink" href="#analisis-penyebaran-data-dan-deteksi-outlier-menggunakan-boxplot" title="Link to this heading">#</a></h3>
+<h4>- Analisis Penyebaran Data dan Deteksi Outlier Menggunakan Boxplot<a class="headerlink" href="#analisis-penyebaran-data-dan-deteksi-outlier-menggunakan-boxplot" title="Link to this heading">#</a></h4>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/YfGQj5-WjGnpPQF6mWpdtoRSXTPrJIw5sXZ6l769Xo0.original.fullsize.png" /></p>
 <p>Pada setiap kotak:</p>
 <ul class="simple">
@@ -651,6 +677,28 @@ Selain itu, terdapat satu atribut kategorikal yaitu:</p></li>
 <li><p>Garis memanjang (whisker) → Rentang minimum dan maksimum</p></li>
 </ul>
 <p>Berdasarkan boxplot, dapat disimpulkan bahwa setiap fitur memiliki penyebaran data yang berbeda. Fitur sepal_width menunjukkan adanya beberapa outlier, sedangkan fitur lainnya memiliki distribusi yang relatif normal tanpa outlier yang signifikan. Fitur petal_length dan petal_width memiliki variasi data yang cukup besar, sehingga berpotensi menjadi fitur penting dalam membedakan species pada tahap modeling.</p>
+</section>
+</section>
+<section id="visualisasi-data-menggunakan-orange">
+<h3>4.1 Visualisasi data menggunakan Orange<a class="headerlink" href="#visualisasi-data-menggunakan-orange" title="Link to this heading">#</a></h3>
+<section id="statistik-jumlah-keseluruhan-data">
+<h4>- Statistik jumlah keseluruhan data<a class="headerlink" href="#statistik-jumlah-keseluruhan-data" title="Link to this heading">#</a></h4>
+<p><img alt="original image" src="https://cdn.mathpix.com/snip/images/HDC--owJyN2brHw80LVv73mBWygr0yxk9lX4t96wFvc.original.fullsize.png" /></p>
+</section>
+<section id="visualisasi-bar-chart">
+<h4>- Visualisasi Bar Chart<a class="headerlink" href="#visualisasi-bar-chart" title="Link to this heading">#</a></h4>
+<p><img alt="original image" src="https://cdn.mathpix.com/snip/images/0fNG62bZBym-M-49gaNRJ-AExLKqTm4Y6JaYxtxx_L0.original.fullsize.png" /></p>
+<p><img alt="original image" src="https://cdn.mathpix.com/snip/images/5GkmBEAXfm44a2sSxu5ec27ANj-g9KUY8pKwPG6wNAU.original.fullsize.png" /></p>
+</section>
+<section id="id1">
+<h4>- Visualisasi scatter plot sepal dan petal<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p><img alt="original image" src="https://cdn.mathpix.com/snip/images/wdF8Z79VGVflh2mDtT56v_4f5q5SlGbLHtM778Ut6ac.original.fullsize.png" /></p>
+<p><img alt="original image" src="https://cdn.mathpix.com/snip/images/1K4uhfC_chCDhN56N1oE_UogCOe7cSdr_zdgA9iD8zI.original.fullsize.png" /></p>
+</section>
+<section id="visualisasi-box-plot">
+<h4>- Visualisasi Box plot<a class="headerlink" href="#visualisasi-box-plot" title="Link to this heading">#</a></h4>
+<p><img alt="original image" src="https://cdn.mathpix.com/snip/images/0IzZzwtAwUWlcBUmvnfO6rYeciTHx-oNosmnHghUypU.original.fullsize.png" /></p>
+</section>
 </section>
 </section>
 </section>
@@ -721,19 +769,32 @@ Selain itu, terdapat satu atribut kategorikal yaitu:</p></li>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">1. Sumber Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-dataset">2. Eksplorasi Dataset</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-library-dan-perizinan-drive">- Persiapan library dan perizinan drive</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-drive">- Menentukan path drive</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-dataset">- Struktur Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif-awal">-Statistik Deskriptif Awal</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-duplikat">- Pengecekan Data Duplikat</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-null">- Pengecekan Data Null</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-library-dan-perizinan-drive">2.1 Persiapan library dan perizinan drive</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-drive">2.1.2 Menentukan path drive</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-dataset">2.2 Struktur Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif-awal">2.3 Statistik Deskriptif Awal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-duplikat">2.4 Pengecekan Data Duplikat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-null">2.5 Pengecekan Data Null</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-data">3. Verifikasi Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">4. Visualisasi Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-jumlah-data-per-species">- Distribusi Jumlah Data per Species</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-data-fitur-numerik-pada-dataset-iris">- Distribusi Data Fitur Numerik pada Dataset Iris</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-penyebaran-data-dan-deteksi-outlier-menggunakan-boxplot">- Analisis Penyebaran Data dan Deteksi Outlier Menggunakan Boxplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-menggunakan-python">4.1 Visualisasi data menggunakan Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-jumlah-data-per-species">- Distribusi Jumlah Data per Species</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-data-fitur-numerik-pada-dataset-iris">- Distribusi Data Fitur Numerik pada Dataset Iris</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-scatter-plot-sepal-dan-petal">- Visualisasi scatter plot sepal dan petal</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-penyebaran-data-dan-deteksi-outlier-menggunakan-boxplot">- Analisis Penyebaran Data dan Deteksi Outlier Menggunakan Boxplot</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-menggunakan-orange">4.1 Visualisasi data menggunakan Orange</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-jumlah-keseluruhan-data">- Statistik jumlah keseluruhan data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-bar-chart">- Visualisasi Bar Chart</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">- Visualisasi scatter plot sepal dan petal</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-box-plot">- Visualisasi Box plot</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
