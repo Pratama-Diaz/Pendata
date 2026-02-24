@@ -29,7 +29,7 @@ drive.mount('/content/drive')
 
 - import matplotlib : Untuk melakukan visualisasi data
 
-#### 2.1.2 Menentukan path drive
+### 2.2 Menentukan path drive
 
 ```
 path = "/content/drive/MyDrive/tugas/IRIS.csv"
@@ -38,7 +38,7 @@ df = pd.read_csv(path)
 
 Dalam kasus ini file IRIS.csv berada dalam folder tugas, maka path kita arahkan menuju folder tugas, lalu gunakan library pandas untuk membaca isi file nya
 
-### 2.2 Struktur Dataset
+### 2.3 Struktur Dataset
 
 ```
 df.head()
@@ -68,7 +68,7 @@ Selain itu, terdapat satu atribut kategorikal yaitu:
     - Versicolor
     - Virginica
 
-### 2.3 Statistik Deskriptif Awal
+### 2.4 Statistik Deskriptif Awal
 
 ```
 df.describe()
@@ -92,7 +92,7 @@ Berikut contoh statistik deskriptifnya:
  
  Standar deviasi tertinggi terdapat pada atribut petal length sebesar 1.76, yang menunjukkan bahwa variasi panjang petal lebih besar dibandingkan atribut lainnya. Nilai minimum dan maksimum menunjukkan rentang data yang masih dalam batas wajar, yaitu sepal length antara 4.3 hingga 7.9 cm dan petal width antara 0.1 hingga 2.5 cm. Selain itu, nilai kuartil (25%, 50%, dan 75%) menunjukkan distribusi data yang relatif stabil tanpa adanya penyimpangan ekstrem yang signifikan.
  
-### 2.4 Pengecekan Data Duplikat
+### 2.5 Pengecekan Data Duplikat
 
 ```
 df.duplicated().sum()
@@ -106,7 +106,7 @@ np.int64(3)
 
 Jadi setelah dilakukan pengecekan, terdapat data duplikat yaitu ada 3 data duplikat.
 
-### 2.5 Pengecekan Data Null
+### 2.6 Pengecekan Data Null
 
 ```
 df.isnull().sum()
@@ -125,15 +125,57 @@ Berikut untuk tampilan hasil dari pengecekan data Null:
 
 Hasil diatas menunjukan tidak adanya data Null, ditambah pada penfecekan deskriptif awal menunjukan bahwa seluruh data memiliki jumlah yang sama, artinya tidak ada data null di setiap atribut nya.
 
-## 3. Verifikasi Data
+## 3. Analisa korelasi
+
+Analisis korelasi digunakan untuk mengetahui hubungan antar variabel numerik dalam dataset. Korelasi menunjukkan seberapa kuat hubungan antara dua variabel serta arah hubungannya (positif atau negatif).
+
+Nilai korelasi berada pada rentang:
+
+- -1 → hubungan negatif sempurna
+
+- 0 → tidak ada hubungan
+
+- +1 → hubungan positif sempurna
+
+Pada dataset Iris, analisis korelasi dilakukan pada empat atribut numerik, yaitu:
+
+- sepal_length
+
+- sepal_width
+
+- petal_length
+
+- petal_width
+```
+correlation_matrix = df.corr(numeric_only=True)
+print(correlation_matrix)
+```
+Berdasarkan hasil perhitungan korelasi Pearson antar fitur numerik, diperoleh matriks korelasi sebagai berikut:
+
+|               | sepal_length | sepal_width | petal_length | petal_width |
+|---------------|--------------|-------------|--------------|-------------|
+| sepal_length  | 1.000000     | -0.109369   | 0.871754     | 0.817954    |
+| sepal_width   | -0.109369    | 1.000000    | -0.420516    | -0.356544   |
+| petal_length  | 0.871754     | -0.420516   | 1.000000     | 0.962757    |
+| petal_width   | 0.817954     | -0.356544   | 0.962757     | 1.000000    |
+
+### Interpretasi
+
+- petal_length dan petal_width (0.962757) memiliki korelasi positif yang sangat kuat. Hal ini menunjukkan bahwa semakin panjang petal, maka semakin lebar petal.
+- sepal_length dan petal_length (0.871754) menunjukkan hubungan positif yang kuat.
+- sepal_length dan petal_width (0.817954) juga memiliki korelasi positif yang kuat.
+- sepal_width memiliki korelasi yang relatif lemah hingga sedang terhadap fitur lainnya, bahkan bernilai negatif.
+
+
+## 4. Verifikasi Data
 
 Berdasarkan hasil eksplorasi sebelumnya, diketahui bahwa dataset terdiri dari 150 data dengan jumlah yang konsisten pada setiap atribut numerik. Hasil pengecekan menggunakan df.isnull().sum() menunjukkan bahwa seluruh kolom memiliki nilai 0 pada bagian null, yang berarti tidak terdapat data kosong (missing value) pada dataset.
 
 Selanjutnya, dilakukan pengecekan data duplikat menggunakan df.duplicated().sum(), dan diperoleh hasil sebanyak 3 data duplikat. Hal ini menunjukkan bahwa terdapat beberapa baris data yang identik dan berpotensi mempengaruhi hasil analisis jika tidak ditangani.
 
-## 4. Visualisasi Data
+## 5. Visualisasi Data
 
-### 4.1 Visualisasi data menggunakan Python
+### 5.1 Visualisasi data menggunakan Python
 
 #### - Distribusi Jumlah Data per Species
 
@@ -172,7 +214,7 @@ Pada setiap kotak:
 
 Berdasarkan boxplot, dapat disimpulkan bahwa setiap fitur memiliki penyebaran data yang berbeda. Fitur sepal_width menunjukkan adanya beberapa outlier, sedangkan fitur lainnya memiliki distribusi yang relatif normal tanpa outlier yang signifikan. Fitur petal_length dan petal_width memiliki variasi data yang cukup besar, sehingga berpotensi menjadi fitur penting dalam membedakan species pada tahap modeling.
 
-### 4.1 Visualisasi data menggunakan Orange
+### 5.1 Visualisasi data menggunakan Orange
 
 #### - Statistik jumlah keseluruhan data
 ![original image](https://cdn.mathpix.com/snip/images/HDC--owJyN2brHw80LVv73mBWygr0yxk9lX4t96wFvc.original.fullsize.png)
@@ -195,4 +237,8 @@ Berdasarkan boxplot, dapat disimpulkan bahwa setiap fitur memiliki penyebaran da
 #### - Visualisasi Box plot
 
 ![original image](https://cdn.mathpix.com/snip/images/0IzZzwtAwUWlcBUmvnfO6rYeciTHx-oNosmnHghUypU.original.fullsize.png)
+
+#### - Analisa korelasi pada orange
+
+![original image](https://cdn.mathpix.com/snip/images/5LdarTZMEcRto-WhHPhbKFnrNfQpFu_pgj1JCbCikyQ.original.fullsize.png)
 
