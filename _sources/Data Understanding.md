@@ -14,7 +14,73 @@ Dataset yang digunakan dalam penelitian ini adalah Iris Flower Dataset yang dipe
 
 Dalam proses mengidentifikasi dataset ini, salah satu tools yang dapat dimanfaatkan untuk pengidentifikasian nya adalah python
 
-### 2.1 Persiapan library dan perizinan drive
+### 2.1 Connect Pyhton ke Database
+#### 2.1.1 Connect MySQL ke Python
+```
+pip install mysql-connector-python
+```
+Sebelum melakukan koneksi antara MySQL ke Python, kita perlu setting environment yang diperlukan, salah satunya menginstall library diatas.
+
+```
+import mysql.connector
+db = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="", 
+    database="iris"
+)
+print("Berhasil terhubung ke MySQL!")
+
+cursor = db.cursor()
+
+cursor.execute("SELECT * FROM iris")
+
+hasil = cursor.fetchall()
+
+for data in hasil:
+    print(data)
+
+db.close()
+```
+Selanjutnya masukkan ini ke dalam file code python kita, pastikan bahwasan nya di database MySQL kita sudah ada database bernama iris, sesuai dengan nama file csv kita diatas
+
+![original image](https://cdn.mathpix.com/snip/images/j21pH1tPPYzv5cb9M1SfZIXUWMuSU5-FnKstdUJJSTI.original.fullsize.png)
+
+Hasil jika di running dan berhasil melakukan koneksi antara MySQL dan Python
+
+#### 2.1.1 Connect PostgreSQL ke Python
+```
+pip install psycopg2
+```
+Sama seperti MySQL kita perlu men-setting environment untuk PostgreSQL kita juga dengan cara install library psycopg2 diatas
+
+```
+import psycopg2
+conn = psycopg2.connect(
+    host="localhost",
+    database="postgres",
+    user="postgres",
+    password="",
+    port="5432"
+)
+print("Berhasil connect ke PostgreSQL")
+cursor = conn.cursor()
+
+cursor.execute("SELECT * FROM iris")
+
+rows = cursor.fetchall()
+for row in rows:
+    print(row)
+
+cursor.close()
+conn.close()
+```
+Masukkan contoh codingan diatas, jangan lupa untuk menyesuaikan nama database dan nama table yang dimiliki.
+
+![original image](https://cdn.mathpix.com/snip/images/lTIjeqLGDRTGLD-mm_zBe_dtwWyys_RmKUCLRmMQYiI.original.fullsize.png)
+
+Berikut adalah hasil jika kita sukses untuk melakukan koneksi database
+### 2.2 Persiapan library dan import file tanpa menggunakan database
 
 ```
 from google.colab import drive
@@ -29,7 +95,7 @@ drive.mount('/content/drive')
 
 - import matplotlib : Untuk melakukan visualisasi data
 
-### 2.2 Menentukan path drive
+### 2.3 Menentukan path drive
 
 ```
 path = "/content/drive/MyDrive/tugas/IRIS.csv"
@@ -38,7 +104,7 @@ df = pd.read_csv(path)
 
 Dalam kasus ini file IRIS.csv berada dalam folder tugas, maka path kita arahkan menuju folder tugas, lalu gunakan library pandas untuk membaca isi file nya
 
-### 2.3 Struktur Dataset
+### 2.4 Struktur Dataset
 
 ```
 df.head()
@@ -68,7 +134,7 @@ Selain itu, terdapat satu atribut kategorikal yaitu:
     - Versicolor
     - Virginica
 
-### 2.4 Statistik Deskriptif Awal
+### 2.5 Statistik Deskriptif Awal
 
 ```
 df.describe()
@@ -92,7 +158,7 @@ Berikut contoh statistik deskriptifnya:
  
  Standar deviasi tertinggi terdapat pada atribut petal length sebesar 1.76, yang menunjukkan bahwa variasi panjang petal lebih besar dibandingkan atribut lainnya. Nilai minimum dan maksimum menunjukkan rentang data yang masih dalam batas wajar, yaitu sepal length antara 4.3 hingga 7.9 cm dan petal width antara 0.1 hingga 2.5 cm. Selain itu, nilai kuartil (25%, 50%, dan 75%) menunjukkan distribusi data yang relatif stabil tanpa adanya penyimpangan ekstrem yang signifikan.
  
-### 2.5 Pengecekan Data Duplikat
+### 2.6 Pengecekan Data Duplikat
 
 ```
 df.duplicated().sum()
@@ -106,7 +172,7 @@ np.int64(3)
 
 Jadi setelah dilakukan pengecekan, terdapat data duplikat yaitu ada 3 data duplikat.
 
-### 2.6 Pengecekan Data Null
+### 2.7 Pengecekan Data Null
 
 ```
 df.isnull().sum()
@@ -177,11 +243,11 @@ Selanjutnya, dilakukan pengecekan data duplikat menggunakan df.duplicated().sum(
 
 ### 5.1 Visualisasi data menggunakan Python
 
-#### - Distribusi Jumlah Data per Species
+#### - Distribusi Jumlah kelas Iris
 
 ![original image](https://cdn.mathpix.com/snip/images/Gt4lANFXJ1tvApce6vXv0vo4hu08VXJb7_bTkbfgn-M.original.fullsize.png)
 
-Grafik bar digunakan untuk melihat jumlah data pada setiap species. Berdasarkan grafik, diketahui bahwa setiap species yaitu Iris-setosa, Iris-versicolor, dan Iris-virginica masing-masing memiliki 50 data. Hal ini menunjukkan bahwa dataset dalam kondisi seimbang (balanced dataset), sehingga tidak terdapat ketimpangan jumlah data antar kelas. Kondisi ini sangat baik untuk proses modeling karena dapat membantu menghasilkan model klasifikasi yang lebih akurat dan tidak bias terhadap kelas tertentu.
+Grafik bar digunakan untuk melihat jumlah data pada setiap species. Berdasarkan grafik, diketahui bahwa setiap kelas species yaitu Iris-setosa, Iris-versicolor, dan Iris-virginica masing-masing memiliki 50 data. Hal ini menunjukkan bahwa dataset dalam kondisi seimbang (balanced dataset), sehingga tidak terdapat ketimpangan jumlah data antar kelas. Kondisi ini sangat baik untuk proses modeling karena dapat membantu menghasilkan model klasifikasi yang lebih akurat dan tidak bias terhadap kelas tertentu.
 
 #### - Distribusi Data Fitur Numerik pada Dataset Iris
 
@@ -198,9 +264,6 @@ Scatter plot diatas menunjukan hubungan antara sepal_length pada sumbu X dan sep
 ![original image](https://cdn.mathpix.com/snip/images/cbXgTI0n7n5F-Hm_QEabnsoY06-1zrCTGJM6BGw0VT4.original.fullsize.png)
 
 Scatter plot selanjutnya ini menunjukan hubungan antara petal_length pada sumbu X dan petal_width pada sumbu Y. Titik-titik data membentuk pola naik yang cukup linear, yang menunjukkan bahwa semakin panjang petal, maka semakin lebar petal. Selain itu, terlihat adanya pengelompokan data yang cukup jelas, yang mengindikasikan bahwa kedua fitur ini mampu membedakan species dengan baik. Hal ini mendukung hasil analisis korelasi yang menunjukkan bahwa petal_length dan petal_width memiliki nilai korelasi yang tinggi.
-
-
-
 
 
 #### - Analisis Penyebaran Data dan Deteksi Outlier Menggunakan Boxplot
@@ -242,3 +305,204 @@ Berdasarkan boxplot, dapat disimpulkan bahwa setiap fitur memiliki penyebaran da
 
 ![original image](https://cdn.mathpix.com/snip/images/5LdarTZMEcRto-WhHPhbKFnrNfQpFu_pgj1JCbCikyQ.original.fullsize.png)
 
+## 6. Mengukur jarak data
+
+### 6.1 Pengertian Similarity dan Dissimilarity
+
+#### 6.1.1 Similarity
+Sesuai namanya adalah kemiripan, dalam similarity yang diukur adalah mengukur seberapa mirip dua objek yang sedang disandingkan, semakin besar nilai yang dimiliki maka semakin mirip objek tersebut. Tinggi nilainya berada pada range [0,1]. Semakin tinggi nilai nya, maka semakin mirip objek yang dimaksud
+
+#### 6.1.2 Dissimilarity
+Terbanding terbalik dengan similarity, Disisimilarity mengukur seberapa berbeda dua objek yang sedang disandingkan. Nilai nya berawal dari 0, semakin besar nilai yang dimiliki, maka semakin tidak mirip objek tersebut.
+Contoh Dissimilarity:
+##### 6.1.2.1 Minkowski Distance
+Minkowski Distance adalah bentuk generalisasi dari Euclidean dan Manhattan. Artinya Euclidean dan Manhattan adalah bagian dari kelompok
+\[
+\begin{aligned}
+d(i,j) &= \sqrt[h]{|x_{i1}-x_{j1}|^{h} + |x_{i2}-x_{j2}|^{h} + \cdots + |x_{ip}-x_{jp}|^{h}} \\
+\\
+\text{dengan } 
+i &= (x_{i1}, x_{i2}, \dots, x_{ip}), \\
+j &= (x_{j1}, x_{j2}, \dots, x_{jp})
+\end{aligned}
+\]
+i = Melambangkan objek ke-i
+j = Melambangkan objek ke-j
+xi1 = Nilai fitur 1 dari objek ke-i
+xj1 = Nilai fitur 1 dari objek ke-j
+
+##### 6.1.2.2 Manhattan Distance
+Manhattan Distance mengukur seberapa jauh jarak antara 2 titik dengan menjumlahkan selisih absolut dari koordinatnya. Manhattan distance lebih memliki ketahanan terhadap outlier dibandingkan dengan euclidean distance. Manhattan distance cocok untuk data yang berdimensi tinggi
+\[
+d(i,j) = |x_{i1} - x_{j1}| + |x_{i2} - x_{j2}| + \cdots + |x_{ip} - x_{jp}|
+\]
+##### 6.1.2.3 Euclidean Distance
+Yang terakhir ada Euclidean Distance, Euclidean digunakan untuk data bertipe numerik meskipun jarak Euclidean sangat umum dalam pengelompokan. Salah satu permasalahan yang ada dalam Euclidean adalahjarak Euclidean sebagai fitur skala terbesar akan mendominasi yang lain. Normalisasi fitur kontinu adalah solusi untuk mengatasi kelemahan ini.
+
+$d(i,j) = \sqrt{(x_{i1} - x_{j1}|^2 +| x_{i2} - x_{j2}|^2 + \ldots + |x_{ip} - x_{jp}|^2})$
+
+### 6.2 Mengukur jarak dissimilarity pada suatu dataset
+
+#### 6.2.1 Mengukur jarak dataset Iris
+Pada dataset Iris diatas, tipe data yang dimiliki adalah bernilai numerik, karena hal itu penghitungan jarak untuk tipe data Iris kali ini akan digunakan metode Eucledian Distance
+##### 6.2.1.1 Perhitungan manual 
+Contoh perhitungan secara manual pada baris 2 dan 3 dengan kolom 1:
+\[
+d(2,1) = \sqrt{(|4{,}9 - 5{,}1|^2 + |3 - 3{,}5|^2 + |1{,}4 - 1{,}4|^2 + |0{,}2 - 0{,}2|^2)}
+\]
+\[
+= \sqrt{0{,}04 + 0{,}25}
+\]
+\[
+= 0{,}538
+\]
+\[
+d(3,1) = \sqrt{(|4{,}7 - 5{,}1|^2 + |3{,}2 - 3{,}5|^2 + |1{,}3 - 1{,}4|^2 + |0{,}2 - 0{,}2|^2)}
+\]
+
+\[
+= \sqrt{0{,}16 + 0{,}09 + 0{,}01 + 0}
+\]
+
+\[
+= 0{,}50990
+\]
+##### 6.2.1.2 Perhitungan Python
+Kita juga dapat menggunakan tools seperti python untuk mempermudah perhitungan ini
+```
+from scipy.spatial.distance import pdist, squareform
+
+X = df.select_dtypes(include=['float64', 'int64'])
+dist = pdist(X, metric='euclidean')
+distance_matrix = squareform(dist)
+
+distance_df = pd.DataFrame(distance_matrix)
+print(distance_df.iloc[:5, :5])
+```
+Terdapat tambahan library yang digunakan yaitu library scipy untuk mempermudah kita menghitung Euclidean Distance tanpa perlu coding manual. Selanjutnya data ditampilkan hanya sebesar 5x5 dihitung dari yang pertama
+
+Output yang dihasilkan:
+|   | 0        | 1        | 2        | 3        | 4        |
+|---|----------|----------|----------|----------|----------|
+| 0 | 0.000000 | 0.538516 | 0.509902 | 0.648074 | 0.141421 |
+| 1 | 0.538516 | 0.000000 | 0.300000 | 0.331662 | 0.608276 |
+| 2 | 0.509902 | 0.300000 | 0.000000 | 0.244949 | 0.509902 |
+| 3 | 0.648074 | 0.331662 | 0.244949 | 0.000000 | 0.648074 |
+| 4 | 0.141421 | 0.608276 | 0.509902 | 0.648074 | 0.000000 |
+
+##### 6.2.1.3 Perhitungan Orange
+![original image](https://cdn.mathpix.com/snip/images/9PGgc7ny0uksXf9OeJWUUqJ1W74_wYqqPmGLGPGhBL8.original.fullsize.png)
+3 perhitungan diatas, memiliki kesamaan nilai, artinya perhitungan yang dilakukan sudah dilakukan secara benar dan urut
+
+#### 6.2.2 Mengukur jarak dataset Tipe data campuran
+Dataset yang digunakan untuk contoh kali ini adalah dataset berjudu; 'Student Alcohol Consumption'. Dimana dataset ini memiliki sekitar 30 fitur di dalam nya. Namun pada penugasan kali ini, kami menggunakan hanya 7 fitur diantaranya yaitu fitur sex, age, Medu, Fedu, Fjob, activities, schoolsup. Dimana tipe data Nominal dimiliki oleh [sex, fjob, activities, schoolsup] lalu tipe data numerik [Age] terakhir adalah tipe data ordinal [medu, fedu]. Dilakukan perhitungan jarak dengan metode Gower 
+[Dataset Student alcohol consumption](https://www.kaggle.com/datasets/uciml/student-alcohol-consumption)
+##### 6.2.2.1 Perhitungan manual 
+Contoh perhitungan manual antara baris 1 dan 2, lalu baris 1 dan 4:
+
+###### 1. Hitung Nominal pada baris 1 dan 2
+Jika nilai nya sama -> 0
+Jika nilai nya beda -> 1
+| Fitur | Nilai |
+|------------|--------|
+| sex        | 0      |
+| fjob       | 1      |
+| activities | 0      |
+| schoolsup  | 1      |
+Hasil akhir = 0+1+0+1 = 2
+
+###### 2. Hitung Numerik pada baris 1 dan 2
+Nilai numerik berada pada fitur Age
+Nilai minimal = 15
+Nilai maksimal = 22
+rumusnya:
+\[d_{ij}^{(f)} =
+\frac{|x_{if} - x_{jf}|}{\max(x_f) - \min(x_f)}\]
+
+\[d_{1,2}^{(f)} =
+\frac{|18 - 17|}{22 - 15}\]
+\[ = \frac{1}{7} = 0,143\]
+Hasil akhir = 0,143
+
+
+###### 3. Hitung Ordinal pada baris 1 dan 2
+Ketahui terlebih dahulu terdapat kategori apa saja di dalam nya. Pada kasus ini terdapat 5 kategori
+Rumusnya:
+\[z_{if} = \frac{r_{if} - \min(r_f)}{\max(r_f) - \min(r_f)}\]
+
+Hitung dari data baris 1:
+\[z_{1} = \frac{4 - 0}{4 - 0}\]
+
+\[ = \frac{4}{4} = 1\]
+Hitung dari data baris 2:
+\[z_{1} = \frac{1 - 0}{4 - 0}\]
+
+\[ = \frac{1}{4} = 0,25\]
+Hasil akhir: |1 - 0.25| = 0.75
+
+Lakukan hal yang sama untuk tipe data fedu
+Hasil akhir: 0,75
+
+###### 3. Hasil Akhir nilai gower baris 1 dan 2
+Nilai dari tipe data sebelumnya dijumlahkan, lalu dibagi oleh fitur yang dimiliki
+
+ \[ = \frac{2 + 0,143 + 0,75 + 0,75}{7} = 0,520\]
+
+
+ ##### 6.2.2.2 Perhitungan Python
+
+ ```
+import numpy as np
+
+data = df.copy()
+n = data.shape[0]
+
+numeric_cols = data.select_dtypes(include=[np.number]).columns
+categorical_cols = data.select_dtypes(exclude=[np.number]).columns
+
+for col in numeric_cols:
+    min_val = data[col].min()
+    max_val = data[col].max()
+    
+    if max_val != min_val:
+        data[col] = (data[col] - min_val) / (max_val - min_val)
+    else:
+        data[col] = 0
+
+dist_matrix = np.zeros((n, n))
+
+for i in range(n):
+    for j in range(n):
+        total_dist = 0
+        valid_features = 0
+        
+        for col in data.columns:
+            xi = data.iloc[i][col]
+            xj = data.iloc[j][col]
+            
+            if pd.isna(xi) or pd.isna(xj):
+                continue
+            
+            if col in numeric_cols:
+                d = abs(xi - xj)
+
+            else:
+                d = 0 if xi == xj else 1
+            
+            total_dist += d
+            valid_features += 1
+        
+        dist_matrix[i, j] = total_dist / valid_features
+distance_df = pd.DataFrame(dist_matrix)
+
+print(distance_df.iloc[:5, :5])
+ ```
+Berikut adalah code yang digunakan untuk menghitung gower distance
+
+|   | 0        | 1        | 2        | 3        | 4        |
+|---|----------|----------|----------|----------|----------|
+| 0 | 0.000000 | 0.520408 | 0.418367 | 0.561224 | 0.397959 |
+| 1 | 0.520408 | 0.000000 | 0.183673 | 0.469388 | 0.163265 |
+| 2 | 0.418367 | 0.183673 | 0.000000 | 0.571429 | 0.306122 |
+| 3 | 0.561224 | 0.469388 | 0.571429 | 0.000000 | 0.377551 |
+| 4 | 0.397959 | 0.163265 | 0.306122 | 0.377551 | 0.000000 |
