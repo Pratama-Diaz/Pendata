@@ -317,15 +317,15 @@ Terbanding terbalik dengan similarity, Disisimilarity mengukur seberapa berbeda 
 Contoh Dissimilarity:
 ##### 6.1.2.1 Minkowski Distance
 Minkowski Distance adalah bentuk generalisasi dari Euclidean dan Manhattan. Artinya Euclidean dan Manhattan adalah bagian dari kelompok
-\[
+$$
 \begin{aligned}
 d(i,j) &= \sqrt[h]{|x_{i1}-x_{j1}|^{h} + |x_{i2}-x_{j2}|^{h} + \cdots + |x_{ip}-x_{jp}|^{h}} \\
 \\
-\text{dengan } 
+\text{dengan } \quad
 i &= (x_{i1}, x_{i2}, \dots, x_{ip}), \\
 j &= (x_{j1}, x_{j2}, \dots, x_{jp})
 \end{aligned}
-\]
+$$
 i = Melambangkan objek ke-i
 j = Melambangkan objek ke-j
 xi1 = Nilai fitur 1 dari objek ke-i
@@ -333,9 +333,9 @@ xj1 = Nilai fitur 1 dari objek ke-j
 
 ##### 6.1.2.2 Manhattan Distance
 Manhattan Distance mengukur seberapa jauh jarak antara 2 titik dengan menjumlahkan selisih absolut dari koordinatnya. Manhattan distance lebih memliki ketahanan terhadap outlier dibandingkan dengan euclidean distance. Manhattan distance cocok untuk data yang berdimensi tinggi
-\[
+$$
 d(i,j) = |x_{i1} - x_{j1}| + |x_{i2} - x_{j2}| + \cdots + |x_{ip} - x_{jp}|
-\]
+$$
 ##### 6.1.2.3 Euclidean Distance
 Yang terakhir ada Euclidean Distance, Euclidean digunakan untuk data bertipe numerik meskipun jarak Euclidean sangat umum dalam pengelompokan. Salah satu permasalahan yang ada dalam Euclidean adalahjarak Euclidean sebagai fitur skala terbesar akan mendominasi yang lain. Normalisasi fitur kontinu adalah solusi untuk mengatasi kelemahan ini.
 
@@ -347,26 +347,37 @@ $d(i,j) = \sqrt{(x_{i1} - x_{j1}|^2 +| x_{i2} - x_{j2}|^2 + \ldots + |x_{ip} - x
 Pada dataset Iris diatas, tipe data yang dimiliki adalah bernilai numerik, karena hal itu penghitungan jarak untuk tipe data Iris kali ini akan digunakan metode Eucledian Distance
 ##### 6.2.1.1 Perhitungan manual 
 Contoh perhitungan secara manual pada baris 2 dan 3 dengan kolom 1:
-\[
-d(2,1) = \sqrt{(|4{,}9 - 5{,}1|^2 + |3 - 3{,}5|^2 + |1{,}4 - 1{,}4|^2 + |0{,}2 - 0{,}2|^2)}
-\]
-\[
-= \sqrt{0{,}04 + 0{,}25}
-\]
-\[
-= 0{,}538
-\]
-\[
-d(3,1) = \sqrt{(|4{,}7 - 5{,}1|^2 + |3{,}2 - 3{,}5|^2 + |1{,}3 - 1{,}4|^2 + |0{,}2 - 0{,}2|^2)}
-\]
+$$
+d(2,1) = \sqrt{(
+|4.9 - 5.1|^2 +
+|3 - 3.5|^2 +
+|1.4 - 1.4|^2 +
+|0.2 - 0.2|^2
+)}
+$$
+$$
+= \sqrt{0.04 + 0.25}
+$$
 
-\[
-= \sqrt{0{,}16 + 0{,}09 + 0{,}01 + 0}
-\]
+$$
+= 0.538
+$$
+$$
+d(3,1) = \sqrt{(
+|4.7 - 5.1|^2 +
+|3.2 - 3.5|^2 +
+|1.3 - 1.4|^2 +
+|0.2 - 0.2|^2
+)}
+$$
 
-\[
-= 0{,}50990
-\]
+$$
+= \sqrt{0.16 + 0.09 + 0.01 + 0}
+$$
+
+$$
+= 0.50990
+$$
 ##### 6.2.1.2 Perhitungan Python
 Kita juga dapat menggunakan tools seperti python untuk mempermudah perhitungan ini
 ```
@@ -416,28 +427,45 @@ Nilai numerik berada pada fitur Age
 Nilai minimal = 15
 Nilai maksimal = 22
 rumusnya:
-\[d_{ij}^{(f)} =
-\frac{|x_{if} - x_{jf}|}{\max(x_f) - \min(x_f)}\]
+$$
+d_{ij}^{(f)} =
+\frac{|x_{if} - x_{jf}|}{\max(x_f) - \min(x_f)}
+$$
 
-\[d_{1,2}^{(f)} =
-\frac{|18 - 17|}{22 - 15}\]
-\[ = \frac{1}{7} = 0,143\]
+$$
+d_{1,2}^{(f)} =
+\frac{|18 - 17|}{22 - 15}
+$$
+
+$$
+= \frac{1}{7} = 0.143
+$$
 Hasil akhir = 0,143
 
 
 ###### 3. Hitung Ordinal pada baris 1 dan 2
 Ketahui terlebih dahulu terdapat kategori apa saja di dalam nya. Pada kasus ini terdapat 5 kategori
 Rumusnya:
-\[z_{if} = \frac{r_{if} - \min(r_f)}{\max(r_f) - \min(r_f)}\]
+$$
+z_{if} = \frac{r_{if} - \min(r_f)}{\max(r_f) - \min(r_f)}
+$$
 
 Hitung dari data baris 1:
-\[z_{1} = \frac{4 - 0}{4 - 0}\]
+$$
+z_{1} = \frac{4 - 0}{4 - 0}
+$$
 
-\[ = \frac{4}{4} = 1\]
+$$
+= \frac{4}{4} = 1
+$$
 Hitung dari data baris 2:
-\[z_{1} = \frac{1 - 0}{4 - 0}\]
+$$
+z_{1} = \frac{1 - 0}{4 - 0}
+$$
 
-\[ = \frac{1}{4} = 0,25\]
+$$
+= \frac{1}{4} = 0.25
+$$
 Hasil akhir: |1 - 0.25| = 0.75
 
 Lakukan hal yang sama untuk tipe data fedu
@@ -446,7 +474,9 @@ Hasil akhir: 0,75
 ###### 3. Hasil Akhir nilai gower baris 1 dan 2
 Nilai dari tipe data sebelumnya dijumlahkan, lalu dibagi oleh fitur yang dimiliki
 
- \[ = \frac{2 + 0,143 + 0,75 + 0,75}{7} = 0,520\]
+$$
+= \frac{2 + 0.143 + 0.75 + 0.75}{7} = 0.520
+$$
 
 
  ##### 6.2.2.2 Perhitungan Python
