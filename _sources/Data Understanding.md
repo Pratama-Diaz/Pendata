@@ -48,7 +48,7 @@ Selanjutnya masukkan ini ke dalam file code python kita, pastikan bahwasan nya d
 
 Hasil jika di running dan berhasil melakukan koneksi antara MySQL dan Python
 
-#### 2.1.1 Connect PostgreSQL ke Python
+#### 2.1.2 Connect PostgreSQL ke Python
 ```
 pip install psycopg2
 ```
@@ -80,6 +80,11 @@ Masukkan contoh codingan diatas, jangan lupa untuk menyesuaikan nama database da
 ![original image](https://cdn.mathpix.com/snip/images/lTIjeqLGDRTGLD-mm_zBe_dtwWyys_RmKUCLRmMQYiI.original.fullsize.png)
 
 Berikut adalah hasil jika kita sukses untuk melakukan koneksi database
+
+#### 2.1.3 Connect PostgreSQL ke Orange
+![original image](https://cdn.mathpix.com/snip/images/-KJeUqpmHj-zFuA481aumFKz6pdUVTHKyqNwDAbKeww.original.fullsize.png)
+Berikut adalah hasil jika PostgreSQL dapat connect dengan aplikasi orange yang dimiliki
+
 ### 2.2 Persiapan library dan import file tanpa menggunakan database
 
 ```
@@ -277,7 +282,7 @@ Pada setiap kotak:
 
 Berdasarkan boxplot, dapat disimpulkan bahwa setiap fitur memiliki penyebaran data yang berbeda. Fitur sepal_width menunjukkan adanya beberapa outlier, sedangkan fitur lainnya memiliki distribusi yang relatif normal tanpa outlier yang signifikan. Fitur petal_length dan petal_width memiliki variasi data yang cukup besar, sehingga berpotensi menjadi fitur penting dalam membedakan species pada tahap modeling.
 
-### 5.1 Visualisasi data menggunakan Orange
+### 5.2 Visualisasi data menggunakan Orange
 
 #### - Statistik jumlah keseluruhan data
 ![original image](https://cdn.mathpix.com/snip/images/HDC--owJyN2brHw80LVv73mBWygr0yxk9lX4t96wFvc.original.fullsize.png)
