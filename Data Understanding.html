@@ -391,7 +391,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-library-dan-import-file-tanpa-menggunakan-database">2.2 Persiapan library dan import file tanpa menggunakan database</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-drive">2.3 Menentukan path drive</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-dataset">2.4 Struktur Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif-awal">2.5 Statistik Deskriptif Awal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif-awal-dan-pengecekan-jumlah-class">2.5 Statistik Deskriptif Awal dan pengecekan jumlah class</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-duplikat">2.6 Pengecekan Data Duplikat</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-null">2.7 Pengecekan Data Null</a></li>
 </ul>
@@ -640,12 +640,16 @@ Selain itu, terdapat satu atribut kategorikal yaitu:</p></li>
 </li>
 </ol>
 </section>
-<section id="statistik-deskriptif-awal">
-<h3>2.5 Statistik Deskriptif Awal<a class="headerlink" href="#statistik-deskriptif-awal" title="Link to this heading">#</a></h3>
+<section id="statistik-deskriptif-awal-dan-pengecekan-jumlah-class">
+<h3>2.5 Statistik Deskriptif Awal dan pengecekan jumlah class<a class="headerlink" href="#statistik-deskriptif-awal-dan-pengecekan-jumlah-class" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">kelas</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">jumlah_kelas</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">kelas</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah kelas:&quot;</span><span class="p">,</span> <span class="n">jumlah_kelas</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Berikut contoh statistik deskriptifnya:</p>
+<p>Berikut contoh statistik deskriptifnya dan jumlah kelas:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-left"><p>index</p></th>
@@ -707,8 +711,15 @@ Selain itu, terdapat satu atribut kategorikal yaitu:</p></li>
 </tbody>
 </table>
 </div>
+<ul class="simple">
+<li><p>Iris-setosa</p></li>
+<li><p>Iris-versicolor</p></li>
+<li><p>Iris-virginica
+<strong>Jumlah kelas: 3</strong></p></li>
+</ul>
 <p>Berdasarkan hasil statistik deskriptif, dataset Iris terdiri dari 150 data pada setiap atribut. Nilai rata-rata menunjukkan bahwa ukuran sepal dan petal berada pada rentang yang wajar, dengan panjang sepal rata-rata sekitar 5.84 cm dan panjang petal sekitar 3.76 cm. Variasi data terbesar terdapat pada atribut petal length, sedangkan variasi terkecil terdapat pada sepal width, yang menunjukkan bahwa ukuran petal lebih beragam dibandingkan ukuran sepal. Rentang nilai minimum hingga maksimum pada setiap atribut masih berada dalam batas yang normal dan tidak menunjukkan adanya nilai ekstrem yang mencurigakan.</p>
 <p>Standar deviasi tertinggi terdapat pada atribut petal length sebesar 1.76, yang menunjukkan bahwa variasi panjang petal lebih besar dibandingkan atribut lainnya. Nilai minimum dan maksimum menunjukkan rentang data yang masih dalam batas wajar, yaitu sepal length antara 4.3 hingga 7.9 cm dan petal width antara 0.1 hingga 2.5 cm. Selain itu, nilai kuartil (25%, 50%, dan 75%) menunjukkan distribusi data yang relatif stabil tanpa adanya penyimpangan ekstrem yang signifikan.</p>
+<p>Lalu nilai jumlah kelas pada dataset iris berjumlah 3 kelas dengan keterangan yang ada diatas</p>
 </section>
 <section id="pengecekan-data-duplikat">
 <h3>2.6 Pengecekan Data Duplikat<a class="headerlink" href="#pengecekan-data-duplikat" title="Link to this heading">#</a></h3>
@@ -1315,7 +1326,7 @@ Hasil akhir: 0,75</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-library-dan-import-file-tanpa-menggunakan-database">2.2 Persiapan library dan import file tanpa menggunakan database</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-drive">2.3 Menentukan path drive</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-dataset">2.4 Struktur Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif-awal">2.5 Statistik Deskriptif Awal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif-awal-dan-pengecekan-jumlah-class">2.5 Statistik Deskriptif Awal dan pengecekan jumlah class</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-duplikat">2.6 Pengecekan Data Duplikat</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-null">2.7 Pengecekan Data Null</a></li>
 </ul>

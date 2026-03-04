@@ -139,13 +139,17 @@ Selain itu, terdapat satu atribut kategorikal yaitu:
     - Versicolor
     - Virginica
 
-### 2.5 Statistik Deskriptif Awal
+### 2.5 Statistik Deskriptif Awal dan pengecekan jumlah class
 
 ```
 df.describe()
+kelas = df.iloc[:, -1].unique()
+jumlah_kelas = df.iloc[:, -1].nunique()
+print(kelas)
+print("Jumlah kelas:", jumlah_kelas)
 ```
 
-Berikut contoh statistik deskriptifnya:
+Berikut contoh statistik deskriptifnya dan jumlah kelas:
 
 
 | index | sepal\_length | sepal\_width | petal\_length | petal\_width |
@@ -159,11 +163,18 @@ Berikut contoh statistik deskriptifnya:
 | 75% | 6\.4 | 3\.3 | 5\.1 | 1\.8 |
 | max | 7\.9 | 4\.4 | 6\.9 | 2\.5 |
 
+- Iris-setosa
+- Iris-versicolor
+- Iris-virginica
+**Jumlah kelas: 3**
+
+
  Berdasarkan hasil statistik deskriptif, dataset Iris terdiri dari 150 data pada setiap atribut. Nilai rata-rata menunjukkan bahwa ukuran sepal dan petal berada pada rentang yang wajar, dengan panjang sepal rata-rata sekitar 5.84 cm dan panjang petal sekitar 3.76 cm. Variasi data terbesar terdapat pada atribut petal length, sedangkan variasi terkecil terdapat pada sepal width, yang menunjukkan bahwa ukuran petal lebih beragam dibandingkan ukuran sepal. Rentang nilai minimum hingga maksimum pada setiap atribut masih berada dalam batas yang normal dan tidak menunjukkan adanya nilai ekstrem yang mencurigakan. 
  
  Standar deviasi tertinggi terdapat pada atribut petal length sebesar 1.76, yang menunjukkan bahwa variasi panjang petal lebih besar dibandingkan atribut lainnya. Nilai minimum dan maksimum menunjukkan rentang data yang masih dalam batas wajar, yaitu sepal length antara 4.3 hingga 7.9 cm dan petal width antara 0.1 hingga 2.5 cm. Selain itu, nilai kuartil (25%, 50%, dan 75%) menunjukkan distribusi data yang relatif stabil tanpa adanya penyimpangan ekstrem yang signifikan.
- 
-### 2.6 Pengecekan Data Duplikat
+
+ Lalu nilai jumlah kelas pada dataset iris berjumlah 3 kelas dengan keterangan yang ada diatas
+ ### 2.6 Pengecekan Data Duplikat
 
 ```
 df.duplicated().sum()
