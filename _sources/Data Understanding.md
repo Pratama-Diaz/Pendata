@@ -422,133 +422,164 @@ Output yang dihasilkan:
 3 perhitungan diatas, memiliki kesamaan nilai, artinya perhitungan yang dilakukan sudah dilakukan secara benar dan urut
 
 #### 6.2.2 Mengukur jarak dataset Tipe data campuran
-Dataset yang digunakan untuk contoh kali ini adalah dataset berjudu; 'Student Alcohol Consumption'. Dimana dataset ini memiliki sekitar 30 fitur di dalam nya. Namun pada penugasan kali ini, kami menggunakan hanya 7 fitur diantaranya yaitu fitur sex, age, Medu, Fedu, Fjob, activities, schoolsup. Dimana tipe data Nominal dimiliki oleh [sex, fjob, activities, schoolsup] lalu tipe data numerik [Age] terakhir adalah tipe data ordinal [medu, fedu]. Dilakukan perhitungan jarak dengan metode Gower 
+Dataset yang digunakan untuk contoh kali ini adalah dataset berjudu; 'Student Alcohol Consumption'. Dimana dataset ini memiliki sekitar 30 fitur di dalam nya. Namun pada penugasan kali ini, kami menggunakan hanya 7 fitur diantaranya yaitu fitur sex, age, Medu, Fedu, Fjob, activities, schoolsup. Dimana tipe data Binary dimiliki oleh [sex, activities, schoolsup] lalu tipe data numerik [Age] dan tipe data kategorikal [fjob] terakhir adalah tipe data ordinal [medu, fedu].
 [Dataset Student alcohol consumption](https://www.kaggle.com/datasets/uciml/student-alcohol-consumption)
 ##### 6.2.2.1 Perhitungan manual 
-Contoh perhitungan manual antara baris 1 dan 2, lalu baris 1 dan 4:
+Contoh perhitungan manual antara baris 1 dan 2
 
-###### 1. Hitung Nominal pada baris 1 dan 2
-Jika nilai nya sama -> 0
-Jika nilai nya beda -> 1
-| Fitur | Nilai |
-|------------|--------|
-| sex        | 0      |
-| fjob       | 1      |
-| activities | 0      |
-| schoolsup  | 1      |
-Hasil akhir = 0+1+0+1 = 2
-
-###### 2. Hitung Numerik pada baris 1 dan 2
-Nilai numerik berada pada fitur Age
-Nilai minimal = 15
-Nilai maksimal = 22
-rumusnya:
+###### 1. Hitung ordinal dan numerik pada baris 1 dan 2
+Untuk menghitung tipe data ordinal kita perlu melakukan normalisasi terhadap data tersebut dengan rumus 
 $$
-d_{ij}^{(f)} =
-\frac{|x_{if} - x_{jf}|}{\max(x_f) - \min(x_f)}
+x' = \frac{r - r_{min}}{r_{max} - r_{min}}
 $$
 
+Selanjutnya masing masing nilai yang mewakili kolom nya akan di normalisasi
 $$
-d_{1,2}^{(f)} =
-\frac{|18 - 17|}{22 - 15}
+1 \rightarrow \frac{1-1}{4-1} = 0
 $$
+$$
+2 \rightarrow \frac{2-1}{4-1} = \frac{1}{3} = 0,333
+$$
+$$
+3 \rightarrow \frac{3-1}{4-1} = \frac{2}{3} = 0,666
+$$
+$$
+4 \rightarrow \frac{4-1}{4-1} = 1
+$$
+hasil normalisasi diatas, akan menggantikan setiap nilai pada kolom medu dan fedu, sebagai contoh nilai medu 2 maka akan digantikan dengan 0,333
 
+Selanjutnya, kita akan melakukan perhitungan untuk data d(1,2) dan d(1,3) untuk metode ordinal, dan pada tahap ini perhitungan untuk data numerik juga akan digabung dengan metode euclidean distance
 $$
-= \frac{1}{7} = 0.143
-$$
-Hasil akhir = 0,143
-
-
-###### 3. Hitung Ordinal pada baris 1 dan 2
-Ketahui terlebih dahulu terdapat kategori apa saja di dalam nya. Pada kasus ini terdapat 5 kategori
-Rumusnya:
-$$
-z_{if} = \frac{r_{if} - \min(r_f)}{\max(r_f) - \min(r_f)}
-$$
-
-Hitung dari data baris 1:
-$$
-z_{1} = \frac{4 - 0}{4 - 0}
+d(1,2) = \sqrt{(0-1)^2 + (0-1)^2 + (17-18)^2} = \sqrt{3} = 1,732
 $$
 
 $$
-= \frac{4}{4} = 1
-$$
-Hitung dari data baris 2:
-$$
-z_{1} = \frac{1 - 0}{4 - 0}
-$$
-
-$$
-= \frac{1}{4} = 0.25
-$$
-Hasil akhir: |1 - 0.25| = 0.75
-
-Lakukan hal yang sama untuk tipe data fedu
-Hasil akhir: 0,75
-
-###### 3. Hasil Akhir nilai gower baris 1 dan 2
-Nilai dari tipe data sebelumnya dijumlahkan, lalu dibagi oleh fitur yang dimiliki
-
-$$
-= \frac{2 + 0.143 + 0.75 + 0.75}{7} = 0.520
+d(1,3) = \sqrt{(0-1)^2 + (0-1)^2 + (15-18)^2} = \sqrt{1+1+9} = \sqrt{11} = 3,316
 $$
 
 
- ##### 6.2.2.2 Perhitungan Python
+###### 2. Hitung Binary pada baris 1 dan 2 lal baris 1 dan 3
+Pertama kita perlu mengidentifikasi, apakah data binary yang kita miliki simetris atau asimetris. Cara untuk mengidentifikasi nya adalah ketika data tersebut tidak memiliki tingkatan, maka dia simetris sebagai contoh gender. Jika data tersebut memiliki tingkatan maka dia asimetris sebagai contoh penyakit
 
- ```
-import numpy as np
+Untuk rumus simetris adalah sebagai berikut:
+$$
+\frac{r+s}{q+r+s+t}
+$$
+Sedangkan rumus asimetris:
+$$
+\frac{r+s}{q+r+s}
+$$
 
-data = df.copy()
-n = data.shape[0]
+Selanjutnya kita tentukan kolom apa saja yang simetris dan asimetris. Sex masuk sebagai simetris sedangkan activities dan schoolsup asimetris
+Maka perhitungan kolom sex pada d(1,2) dilakukan dengan:
+$$
+q = 0
+$$
 
-numeric_cols = data.select_dtypes(include=[np.number]).columns
-categorical_cols = data.select_dtypes(exclude=[np.number]).columns
+$$
+r = 0
+$$
 
-for col in numeric_cols:
-    min_val = data[col].min()
-    max_val = data[col].max()
-    
-    if max_val != min_val:
-        data[col] = (data[col] - min_val) / (max_val - min_val)
-    else:
-        data[col] = 0
+$$
+s = 0
+$$
 
-dist_matrix = np.zeros((n, n))
+$$
+t = 1
+$$
 
-for i in range(n):
-    for j in range(n):
-        total_dist = 0
-        valid_features = 0
-        
-        for col in data.columns:
-            xi = data.iloc[i][col]
-            xj = data.iloc[j][col]
-            
-            if pd.isna(xi) or pd.isna(xj):
-                continue
-            
-            if col in numeric_cols:
-                d = abs(xi - xj)
+$$
+\frac{0+0}{0+0+0+1} = 0
+$$
 
-            else:
-                d = 0 if xi == xj else 1
-            
-            total_dist += d
-            valid_features += 1
-        
-        dist_matrix[i, j] = total_dist / valid_features
-distance_df = pd.DataFrame(dist_matrix)
+Sedangkan kolom activities dan schoolsup pada d(1,2):
+$$
+q = 0
+$$
 
-print(distance_df.iloc[:5, :5])
- ```
-Berikut adalah code yang digunakan untuk menghitung gower distance
+$$
+r = 1
+$$
 
-|   | 0        | 1        | 2        | 3        | 4        |
-|---|----------|----------|----------|----------|----------|
-| 0 | 0.000000 | 0.520408 | 0.418367 | 0.561224 | 0.397959 |
-| 1 | 0.520408 | 0.000000 | 0.183673 | 0.469388 | 0.163265 |
-| 2 | 0.418367 | 0.183673 | 0.000000 | 0.571429 | 0.306122 |
-| 3 | 0.561224 | 0.469388 | 0.571429 | 0.000000 | 0.377551 |
-| 4 | 0.397959 | 0.163265 | 0.306122 | 0.377551 | 0.000000 |
+$$
+s = 0
+$$
+
+$$
+t = 1
+$$
+
+$$
+\frac{1+0}{0+1+0} = 1
+$$
+
+Perhitungan kolom sex pada d(1,3):
+$$
+q = 0
+$$
+
+$$
+r = 0
+$$
+
+$$
+s = 0
+$$
+
+$$
+t = 1
+$$
+
+$$
+\frac{0+0}{0+0+0+1} = 0
+$$
+Sedangkan kolom activities dan schoolsup pada d(1,3):
+$$
+q = 1
+$$
+
+$$
+r = 0
+$$
+
+$$
+s = 0
+$$
+
+$$
+t = 1
+$$
+
+$$
+\frac{0+0}{1+0+0} = 0
+$$
+
+hasil akhir d(1,2) dan d(1,3):
+d(1,2) = 1
+d(1,3) = 0
+
+###### 4. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3
+Untuk melakuka perhitungan kategori, ada beberapa hal yang perlu diperhatikan, pertama adalah jumlah fitur yang dimiliki, kedua adalah data yang sama yang sedang dibandingkan, maka rumusnya dapat ditulis sebagai berikut:
+$$
+\frac{p-m}{p}
+$$
+
+$$
+p = 1
+$$
+P adalah jumlah fitur, dimana di kasus ini fitur nya hanya fjob.
+
+Perhitungan nilai kategori d(1,2):
+$$
+d(1,2) = \frac{1-0}{1} = 1
+$$
+Perhitungan nilai kategori d(1,3):
+$$
+d(1,3) = \frac{1-0}{1} = 1
+$$
+
+###### 3. Hasil Akhir perhitungan baris 1 dan 2 lalu baris 1 dan 3
+Nilai dari hasil perhitungan sebelumnya akan kita jumlahkan seluruhnya
+d(1,2) = 1,732 + 0 + 1 + 1  = 3,732
+d(1,3) = 3,316 + 0 + 0 + 1 = 4,316
+

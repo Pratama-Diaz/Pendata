@@ -439,13 +439,12 @@ document.write(`
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-dataset-tipe-data-campuran">6.2.2 Mengukur jarak dataset Tipe data campuran</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.2.2.1 Perhitungan manual</a><ul class="nav section-nav flex-column">
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-nominal-pada-baris-1-dan-2">1. Hitung Nominal pada baris 1 dan 2</a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-numerik-pada-baris-1-dan-2">2. Hitung Numerik pada baris 1 dan 2</a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-ordinal-pada-baris-1-dan-2">3. Hitung Ordinal pada baris 1 dan 2</a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-nilai-gower-baris-1-dan-2">3. Hasil Akhir nilai gower baris 1 dan 2</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-ordinal-dan-numerik-pada-baris-1-dan-2">1. Hitung ordinal dan numerik pada baris 1 dan 2</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-binary-pada-baris-1-dan-2-lal-baris-1-dan-3">2. Hitung Binary pada baris 1 dan 2 lal baris 1 dan 3</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3">4. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-perhitungan-baris-1-dan-2-lalu-baris-1-dan-3">3. Hasil Akhir perhitungan baris 1 dan 2 lalu baris 1 dan 3</a></li>
 </ul>
 </li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">6.2.2.2 Perhitungan Python</a></li>
 </ul>
 </li>
 </ul>
@@ -1055,196 +1054,162 @@ d(3,1) = \sqrt{(
 </section>
 <section id="mengukur-jarak-dataset-tipe-data-campuran">
 <h4>6.2.2 Mengukur jarak dataset Tipe data campuran<a class="headerlink" href="#mengukur-jarak-dataset-tipe-data-campuran" title="Link to this heading">#</a></h4>
-<p>Dataset yang digunakan untuk contoh kali ini adalah dataset berjudu; ‘Student Alcohol Consumption’. Dimana dataset ini memiliki sekitar 30 fitur di dalam nya. Namun pada penugasan kali ini, kami menggunakan hanya 7 fitur diantaranya yaitu fitur sex, age, Medu, Fedu, Fjob, activities, schoolsup. Dimana tipe data Nominal dimiliki oleh [sex, fjob, activities, schoolsup] lalu tipe data numerik [Age] terakhir adalah tipe data ordinal [medu, fedu]. Dilakukan perhitungan jarak dengan metode Gower
+<p>Dataset yang digunakan untuk contoh kali ini adalah dataset berjudu; ‘Student Alcohol Consumption’. Dimana dataset ini memiliki sekitar 30 fitur di dalam nya. Namun pada penugasan kali ini, kami menggunakan hanya 7 fitur diantaranya yaitu fitur sex, age, Medu, Fedu, Fjob, activities, schoolsup. Dimana tipe data Binary dimiliki oleh [sex, activities, schoolsup] lalu tipe data numerik [Age] dan tipe data kategorikal [fjob] terakhir adalah tipe data ordinal [medu, fedu].
 <a class="reference external" href="https://www.kaggle.com/datasets/uciml/student-alcohol-consumption">Dataset Student alcohol consumption</a></p>
 <section id="id2">
 <h5>6.2.2.1 Perhitungan manual<a class="headerlink" href="#id2" title="Link to this heading">#</a></h5>
-<p>Contoh perhitungan manual antara baris 1 dan 2, lalu baris 1 dan 4:</p>
-<section id="hitung-nominal-pada-baris-1-dan-2">
-<h6>1. Hitung Nominal pada baris 1 dan 2<a class="headerlink" href="#hitung-nominal-pada-baris-1-dan-2" title="Link to this heading">#</a></h6>
-<p>Jika nilai nya sama -&gt; 0
-Jika nilai nya beda -&gt; 1</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Fitur</p></th>
-<th class="head"><p>Nilai</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>sex</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="row-odd"><td><p>fjob</p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="row-even"><td><p>activities</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="row-odd"><td><p>schoolsup</p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="row-even"><td><p>Hasil akhir = 0+1+0+1 = 2</p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="hitung-numerik-pada-baris-1-dan-2">
-<h6>2. Hitung Numerik pada baris 1 dan 2<a class="headerlink" href="#hitung-numerik-pada-baris-1-dan-2" title="Link to this heading">#</a></h6>
-<p>Nilai numerik berada pada fitur Age
-Nilai minimal = 15
-Nilai maksimal = 22
-rumusnya:
+<p>Contoh perhitungan manual antara baris 1 dan 2</p>
+<section id="hitung-ordinal-dan-numerik-pada-baris-1-dan-2">
+<h6>1. Hitung ordinal dan numerik pada baris 1 dan 2<a class="headerlink" href="#hitung-ordinal-dan-numerik-pada-baris-1-dan-2" title="Link to this heading">#</a></h6>
+<p>Untuk menghitung tipe data ordinal kita perlu melakukan normalisasi terhadap data tersebut dengan rumus
 $<span class="math notranslate nohighlight">\(
-d_{ij}^{(f)} =
-\frac{|x_{if} - x_{jf}|}{\max(x_f) - \min(x_f)}
+x' = \frac{r - r_{min}}{r_{max} - r_{min}}
+\)</span>$</p>
+<p>Selanjutnya masing masing nilai yang mewakili kolom nya akan di normalisasi
+$<span class="math notranslate nohighlight">\(
+1 \rightarrow \frac{1-1}{4-1} = 0
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+2 \rightarrow \frac{2-1}{4-1} = \frac{1}{3} = 0,333
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+3 \rightarrow \frac{3-1}{4-1} = \frac{2}{3} = 0,666
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+4 \rightarrow \frac{4-1}{4-1} = 1
+\)</span>$
+hasil normalisasi diatas, akan menggantikan setiap nilai pada kolom medu dan fedu, sebagai contoh nilai medu 2 maka akan digantikan dengan 0,333</p>
+<p>Selanjutnya, kita akan melakukan perhitungan untuk data d(1,2) dan d(1,3) untuk metode ordinal, dan pada tahap ini perhitungan untuk data numerik juga akan digabung dengan metode euclidean distance
+$<span class="math notranslate nohighlight">\(
+d(1,2) = \sqrt{(0-1)^2 + (0-1)^2 + (17-18)^2} = \sqrt{3} = 1,732
 \)</span>$</p>
 <div class="math notranslate nohighlight">
 \[
-d_{1,2}^{(f)} =
-\frac{|18 - 17|}{22 - 15}
+d(1,3) = \sqrt{(0-1)^2 + (0-1)^2 + (15-18)^2} = \sqrt{1+1+9} = \sqrt{11} = 3,316
 \]</div>
-<div class="math notranslate nohighlight">
-\[
-= \frac{1}{7} = 0.143
-\]</div>
-<p>Hasil akhir = 0,143</p>
 </section>
-<section id="hitung-ordinal-pada-baris-1-dan-2">
-<h6>3. Hitung Ordinal pada baris 1 dan 2<a class="headerlink" href="#hitung-ordinal-pada-baris-1-dan-2" title="Link to this heading">#</a></h6>
-<p>Ketahui terlebih dahulu terdapat kategori apa saja di dalam nya. Pada kasus ini terdapat 5 kategori
-Rumusnya:
+<section id="hitung-binary-pada-baris-1-dan-2-lal-baris-1-dan-3">
+<h6>2. Hitung Binary pada baris 1 dan 2 lal baris 1 dan 3<a class="headerlink" href="#hitung-binary-pada-baris-1-dan-2-lal-baris-1-dan-3" title="Link to this heading">#</a></h6>
+<p>Pertama kita perlu mengidentifikasi, apakah data binary yang kita miliki simetris atau asimetris. Cara untuk mengidentifikasi nya adalah ketika data tersebut tidak memiliki tingkatan, maka dia simetris sebagai contoh gender. Jika data tersebut memiliki tingkatan maka dia asimetris sebagai contoh penyakit</p>
+<p>Untuk rumus simetris adalah sebagai berikut:
 $<span class="math notranslate nohighlight">\(
-z_{if} = \frac{r_{if} - \min(r_f)}{\max(r_f) - \min(r_f)}
+\frac{r+s}{q+r+s+t}
+\)</span><span class="math notranslate nohighlight">\(
+Sedangkan rumus asimetris:
+\)</span><span class="math notranslate nohighlight">\(
+\frac{r+s}{q+r+s}
 \)</span>$</p>
-<p>Hitung dari data baris 1:
+<p>Selanjutnya kita tentukan kolom apa saja yang simetris dan asimetris. Sex masuk sebagai simetris sedangkan activities dan schoolsup asimetris
+Maka perhitungan kolom sex pada d(1,2) dilakukan dengan:
 $<span class="math notranslate nohighlight">\(
-z_{1} = \frac{4 - 0}{4 - 0}
-\)</span>$</p>
-<div class="math notranslate nohighlight">
-\[
-= \frac{4}{4} = 1
-\]</div>
-<p>Hitung dari data baris 2:
-$<span class="math notranslate nohighlight">\(
-z_{1} = \frac{1 - 0}{4 - 0}
+q = 0
 \)</span>$</p>
 <div class="math notranslate nohighlight">
 \[
-= \frac{1}{4} = 0.25
+r = 0
 \]</div>
-<p>Hasil akhir: |1 - 0.25| = 0.75</p>
-<p>Lakukan hal yang sama untuk tipe data fedu
-Hasil akhir: 0,75</p>
-</section>
-<section id="hasil-akhir-nilai-gower-baris-1-dan-2">
-<h6>3. Hasil Akhir nilai gower baris 1 dan 2<a class="headerlink" href="#hasil-akhir-nilai-gower-baris-1-dan-2" title="Link to this heading">#</a></h6>
-<p>Nilai dari tipe data sebelumnya dijumlahkan, lalu dibagi oleh fitur yang dimiliki</p>
 <div class="math notranslate nohighlight">
 \[
-= \frac{2 + 0.143 + 0.75 + 0.75}{7} = 0.520
+s = 0
 \]</div>
+<div class="math notranslate nohighlight">
+\[
+t = 1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{0+0}{0+0+0+1} = 0
+\]</div>
+<p>Sedangkan kolom activities dan schoolsup pada d(1,2):
+$<span class="math notranslate nohighlight">\(
+q = 0
+\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[
+r = 1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+s = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+t = 1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{1+0}{0+1+0} = 1
+\]</div>
+<p>Perhitungan kolom sex pada d(1,3):
+$<span class="math notranslate nohighlight">\(
+q = 0
+\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[
+r = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+s = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+t = 1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{0+0}{0+0+0+1} = 0
+\]</div>
+<p>Sedangkan kolom activities dan schoolsup pada d(1,3):
+$<span class="math notranslate nohighlight">\(
+q = 1
+\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[
+r = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+s = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+t = 1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{0+0}{1+0+0} = 0
+\]</div>
+<p>hasil akhir d(1,2) dan d(1,3):
+d(1,2) = 1
+d(1,3) = 0</p>
 </section>
+<section id="hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3">
+<h6>4. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3<a class="headerlink" href="#hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3" title="Link to this heading">#</a></h6>
+<p>Untuk melakuka perhitungan kategori, ada beberapa hal yang perlu diperhatikan, pertama adalah jumlah fitur yang dimiliki, kedua adalah data yang sama yang sedang dibandingkan, maka rumusnya dapat ditulis sebagai berikut:
+$<span class="math notranslate nohighlight">\(
+\frac{p-m}{p}
+\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[
+p = 1
+\]</div>
+<p>P adalah jumlah fitur, dimana di kasus ini fitur nya hanya fjob.</p>
+<p>Perhitungan nilai kategori d(1,2):
+$<span class="math notranslate nohighlight">\(
+d(1,2) = \frac{1-0}{1} = 1
+\)</span><span class="math notranslate nohighlight">\(
+Perhitungan nilai kategori d(1,3):
+\)</span><span class="math notranslate nohighlight">\(
+d(1,3) = \frac{1-0}{1} = 1
+\)</span>$</p>
 </section>
-<section id="id3">
-<h5>6.2.2.2 Perhitungan Python<a class="headerlink" href="#id3" title="Link to this heading">#</a></h5>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="n">numeric_cols</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
-<span class="n">categorical_cols</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
-
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">numeric_cols</span><span class="p">:</span>
-   <span class="n">min_val</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-   <span class="n">max_val</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-   
-   <span class="k">if</span> <span class="n">max_val</span> <span class="o">!=</span> <span class="n">min_val</span><span class="p">:</span>
-       <span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">-</span> <span class="n">min_val</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">max_val</span> <span class="o">-</span> <span class="n">min_val</span><span class="p">)</span>
-   <span class="k">else</span><span class="p">:</span>
-       <span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="n">dist_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-   <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-       <span class="n">total_dist</span> <span class="o">=</span> <span class="mi">0</span>
-       <span class="n">valid_features</span> <span class="o">=</span> <span class="mi">0</span>
-       
-       <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-           <span class="n">xi</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">col</span><span class="p">]</span>
-           <span class="n">xj</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">col</span><span class="p">]</span>
-           
-           <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span> <span class="ow">or</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">xj</span><span class="p">):</span>
-               <span class="k">continue</span>
-           
-           <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">numeric_cols</span><span class="p">:</span>
-               <span class="n">d</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">xi</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span>
-
-           <span class="k">else</span><span class="p">:</span>
-               <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">xi</span> <span class="o">==</span> <span class="n">xj</span> <span class="k">else</span> <span class="mi">1</span>
-           
-           <span class="n">total_dist</span> <span class="o">+=</span> <span class="n">d</span>
-           <span class="n">valid_features</span> <span class="o">+=</span> <span class="mi">1</span>
-       
-       <span class="n">dist_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">total_dist</span> <span class="o">/</span> <span class="n">valid_features</span>
-<span class="n">distance_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dist_matrix</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">distance_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:</span><span class="mi">5</span><span class="p">])</span>
-</pre></div>
-</div>
-<p>Berikut adalah code yang digunakan untuk menghitung gower distance</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p>0</p></th>
-<th class="head"><p>1</p></th>
-<th class="head"><p>2</p></th>
-<th class="head"><p>3</p></th>
-<th class="head"><p>4</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>0</p></td>
-<td><p>0.000000</p></td>
-<td><p>0.520408</p></td>
-<td><p>0.418367</p></td>
-<td><p>0.561224</p></td>
-<td><p>0.397959</p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
-<td><p>0.520408</p></td>
-<td><p>0.000000</p></td>
-<td><p>0.183673</p></td>
-<td><p>0.469388</p></td>
-<td><p>0.163265</p></td>
-</tr>
-<tr class="row-even"><td><p>2</p></td>
-<td><p>0.418367</p></td>
-<td><p>0.183673</p></td>
-<td><p>0.000000</p></td>
-<td><p>0.571429</p></td>
-<td><p>0.306122</p></td>
-</tr>
-<tr class="row-odd"><td><p>3</p></td>
-<td><p>0.561224</p></td>
-<td><p>0.469388</p></td>
-<td><p>0.571429</p></td>
-<td><p>0.000000</p></td>
-<td><p>0.377551</p></td>
-</tr>
-<tr class="row-even"><td><p>4</p></td>
-<td><p>0.397959</p></td>
-<td><p>0.163265</p></td>
-<td><p>0.306122</p></td>
-<td><p>0.377551</p></td>
-<td><p>0.000000</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<section id="hasil-akhir-perhitungan-baris-1-dan-2-lalu-baris-1-dan-3">
+<h6>3. Hasil Akhir perhitungan baris 1 dan 2 lalu baris 1 dan 3<a class="headerlink" href="#hasil-akhir-perhitungan-baris-1-dan-2-lalu-baris-1-dan-3" title="Link to this heading">#</a></h6>
+<p>Nilai dari hasil perhitungan sebelumnya akan kita jumlahkan seluruhnya
+d(1,2) = 1,732 + 0 + 1 + 1  = 3,732
+d(1,3) = 3,316 + 0 + 0 + 1 = 4,316</p>
+</section>
 </section>
 </section>
 </section>
@@ -1374,13 +1339,12 @@ Hasil akhir: 0,75</p>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-dataset-tipe-data-campuran">6.2.2 Mengukur jarak dataset Tipe data campuran</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.2.2.1 Perhitungan manual</a><ul class="nav section-nav flex-column">
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-nominal-pada-baris-1-dan-2">1. Hitung Nominal pada baris 1 dan 2</a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-numerik-pada-baris-1-dan-2">2. Hitung Numerik pada baris 1 dan 2</a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-ordinal-pada-baris-1-dan-2">3. Hitung Ordinal pada baris 1 dan 2</a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-nilai-gower-baris-1-dan-2">3. Hasil Akhir nilai gower baris 1 dan 2</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-ordinal-dan-numerik-pada-baris-1-dan-2">1. Hitung ordinal dan numerik pada baris 1 dan 2</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-binary-pada-baris-1-dan-2-lal-baris-1-dan-3">2. Hitung Binary pada baris 1 dan 2 lal baris 1 dan 3</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3">4. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-perhitungan-baris-1-dan-2-lalu-baris-1-dan-3">3. Hasil Akhir perhitungan baris 1 dan 2 lalu baris 1 dan 3</a></li>
 </ul>
 </li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">6.2.2.2 Perhitungan Python</a></li>
 </ul>
 </li>
 </ul>
