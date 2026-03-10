@@ -439,9 +439,9 @@ document.write(`
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-dataset-tipe-data-campuran">6.2.2 Mengukur jarak dataset Tipe data campuran</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.2.2.1 Perhitungan manual</a><ul class="nav section-nav flex-column">
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-ordinal-dan-numerik-pada-baris-1-dan-2">1. Hitung ordinal dan numerik pada baris 1 dan 2</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-ordinal-dan-numerik-pada-baris-1-dan-2-lalu-1-dan-3">1. Hitung ordinal dan numerik pada baris 1 dan 2 lalu 1 dan 3</a></li>
 <li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-binary-pada-baris-1-dan-2-lal-baris-1-dan-3">2. Hitung Binary pada baris 1 dan 2 lal baris 1 dan 3</a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3">4. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3">3. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3</a></li>
 <li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-perhitungan-baris-1-dan-2-lalu-baris-1-dan-3">3. Hasil Akhir perhitungan baris 1 dan 2 lalu baris 1 dan 3</a></li>
 </ul>
 </li>
@@ -1059,30 +1059,36 @@ d(3,1) = \sqrt{(
 <section id="id2">
 <h5>6.2.2.1 Perhitungan manual<a class="headerlink" href="#id2" title="Link to this heading">#</a></h5>
 <p>Contoh perhitungan manual antara baris 1 dan 2</p>
-<section id="hitung-ordinal-dan-numerik-pada-baris-1-dan-2">
-<h6>1. Hitung ordinal dan numerik pada baris 1 dan 2<a class="headerlink" href="#hitung-ordinal-dan-numerik-pada-baris-1-dan-2" title="Link to this heading">#</a></h6>
-<p>Untuk menghitung tipe data ordinal kita perlu melakukan normalisasi terhadap data tersebut dengan rumus
-$<span class="math notranslate nohighlight">\(
+<section id="hitung-ordinal-dan-numerik-pada-baris-1-dan-2-lalu-1-dan-3">
+<h6>1. Hitung ordinal dan numerik pada baris 1 dan 2 lalu 1 dan 3<a class="headerlink" href="#hitung-ordinal-dan-numerik-pada-baris-1-dan-2-lalu-1-dan-3" title="Link to this heading">#</a></h6>
+<p>Untuk menghitung tipe data ordinal kita perlu melakukan normalisasi terhadap data tersebut dengan rumus</p>
+<div class="math notranslate nohighlight">
+\[
 x' = \frac{r - r_{min}}{r_{max} - r_{min}}
-\)</span>$</p>
-<p>Selanjutnya masing masing nilai yang mewakili kolom nya akan di normalisasi
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>Selanjutnya masing masing nilai yang mewakili kolom nya akan di normalisasi</p>
+<div class="math notranslate nohighlight">
+\[
 1 \rightarrow \frac{1-1}{4-1} = 0
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<div class="math notranslate nohighlight">
+\[
 2 \rightarrow \frac{2-1}{4-1} = \frac{1}{3} = 0,333
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<div class="math notranslate nohighlight">
+\[
 3 \rightarrow \frac{3-1}{4-1} = \frac{2}{3} = 0,666
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<div class="math notranslate nohighlight">
+\[
 4 \rightarrow \frac{4-1}{4-1} = 1
-\)</span>$
-hasil normalisasi diatas, akan menggantikan setiap nilai pada kolom medu dan fedu, sebagai contoh nilai medu 2 maka akan digantikan dengan 0,333</p>
-<p>Selanjutnya, kita akan melakukan perhitungan untuk data d(1,2) dan d(1,3) untuk metode ordinal, dan pada tahap ini perhitungan untuk data numerik juga akan digabung dengan metode euclidean distance
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>Hasil normalisasi diatas akan menggantikan setiap nilai pada kolom <strong>medu</strong> dan <strong>fedu</strong>, sebagai contoh nilai <strong>medu 2</strong> maka akan digantikan dengan <strong>0,333</strong>.</p>
+<p>Selanjutnya, kita akan melakukan perhitungan untuk data (d(1,2)) dan (d(1,3)) untuk metode ordinal, dan pada tahap ini perhitungan untuk data numerik juga akan digabung dengan metode <strong>euclidean distance</strong>.</p>
+<div class="math notranslate nohighlight">
+\[
 d(1,2) = \sqrt{(0-1)^2 + (0-1)^2 + (17-18)^2} = \sqrt{3} = 1,732
-\)</span>$</p>
+\]</div>
 <div class="math notranslate nohighlight">
 \[
 d(1,3) = \sqrt{(0-1)^2 + (0-1)^2 + (15-18)^2} = \sqrt{1+1+9} = \sqrt{11} = 3,316
@@ -1090,20 +1096,23 @@ d(1,3) = \sqrt{(0-1)^2 + (0-1)^2 + (15-18)^2} = \sqrt{1+1+9} = \sqrt{11} = 3,316
 </section>
 <section id="hitung-binary-pada-baris-1-dan-2-lal-baris-1-dan-3">
 <h6>2. Hitung Binary pada baris 1 dan 2 lal baris 1 dan 3<a class="headerlink" href="#hitung-binary-pada-baris-1-dan-2-lal-baris-1-dan-3" title="Link to this heading">#</a></h6>
-<p>Pertama kita perlu mengidentifikasi, apakah data binary yang kita miliki simetris atau asimetris. Cara untuk mengidentifikasi nya adalah ketika data tersebut tidak memiliki tingkatan, maka dia simetris sebagai contoh gender. Jika data tersebut memiliki tingkatan maka dia asimetris sebagai contoh penyakit</p>
-<p>Untuk rumus simetris adalah sebagai berikut:
-$<span class="math notranslate nohighlight">\(
+<p>Pertama kita perlu mengidentifikasi, apakah data binary yang kita miliki simetris atau asimetris. Cara untuk mengidentifikasi nya adalah ketika data tersebut tidak memiliki tingkatan, maka dia simetris sebagai contoh <strong>gender</strong>. Jika data tersebut memiliki tingkatan maka dia asimetris sebagai contoh <strong>penyakit</strong>.</p>
+<p>Untuk rumus simetris adalah sebagai berikut:</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{r+s}{q+r+s+t}
-\)</span><span class="math notranslate nohighlight">\(
-Sedangkan rumus asimetris:
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>Sedangkan rumus asimetris:</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{r+s}{q+r+s}
-\)</span>$</p>
-<p>Selanjutnya kita tentukan kolom apa saja yang simetris dan asimetris. Sex masuk sebagai simetris sedangkan activities dan schoolsup asimetris
-Maka perhitungan kolom sex pada d(1,2) dilakukan dengan:
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>Selanjutnya kita tentukan kolom apa saja yang simetris dan asimetris. <strong>Sex</strong> masuk sebagai simetris sedangkan <strong>activities</strong> dan <strong>schoolsup</strong> asimetris.</p>
+<p>Maka perhitungan kolom <strong>sex</strong> pada (d(1,2)) dilakukan dengan:</p>
+<div class="math notranslate nohighlight">
+\[
 q = 0
-\)</span>$</p>
+\]</div>
 <div class="math notranslate nohighlight">
 \[
 r = 0
@@ -1120,10 +1129,11 @@ t = 1
 \[
 \frac{0+0}{0+0+0+1} = 0
 \]</div>
-<p>Sedangkan kolom activities dan schoolsup pada d(1,2):
-$<span class="math notranslate nohighlight">\(
+<p>Sedangkan kolom <strong>activities</strong> dan <strong>schoolsup</strong> pada (d(1,2)):</p>
+<div class="math notranslate nohighlight">
+\[
 q = 0
-\)</span>$</p>
+\]</div>
 <div class="math notranslate nohighlight">
 \[
 r = 1
@@ -1140,10 +1150,11 @@ t = 1
 \[
 \frac{1+0}{0+1+0} = 1
 \]</div>
-<p>Perhitungan kolom sex pada d(1,3):
-$<span class="math notranslate nohighlight">\(
+<p>Perhitungan kolom <strong>sex</strong> pada (d(1,3)):</p>
+<div class="math notranslate nohighlight">
+\[
 q = 0
-\)</span>$</p>
+\]</div>
 <div class="math notranslate nohighlight">
 \[
 r = 0
@@ -1160,10 +1171,11 @@ t = 1
 \[
 \frac{0+0}{0+0+0+1} = 0
 \]</div>
-<p>Sedangkan kolom activities dan schoolsup pada d(1,3):
-$<span class="math notranslate nohighlight">\(
+<p>Sedangkan kolom <strong>activities</strong> dan <strong>schoolsup</strong> pada (d(1,3)):</p>
+<div class="math notranslate nohighlight">
+\[
 q = 1
-\)</span>$</p>
+\]</div>
 <div class="math notranslate nohighlight">
 \[
 r = 0
@@ -1180,35 +1192,50 @@ t = 1
 \[
 \frac{0+0}{1+0+0} = 0
 \]</div>
-<p>hasil akhir d(1,2) dan d(1,3):
+<p>Hasil akhir (d(1,2)) dan (d(1,3)):</p>
+<div class="math notranslate nohighlight">
+\[
 d(1,2) = 1
-d(1,3) = 0</p>
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+d(1,3) = 0
+\]</div>
 </section>
 <section id="hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3">
-<h6>4. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3<a class="headerlink" href="#hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3" title="Link to this heading">#</a></h6>
-<p>Untuk melakuka perhitungan kategori, ada beberapa hal yang perlu diperhatikan, pertama adalah jumlah fitur yang dimiliki, kedua adalah data yang sama yang sedang dibandingkan, maka rumusnya dapat ditulis sebagai berikut:
-$<span class="math notranslate nohighlight">\(
+<h6>3. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3<a class="headerlink" href="#hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3" title="Link to this heading">#</a></h6>
+<p>Untuk melakuka perhitungan kategori, ada beberapa hal yang perlu diperhatikan, pertama adalah jumlah fitur yang dimiliki, kedua adalah data yang sama yang sedang dibandingkan, maka rumusnya dapat ditulis sebagai berikut:</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{p-m}{p}
-\)</span>$</p>
+\]</div>
 <div class="math notranslate nohighlight">
 \[
 p = 1
 \]</div>
-<p>P adalah jumlah fitur, dimana di kasus ini fitur nya hanya fjob.</p>
-<p>Perhitungan nilai kategori d(1,2):
-$<span class="math notranslate nohighlight">\(
+<p>P adalah jumlah fitur, dimana di kasus ini fitur nya hanya <strong>fjob</strong>.</p>
+<p>Perhitungan nilai kategori (d(1,2)):</p>
+<div class="math notranslate nohighlight">
+\[
 d(1,2) = \frac{1-0}{1} = 1
-\)</span><span class="math notranslate nohighlight">\(
-Perhitungan nilai kategori d(1,3):
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>Perhitungan nilai kategori (d(1,3)):</p>
+<div class="math notranslate nohighlight">
+\[
 d(1,3) = \frac{1-0}{1} = 1
-\)</span>$</p>
+\]</div>
 </section>
 <section id="hasil-akhir-perhitungan-baris-1-dan-2-lalu-baris-1-dan-3">
 <h6>3. Hasil Akhir perhitungan baris 1 dan 2 lalu baris 1 dan 3<a class="headerlink" href="#hasil-akhir-perhitungan-baris-1-dan-2-lalu-baris-1-dan-3" title="Link to this heading">#</a></h6>
-<p>Nilai dari hasil perhitungan sebelumnya akan kita jumlahkan seluruhnya
-d(1,2) = 1,732 + 0 + 1 + 1  = 3,732
-d(1,3) = 3,316 + 0 + 0 + 1 = 4,316</p>
+<p>Nilai dari hasil perhitungan sebelumnya akan kita jumlahkan seluruhnya</p>
+<div class="math notranslate nohighlight">
+\[
+d(1,2) = 1,732 + 0 + 1 + 1 = 3,732
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+d(1,3) = 3,316 + 0 + 0 + 1 = 4,316
+\]</div>
 </section>
 </section>
 </section>
@@ -1339,9 +1366,9 @@ d(1,3) = 3,316 + 0 + 0 + 1 = 4,316</p>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-dataset-tipe-data-campuran">6.2.2 Mengukur jarak dataset Tipe data campuran</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.2.2.1 Perhitungan manual</a><ul class="nav section-nav flex-column">
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-ordinal-dan-numerik-pada-baris-1-dan-2">1. Hitung ordinal dan numerik pada baris 1 dan 2</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-ordinal-dan-numerik-pada-baris-1-dan-2-lalu-1-dan-3">1. Hitung ordinal dan numerik pada baris 1 dan 2 lalu 1 dan 3</a></li>
 <li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-binary-pada-baris-1-dan-2-lal-baris-1-dan-3">2. Hitung Binary pada baris 1 dan 2 lal baris 1 dan 3</a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3">4. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3">3. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3</a></li>
 <li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-perhitungan-baris-1-dan-2-lalu-baris-1-dan-3">3. Hasil Akhir perhitungan baris 1 dan 2 lalu baris 1 dan 3</a></li>
 </ul>
 </li>

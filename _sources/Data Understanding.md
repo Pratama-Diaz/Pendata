@@ -427,28 +427,36 @@ Dataset yang digunakan untuk contoh kali ini adalah dataset berjudu; 'Student Al
 ##### 6.2.2.1 Perhitungan manual 
 Contoh perhitungan manual antara baris 1 dan 2
 
-###### 1. Hitung ordinal dan numerik pada baris 1 dan 2
-Untuk menghitung tipe data ordinal kita perlu melakukan normalisasi terhadap data tersebut dengan rumus 
+###### 1. Hitung ordinal dan numerik pada baris 1 dan 2 lalu 1 dan 3
+
+Untuk menghitung tipe data ordinal kita perlu melakukan normalisasi terhadap data tersebut dengan rumus
+
 $$
 x' = \frac{r - r_{min}}{r_{max} - r_{min}}
 $$
 
 Selanjutnya masing masing nilai yang mewakili kolom nya akan di normalisasi
+
 $$
 1 \rightarrow \frac{1-1}{4-1} = 0
 $$
+
 $$
 2 \rightarrow \frac{2-1}{4-1} = \frac{1}{3} = 0,333
 $$
+
 $$
 3 \rightarrow \frac{3-1}{4-1} = \frac{2}{3} = 0,666
 $$
+
 $$
 4 \rightarrow \frac{4-1}{4-1} = 1
 $$
-hasil normalisasi diatas, akan menggantikan setiap nilai pada kolom medu dan fedu, sebagai contoh nilai medu 2 maka akan digantikan dengan 0,333
 
-Selanjutnya, kita akan melakukan perhitungan untuk data d(1,2) dan d(1,3) untuk metode ordinal, dan pada tahap ini perhitungan untuk data numerik juga akan digabung dengan metode euclidean distance
+Hasil normalisasi diatas akan menggantikan setiap nilai pada kolom **medu** dan **fedu**, sebagai contoh nilai **medu 2** maka akan digantikan dengan **0,333**.
+
+Selanjutnya, kita akan melakukan perhitungan untuk data \(d(1,2)\) dan \(d(1,3)\) untuk metode ordinal, dan pada tahap ini perhitungan untuk data numerik juga akan digabung dengan metode **euclidean distance**.
+
 $$
 d(1,2) = \sqrt{(0-1)^2 + (0-1)^2 + (17-18)^2} = \sqrt{3} = 1,732
 $$
@@ -459,19 +467,25 @@ $$
 
 
 ###### 2. Hitung Binary pada baris 1 dan 2 lal baris 1 dan 3
-Pertama kita perlu mengidentifikasi, apakah data binary yang kita miliki simetris atau asimetris. Cara untuk mengidentifikasi nya adalah ketika data tersebut tidak memiliki tingkatan, maka dia simetris sebagai contoh gender. Jika data tersebut memiliki tingkatan maka dia asimetris sebagai contoh penyakit
+
+Pertama kita perlu mengidentifikasi, apakah data binary yang kita miliki simetris atau asimetris. Cara untuk mengidentifikasi nya adalah ketika data tersebut tidak memiliki tingkatan, maka dia simetris sebagai contoh **gender**. Jika data tersebut memiliki tingkatan maka dia asimetris sebagai contoh **penyakit**.
 
 Untuk rumus simetris adalah sebagai berikut:
+
 $$
 \frac{r+s}{q+r+s+t}
 $$
+
 Sedangkan rumus asimetris:
+
 $$
 \frac{r+s}{q+r+s}
 $$
 
-Selanjutnya kita tentukan kolom apa saja yang simetris dan asimetris. Sex masuk sebagai simetris sedangkan activities dan schoolsup asimetris
-Maka perhitungan kolom sex pada d(1,2) dilakukan dengan:
+Selanjutnya kita tentukan kolom apa saja yang simetris dan asimetris. **Sex** masuk sebagai simetris sedangkan **activities** dan **schoolsup** asimetris.
+
+Maka perhitungan kolom **sex** pada \(d(1,2)\) dilakukan dengan:
+
 $$
 q = 0
 $$
@@ -492,7 +506,8 @@ $$
 \frac{0+0}{0+0+0+1} = 0
 $$
 
-Sedangkan kolom activities dan schoolsup pada d(1,2):
+Sedangkan kolom **activities** dan **schoolsup** pada \(d(1,2)\):
+
 $$
 q = 0
 $$
@@ -513,7 +528,8 @@ $$
 \frac{1+0}{0+1+0} = 1
 $$
 
-Perhitungan kolom sex pada d(1,3):
+Perhitungan kolom **sex** pada \(d(1,3)\):
+
 $$
 q = 0
 $$
@@ -533,7 +549,9 @@ $$
 $$
 \frac{0+0}{0+0+0+1} = 0
 $$
-Sedangkan kolom activities dan schoolsup pada d(1,3):
+
+Sedangkan kolom **activities** dan **schoolsup** pada \(d(1,3)\):
+
 $$
 q = 1
 $$
@@ -554,12 +572,21 @@ $$
 \frac{0+0}{1+0+0} = 0
 $$
 
-hasil akhir d(1,2) dan d(1,3):
-d(1,2) = 1
-d(1,3) = 0
+Hasil akhir \(d(1,2)\) dan \(d(1,3)\):
 
-###### 4. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3
+$$
+d(1,2) = 1
+$$
+
+$$
+d(1,3) = 0
+$$
+
+
+###### 3. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3
+
 Untuk melakuka perhitungan kategori, ada beberapa hal yang perlu diperhatikan, pertama adalah jumlah fitur yang dimiliki, kedua adalah data yang sama yang sedang dibandingkan, maka rumusnya dapat ditulis sebagai berikut:
+
 $$
 \frac{p-m}{p}
 $$
@@ -567,19 +594,30 @@ $$
 $$
 p = 1
 $$
-P adalah jumlah fitur, dimana di kasus ini fitur nya hanya fjob.
 
-Perhitungan nilai kategori d(1,2):
+P adalah jumlah fitur, dimana di kasus ini fitur nya hanya **fjob**.
+
+Perhitungan nilai kategori \(d(1,2)\):
+
 $$
 d(1,2) = \frac{1-0}{1} = 1
 $$
-Perhitungan nilai kategori d(1,3):
+
+Perhitungan nilai kategori \(d(1,3)\):
+
 $$
 d(1,3) = \frac{1-0}{1} = 1
 $$
 
-###### 3. Hasil Akhir perhitungan baris 1 dan 2 lalu baris 1 dan 3
-Nilai dari hasil perhitungan sebelumnya akan kita jumlahkan seluruhnya
-d(1,2) = 1,732 + 0 + 1 + 1  = 3,732
-d(1,3) = 3,316 + 0 + 0 + 1 = 4,316
 
+###### 3. Hasil Akhir perhitungan baris 1 dan 2 lalu baris 1 dan 3
+
+Nilai dari hasil perhitungan sebelumnya akan kita jumlahkan seluruhnya
+
+$$
+d(1,2) = 1,732 + 0 + 1 + 1 = 3,732
+$$
+
+$$
+d(1,3) = 3,316 + 0 + 0 + 1 = 4,316
+$$
