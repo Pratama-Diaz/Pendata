@@ -590,8 +590,9 @@ Hasil akhir:
 \[
 S_i = \frac{1}{\sum (Y_{ih} - Y_{jh})^2}
 \]</div>
-<p>Contoh perhitungan similarity pada baris 3 dan 1:
-$<span class="math notranslate nohighlight">\(
+<p>Contoh perhitungan similarity pada baris 3 dan 1:</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{1}{
 (1-0)^2 +
 (0.333333333-0)^2 +
@@ -605,8 +606,8 @@ $<span class="math notranslate nohighlight">\(
 (1-0)^2
 = 0,17526
 }
-\)</span>$
-Lakukan semua perhitungan tersebut ke baris 2 dan 4, maka hasil yang diperoleh adalah sebagai berikut:</p>
+\]</div>
+<p>Lakukan semua perhitungan tersebut ke baris 2 dan 4, maka hasil yang diperoleh adalah sebagai berikut:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-left"><p>Si</p></th>
@@ -633,18 +634,20 @@ Lakukan semua perhitungan tersebut ke baris 2 dan 4, maka hasil yang diperoleh a
 </section>
 <section id="menghitung-penyebut">
 <h4>4. Menghitung penyebut<a class="headerlink" href="#menghitung-penyebut" title="Link to this heading">#</a></h4>
-<p>Dari hasil similarity sebelumnya, kita bisa mendapatkan nilai penyebut dengan menjumlahkan semua hasil Similarity sebelumnya (kecuali yang memiliki missing values). Sehingga hasilnya akan menjadi
-$<span class="math notranslate nohighlight">\(
+<p>Dari hasil similarity sebelumnya, kita bisa mendapatkan nilai penyebut dengan menjumlahkan semua hasil Similarity sebelumnya (kecuali yang memiliki missing values). Sehingga hasilnya akan menjadi</p>
+<div class="math notranslate nohighlight">
+\[
 0.175257999 + 0.408939184 + 0.175257999 = 0.759455182
-\)</span>$
-Maka nilai 0.759455182 akan menjadi penyebut nantinya</p>
+\]</div>
+<p>Maka nilai 0.759455182 akan menjadi penyebut nantinya</p>
 </section>
 <section id="menghitung-pembilang">
 <h4>5. Menghitung pembilang<a class="headerlink" href="#menghitung-pembilang" title="Link to this heading">#</a></h4>
-<p>Untuk mendapatkan nilai pembilang, hal selanjutnya yang perlu dilakukan adalah menghitung nilai similarity yang dimiliki dengan nilai atribut dari tetangga terdekat
-$<span class="math notranslate nohighlight">\(
+<p>Untuk mendapatkan nilai pembilang, hal selanjutnya yang perlu dilakukan adalah menghitung nilai similarity yang dimiliki dengan nilai atribut dari tetangga terdekat</p>
+<div class="math notranslate nohighlight">
+\[
 S_i \times Y_{jh}
-\)</span>$</p>
+\]</div>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>sulphates (<span class="math notranslate nohighlight">\(Y_{jh}\)</span>)</p></th>
@@ -665,21 +668,19 @@ S_i \times Y_{jh}
 <td><p>0.175257999</p></td>
 <td><p>0</p></td>
 </tr>
-<tr class="row-odd"><td><p>Hasil akhir nilai pembilang adalah 0.408939184</p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
 </tbody>
 </table>
 </div>
+<p>Hasil akhir nilai pembilang adalah 0.408939184</p>
 </section>
 <section id="menghitung-hasil-nilai-imputasi">
 <h4>6. Menghitung hasil nilai imputasi<a class="headerlink" href="#menghitung-hasil-nilai-imputasi" title="Link to this heading">#</a></h4>
-<p>Untuk mendapatkan nilai imputasi, kita hanya perlu membagi antara pembilang dan penyebut nya
-$<span class="math notranslate nohighlight">\(
+<p>Untuk mendapatkan nilai imputasi, kita hanya perlu membagi antara pembilang dan penyebut nya</p>
+<div class="math notranslate nohighlight">
+\[
 \hat{y}_{ih} =
 \frac{0.408939184}{0.759455182}
-\)</span>$</p>
+\]</div>
 <div class="math notranslate nohighlight">
 \[
 \hat{y}_{ih} = 0.53846388
@@ -1067,11 +1068,12 @@ Langkah langkah untuk code python nya:</p>
 <h3>2. Macam-macam normalisasi data<a class="headerlink" href="#macam-macam-normalisasi-data" title="Link to this heading">#</a></h3>
 <section id="min-max-normalization">
 <h4>1. Min-Max Normalization<a class="headerlink" href="#min-max-normalization" title="Link to this heading">#</a></h4>
-<p>Min-Max Normalization adalah metode normalisasi yang digunakan untuk mengubah nilai data ke dalam rentang tertentu, biasanya 0 sampai 1. Metode ini bekerja dengan cara mengurangi setiap nilai data dengan nilai minimum pada dataset, kemudian membaginya dengan selisih antara nilai maksimum dan minimum.
-$<span class="math notranslate nohighlight">\(
+<p>Min-Max Normalization adalah metode normalisasi yang digunakan untuk mengubah nilai data ke dalam rentang tertentu, biasanya 0 sampai 1. Metode ini bekerja dengan cara mengurangi setiap nilai data dengan nilai minimum pada dataset, kemudian membaginya dengan selisih antara nilai maksimum dan minimum.</p>
+<div class="math notranslate nohighlight">
+\[
 x' = \frac{x - x_{min}}{x_{max} - x_{min}}
-\)</span>$
-Keterangan:</p>
+\]</div>
+<p>Keterangan:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(x\)</span> : nilai data asli</p></li>
 <li><p><span class="math notranslate nohighlight">\(x_{min}\)</span> : nilai minimum pada atribut</p></li>
@@ -1098,10 +1100,11 @@ Contoh perhitungan min-max normalization terhadap data wine quality pada kolom �
 <p>Diketahui:
 Min = 7.4
 Max = 7.8</p>
-<p>Contoh perhitungan normalisasi min-max:
-$<span class="math notranslate nohighlight">\(
+<p>Contoh perhitungan normalisasi min-max:</p>
+<div class="math notranslate nohighlight">
+\[
 x' = \frac{7.4 - 7.4}{7.8 - 7.4} = 0
-\)</span>$</p>
+\]</div>
 <p>Hasil keseluruhan data ketika sudah di normalisasi</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1151,61 +1154,70 @@ z = \frac{x - \mu}{\sigma}
 </tbody>
 </table>
 </div>
-<p>Menghitung nilai mean (rata-rata):
-$<span class="math notranslate nohighlight">\(
+<p>Menghitung nilai mean (rata-rata):</p>
+<div class="math notranslate nohighlight">
+\[
 \mu = \frac{7.4 + 7.8 + 7.8}{3}
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<div class="math notranslate nohighlight">
+\[
 \mu = \frac{23}{3}
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<div class="math notranslate nohighlight">
+\[
 \mu = 7.6666667
-\)</span>$</p>
+\]</div>
 <p>Menghitung standar deviasi:
-rumus standar deviasi:
-$<span class="math notranslate nohighlight">\(
+rumus standar deviasi:</p>
+<div class="math notranslate nohighlight">
+\[
 \sigma = \sqrt{\frac{\sum (x - \mu)^2}{n}}
-\)</span><span class="math notranslate nohighlight">\(
-Perhitungan dengan nilai rata-rata = 7.6666667dan jumlah data = 3
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>Perhitungan dengan nilai rata-rata = 7.6666667dan jumlah data = 3</p>
+<div class="math notranslate nohighlight">
+\[
 (7.4 - 7.6666667)^2  = 0.071111
-\)</span>$</p>
-<div class="math notranslate nohighlight">
-\[
-(7.8 - 7.6666667)^2  = 0.0177778
 \]</div>
 <div class="math notranslate nohighlight">
 \[
 (7.8 - 7.6666667)^2  = 0.0177778
 \]</div>
-<p>Jumlahkan:
-$<span class="math notranslate nohighlight">\(
+<div class="math notranslate nohighlight">
+\[
+(7.8 - 7.6666667)^2  = 0.0177778
+\]</div>
+<p>Jumlahkan:</p>
+<div class="math notranslate nohighlight">
+\[
 \sigma =
 \sqrt{
 \frac{
 0.071111 + 0.0177778 + 0.0177778
 }{3}
 }
-\)</span><span class="math notranslate nohighlight">\(
-Bagi dan akarkan nilai nya:
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>Bagi dan akarkan nilai nya:</p>
+<div class="math notranslate nohighlight">
+\[
 \sigma =
 \sqrt{
 \frac{0.1066667}{3}
 }
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<div class="math notranslate nohighlight">
+\[
 \sigma = 0.1885618
-\)</span>$</p>
+\]</div>
 <p>Diketahui:</p>
 <ul class="simple">
 <li><p>Mean (<span class="math notranslate nohighlight">\(\mu\)</span>) = 7.6666667</p></li>
 <li><p>Standar deviasi (<span class="math notranslate nohighlight">\(\sigma\)</span>) = 0.1885618</p></li>
 </ul>
-<p>Contoh untuk perhitungan pada data pertama:
-$<span class="math notranslate nohighlight">\(
+<p>Contoh untuk perhitungan pada data pertama:</p>
+<div class="math notranslate nohighlight">
+\[
 z = \frac{7.4 - 7.6666667}{0.1885618}
-\)</span>$</p>
+\]</div>
 <div class="math notranslate nohighlight">
 \[
 z = −1.41421356
@@ -1230,14 +1242,15 @@ z = −1.41421356
 <section id="decimal-scaling-normalization">
 <h4>3. Decimal scaling normalization<a class="headerlink" href="#decimal-scaling-normalization" title="Link to this heading">#</a></h4>
 <p>Decimal Scaling adalah metode normalisasi yang dilakukan dengan menggeser titik desimal pada nilai data sehingga semua nilai berada pada rentang yang lebih kecil (biasanya kurang dari 1). Proses ini dilakukan dengan cara membagi setiap nilai data dengan <span class="math notranslate nohighlight">\(10^j\)</span> di mana j adalah jumlah digit dari nilai absolut terbesar dalam dataset.</p>
-<p>Rumus decimal scaling:
-$<span class="math notranslate nohighlight">\(
+<p>Rumus decimal scaling:</p>
+<div class="math notranslate nohighlight">
+\[
 x' = \frac{x}{10^j}
-\)</span><span class="math notranslate nohighlight">\(
-Keterangan:
-\)</span>x<span class="math notranslate nohighlight">\( : nilai data asli  
-\)</span>j<span class="math notranslate nohighlight">\( : jumlah digit dari nilai absolut terbesar dalam data  
-\)</span>x’$ : nilai hasil normalisasi</p>
+\]</div>
+<p>Keterangan:
+<span class="math notranslate nohighlight">\(x\)</span> : nilai data asli<br />
+<span class="math notranslate nohighlight">\(j\)</span> : jumlah digit dari nilai absolut terbesar dalam data<br />
+<span class="math notranslate nohighlight">\(x'\)</span> : nilai hasil normalisasi</p>
 <p>Contoh perhitungan Deciman scaling normalization terhadap data wine quality pada kolom “Fixed acidity”</p>
 <p>Data sebelum di normalisasi</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1256,14 +1269,16 @@ Keterangan:
 </table>
 </div>
 <p>Tentukan nilai j:
-Nilai terbesar dalam data adalah 7.8, dimana pada data 7.8 digit sebelum koma adalah 1, maka
-$<span class="math notranslate nohighlight">\(
+Nilai terbesar dalam data adalah 7.8, dimana pada data 7.8 digit sebelum koma adalah 1, maka:</p>
+<div class="math notranslate nohighlight">
+\[
 j = 1
-\)</span><span class="math notranslate nohighlight">\(
-Contoh perhitungan:
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>Contoh perhitungan:</p>
+<div class="math notranslate nohighlight">
+\[
 x'_1 = \frac{7.4}{10^1} = 0.74
-\)</span>$</p>
+\]</div>
 <p>Sehingga hasil akhir data:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>

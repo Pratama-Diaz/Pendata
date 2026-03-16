@@ -103,6 +103,7 @@ S_i = \frac{1}{\sum (Y_{ih} - Y_{jh})^2}
 $$
 
 Contoh perhitungan similarity pada baris 3 dan 1:
+
 $$
 \frac{1}{
 (1-0)^2 +
@@ -118,7 +119,9 @@ $$
 = 0,17526
 }
 $$
+
 Lakukan semua perhitungan tersebut ke baris 2 dan 4, maka hasil yang diperoleh adalah sebagai berikut:
+
 | Si |
 | :-- |
 | 0.175257999
@@ -128,26 +131,33 @@ Lakukan semua perhitungan tersebut ke baris 2 dan 4, maka hasil yang diperoleh a
 | ? |
 | 0.175257999
  |
+ 
 #### 4. Menghitung penyebut 
 Dari hasil similarity sebelumnya, kita bisa mendapatkan nilai penyebut dengan menjumlahkan semua hasil Similarity sebelumnya (kecuali yang memiliki missing values). Sehingga hasilnya akan menjadi
+
 $$
 0.175257999 + 0.408939184 + 0.175257999 = 0.759455182
 $$
+
 Maka nilai 0.759455182 akan menjadi penyebut nantinya
 
 #### 5. Menghitung pembilang
 Untuk mendapatkan nilai pembilang, hal selanjutnya yang perlu dilakukan adalah menghitung nilai similarity yang dimiliki dengan nilai atribut dari tetangga terdekat
+
 $$
 S_i \times Y_{jh}
 $$
+
 | sulphates ($Y_{jh}$) | $S_i$ | $S_i \times Y_{jh}$ |
 |---|---|---|
 | 0 | 0.175257999 | 0 |
 | 1 | 0.408939184 | 0.408939184 |
 | 0 | 0.175257999 | 0 |
+
 Hasil akhir nilai pembilang adalah 0.408939184
 #### 6. Menghitung hasil nilai imputasi
 Untuk mendapatkan nilai imputasi, kita hanya perlu membagi antara pembilang dan penyebut nya
+
 $$
 \hat{y}_{ih} =
 \frac{0.408939184}{0.759455182}
@@ -156,6 +166,7 @@ $$
 $$
 \hat{y}_{ih} = 0.53846388
 $$
+
 Nilai **0.53846388** ini akan menggantikan nilai missing values pada atribut sulphates
 
 ### Perhitungan WKNN menggunaka python
@@ -344,9 +355,11 @@ Tujuan dari normalisasi adalah menyamakan skala antar variabel sehingga tidak ad
 
 #### 1. Min-Max Normalization
 Min-Max Normalization adalah metode normalisasi yang digunakan untuk mengubah nilai data ke dalam rentang tertentu, biasanya 0 sampai 1. Metode ini bekerja dengan cara mengurangi setiap nilai data dengan nilai minimum pada dataset, kemudian membaginya dengan selisih antara nilai maksimum dan minimum.
+
 $$
 x' = \frac{x - x_{min}}{x_{max} - x_{min}}
 $$
+
 Keterangan:
 - $x$ : nilai data asli  
 - $x_{min}$ : nilai minimum pada atribut  
@@ -366,6 +379,7 @@ Min = 7.4
 Max = 7.8
 
 Contoh perhitungan normalisasi min-max:
+
 $$
 x' = \frac{7.4 - 7.4}{7.8 - 7.4} = 0
 $$
@@ -402,22 +416,28 @@ Data sebelum di normalisasi
 | 7.8 |
 
 Menghitung nilai mean (rata-rata):
+
 $$
 \mu = \frac{7.4 + 7.8 + 7.8}{3}
 $$
+
 $$
 \mu = \frac{23}{3}
 $$
+
 $$
 \mu = 7.6666667
 $$
 
 Menghitung standar deviasi:
 rumus standar deviasi:
+
 $$
 \sigma = \sqrt{\frac{\sum (x - \mu)^2}{n}}
 $$
+
 Perhitungan dengan nilai rata-rata = 7.6666667dan jumlah data = 3
+
 $$
 (7.4 - 7.6666667)^2  = 0.071111
 $$
@@ -429,7 +449,9 @@ $$
 $$
 (7.8 - 7.6666667)^2  = 0.0177778
 $$
+
 Jumlahkan:
+
 $$
 \sigma =
 \sqrt{
@@ -438,13 +460,16 @@ $$
 }{3}
 }
 $$
+
 Bagi dan akarkan nilai nya:
+
 $$
 \sigma =
 \sqrt{
 \frac{0.1066667}{3}
 }
 $$
+
 $$
 \sigma = 0.1885618
 $$
@@ -455,6 +480,7 @@ Diketahui:
 - Standar deviasi ($\sigma$) = 0.1885618
 
 Contoh untuk perhitungan pada data pertama:
+
 $$
 z = \frac{7.4 - 7.6666667}{0.1885618}
 $$
@@ -474,9 +500,11 @@ Hasil normalisasi keseluran:
 Decimal Scaling adalah metode normalisasi yang dilakukan dengan menggeser titik desimal pada nilai data sehingga semua nilai berada pada rentang yang lebih kecil (biasanya kurang dari 1). Proses ini dilakukan dengan cara membagi setiap nilai data dengan $10^j$ di mana j adalah jumlah digit dari nilai absolut terbesar dalam dataset.
 
 Rumus decimal scaling:
+
 $$
 x' = \frac{x}{10^j}
 $$
+
 Keterangan:
 $x$ : nilai data asli  
 $j$ : jumlah digit dari nilai absolut terbesar dalam data  
@@ -492,11 +520,14 @@ Data sebelum di normalisasi
 | 7.8 |
 
 Tentukan nilai j:
-Nilai terbesar dalam data adalah 7.8, dimana pada data 7.8 digit sebelum koma adalah 1, maka
+Nilai terbesar dalam data adalah 7.8, dimana pada data 7.8 digit sebelum koma adalah 1, maka:
+
 $$
 j = 1
 $$
+
 Contoh perhitungan:
+
 $$
 x'_1 = \frac{7.4}{10^1} = 0.74
 $$
