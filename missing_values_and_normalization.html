@@ -508,38 +508,52 @@ S_i = \frac{1}{\sum (Y_{ih} - Y_{jh})^2}
 <p>Dataset Red Wine Quality merupakan dataset yang berisi informasi mengenai kualitas anggur merah berdasarkan berbagai karakteristik kimia. Dataset ini berasal dari penelitian yang dilakukan oleh Paulo Cortez. Dataset ini berisi data dari varian anggur merah Portugis yang dikenal sebagai Vinho Verde. Setiap baris data merepresentasikan satu sampel anggur yang diuji. Terdapat sekitar 1599 data di dalamnya, dengan 11 fitur dan 1 class.</p>
 <section id="penjelasan-masing-masing-fitur-dan-class">
 <h4>Penjelasan masing-masing fitur dan class:<a class="headerlink" href="#penjelasan-masing-masing-fitur-dan-class" title="Link to this heading">#</a></h4>
-<p>\begin{table}[h]
-\centering
-\begin{tabular}{|l|p{10cm}|}
-\hline
-\textbf{Column} &amp; \textbf{Deskripsi} \
-\hline
-fixed acidity &amp; jumlah asam tetap dalam anggur yang tidak mudah menguap \
-\hline
-volatile acidity &amp; jumlah asam asetat yang dapat menyebabkan rasa seperti cuka jika terlalu tinggi \
-\hline
-citric acid &amp; kandungan asam sitrat yang dapat memberikan rasa segar pada anggur \
-\hline
-residual sugar &amp; jumlah gula yang tersisa setelah proses fermentasi \
-\hline
-chlorides &amp; jumlah kandungan garam dalam anggur \
-\hline
-free sulfur dioxide &amp; jumlah sulfur dioksida bebas yang berfungsi mencegah oksidasi dan pertumbuhan mikroba \
-\hline
-total sulfur dioxide &amp; total kandungan sulfur dioksida bebas dan terikat dalam anggur \
-\hline
-density &amp; kepadatan cairan anggur yang dipengaruhi oleh kadar gula dan alkohol \
-\hline
-pH &amp; tingkat keasaman anggur \
-\hline
-sulphates &amp; senyawa yang berperan sebagai antimikroba dan antioksidan \
-\hline
-alcohol &amp; kadar alkohol dalam anggur \
-\hline
-quality &amp; skor kualitas anggur yang diberikan oleh panel ahli dengan rentang nilai 0–10 \
-\hline
-\end{tabular}
-\end{table}</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Deskripsi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fixed acidity</p></td>
+<td><p>jumlah asam tetap dalam anggur yang tidak mudah menguap</p></td>
+</tr>
+<tr class="row-odd"><td><p>volatile acidity</p></td>
+<td><p>jumlah asam asetat yang dapat menyebabkan rasa seperti cuka jika terlalu tinggi</p></td>
+</tr>
+<tr class="row-even"><td><p>citric acid</p></td>
+<td><p>kandungan asam sitrat yang dapat memberikan rasa segar pada anggur</p></td>
+</tr>
+<tr class="row-odd"><td><p>residual sugar</p></td>
+<td><p>jumlah gula yang tersisa setelah proses fermentasi</p></td>
+</tr>
+<tr class="row-even"><td><p>chlorides</p></td>
+<td><p>jumlah kandungan garam dalam anggur</p></td>
+</tr>
+<tr class="row-odd"><td><p>free sulfur dioxide</p></td>
+<td><p>jumlah sulfur dioksida bebas yang berfungsi mencegah oksidasi dan pertumbuhan mikroba</p></td>
+</tr>
+<tr class="row-even"><td><p>total sulfur dioxide</p></td>
+<td><p>total kandungan sulfur dioksida bebas dan terikat dalam anggur</p></td>
+</tr>
+<tr class="row-odd"><td><p>density</p></td>
+<td><p>kepadatan cairan anggur yang dipengaruhi oleh kadar gula dan alkohol</p></td>
+</tr>
+<tr class="row-even"><td><p>pH</p></td>
+<td><p>tingkat keasaman anggur</p></td>
+</tr>
+<tr class="row-odd"><td><p>sulphates</p></td>
+<td><p>senyawa yang berperan sebagai antimikroba dan antioksidan</p></td>
+</tr>
+<tr class="row-even"><td><p>alcohol</p></td>
+<td><p>kadar alkohol dalam anggur</p></td>
+</tr>
+<tr class="row-odd"><td><p>quality</p></td>
+<td><p>skor kualitas anggur yang diberikan oleh panel ahli dengan rentang nilai 0–10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 </section>
 <section id="perhitungan-wknn-secara-manual">
@@ -550,20 +564,22 @@ quality &amp; skor kualitas anggur yang diberikan oleh panel ahli dengan rentang
 </section>
 <section id="melakukan-normalisasi-data">
 <h4>2. Melakukan normalisasi data<a class="headerlink" href="#melakukan-normalisasi-data" title="Link to this heading">#</a></h4>
-<p>Selanjutnya untuk menghitung similarity diperlukan normalisasi data, agar data, hal ini dilakukan untuk menghindari data yang memiliki nilai sangat jauh. Normalisasi pada data ini akan digunakan metode min-max normalization. Tentukan kolom yang akan dinormalisasi. Pada kasus ini akan ada 4 data dengan class yang sama yang akan dilakukan normalisasi
-$<span class="math notranslate nohighlight">\(
+<p>Selanjutnya untuk menghitung similarity diperlukan normalisasi data, agar data, hal ini dilakukan untuk menghindari data yang memiliki nilai sangat jauh. Normalisasi pada data ini akan digunakan metode min-max normalization. Tentukan kolom yang akan dinormalisasi. Pada kasus ini akan ada 4 data dengan class yang sama yang akan dilakukan normalisasi</p>
+<div class="math notranslate nohighlight">
+\[
 x' = \frac{x - x_{min}}{x_{max} - x_{min}}
-\)</span>$
-<img alt="original image" src="https://cdn.mathpix.com/snip/images/UBpHG5YqHVp_-vpcf1AxRNKpSO-RXqzRSl6Xqv60rE4.original.fullsize.png" /></p>
+\]</div>
+<p><img alt="original image" src="https://cdn.mathpix.com/snip/images/UBpHG5YqHVp_-vpcf1AxRNKpSO-RXqzRSl6Xqv60rE4.original.fullsize.png" /></p>
 <p>Pada kolom diatas terlihat bahwasan nya pada baris ke 3 kolom sulphates memiliki missing values, selanjutnya kolom seperti quality tidak digunakan karena kolom tersebut merupakan class.
 selanjutnya untuk melakukan normalisasi perlu menentukan nilai min dan max setiap kolom, hasilnya:</p>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/XadqnpAdHx_IpPlmjPfLa0CPTSQ3et4ZN3TxSUXSY_M.original.fullsize.png" />
 Baris 1 adalah nilai min, baris 2 adalah nilai max</p>
-<p>Contoh perhitungan normalisasi:
-$<span class="math notranslate nohighlight">\(
+<p>Contoh perhitungan normalisasi:</p>
+<div class="math notranslate nohighlight">
+\[
 x' = \frac{7.4 - 7.4}{7.8 - 7.4} = 0
-\)</span>$
-Hasil diatas merupakan contoh perhitungan normalisasi untuk baris 1 kolom 1, lakukan terhadap semuanya
+\]</div>
+<p>Hasil diatas merupakan contoh perhitungan normalisasi untuk baris 1 kolom 1, lakukan terhadap semuanya
 Hasil akhir:
 <img alt="original image" src="https://cdn.mathpix.com/snip/images/UWukQP7caBcXZ1_w7TJRoDZHf_gExp88MPlEoEedmd4.original.fullsize.png" /></p>
 </section>

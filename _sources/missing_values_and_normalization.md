@@ -51,38 +51,20 @@ Dataset yang digunakan berasal dari platform kaggle mengenai Red wine quality, d
 Dataset Red Wine Quality merupakan dataset yang berisi informasi mengenai kualitas anggur merah berdasarkan berbagai karakteristik kimia. Dataset ini berasal dari penelitian yang dilakukan oleh Paulo Cortez. Dataset ini berisi data dari varian anggur merah Portugis yang dikenal sebagai Vinho Verde. Setiap baris data merepresentasikan satu sampel anggur yang diuji. Terdapat sekitar 1599 data di dalamnya, dengan 11 fitur dan 1 class.
 
 #### Penjelasan masing-masing fitur dan class:
-\begin{table}[h]
-\centering
-\begin{tabular}{|l|p{10cm}|}
-\hline
-\textbf{Column} & \textbf{Deskripsi} \\
-\hline
-fixed acidity & jumlah asam tetap dalam anggur yang tidak mudah menguap \\
-\hline
-volatile acidity & jumlah asam asetat yang dapat menyebabkan rasa seperti cuka jika terlalu tinggi \\
-\hline
-citric acid & kandungan asam sitrat yang dapat memberikan rasa segar pada anggur \\
-\hline
-residual sugar & jumlah gula yang tersisa setelah proses fermentasi \\
-\hline
-chlorides & jumlah kandungan garam dalam anggur \\
-\hline
-free sulfur dioxide & jumlah sulfur dioksida bebas yang berfungsi mencegah oksidasi dan pertumbuhan mikroba \\
-\hline
-total sulfur dioxide & total kandungan sulfur dioksida bebas dan terikat dalam anggur \\
-\hline
-density & kepadatan cairan anggur yang dipengaruhi oleh kadar gula dan alkohol \\
-\hline
-pH & tingkat keasaman anggur \\
-\hline
-sulphates & senyawa yang berperan sebagai antimikroba dan antioksidan \\
-\hline
-alcohol & kadar alkohol dalam anggur \\
-\hline
-quality & skor kualitas anggur yang diberikan oleh panel ahli dengan rentang nilai 0–10 \\
-\hline
-\end{tabular}
-\end{table}
+| Column | Deskripsi |
+|---|---|
+| fixed acidity | jumlah asam tetap dalam anggur yang tidak mudah menguap |
+| volatile acidity | jumlah asam asetat yang dapat menyebabkan rasa seperti cuka jika terlalu tinggi |
+| citric acid | kandungan asam sitrat yang dapat memberikan rasa segar pada anggur |
+| residual sugar | jumlah gula yang tersisa setelah proses fermentasi |
+| chlorides | jumlah kandungan garam dalam anggur |
+| free sulfur dioxide | jumlah sulfur dioksida bebas yang berfungsi mencegah oksidasi dan pertumbuhan mikroba |
+| total sulfur dioxide | total kandungan sulfur dioksida bebas dan terikat dalam anggur |
+| density | kepadatan cairan anggur yang dipengaruhi oleh kadar gula dan alkohol |
+| pH | tingkat keasaman anggur |
+| sulphates | senyawa yang berperan sebagai antimikroba dan antioksidan |
+| alcohol | kadar alkohol dalam anggur |
+| quality | skor kualitas anggur yang diberikan oleh panel ahli dengan rentang nilai 0–10 |
 
 ### Perhitungan WKNN secara manual
 #### 1. Menentukan missing values 
@@ -90,9 +72,11 @@ Pada dataset ini digunaka contoh pada kolom sulphates di baris ke 3 data memilik
 
 #### 2. Melakukan normalisasi data
 Selanjutnya untuk menghitung similarity diperlukan normalisasi data, agar data, hal ini dilakukan untuk menghindari data yang memiliki nilai sangat jauh. Normalisasi pada data ini akan digunakan metode min-max normalization. Tentukan kolom yang akan dinormalisasi. Pada kasus ini akan ada 4 data dengan class yang sama yang akan dilakukan normalisasi
+
 $$
 x' = \frac{x - x_{min}}{x_{max} - x_{min}}
 $$
+
 ![original image](https://cdn.mathpix.com/snip/images/UBpHG5YqHVp_-vpcf1AxRNKpSO-RXqzRSl6Xqv60rE4.original.fullsize.png)
 
 Pada kolom diatas terlihat bahwasan nya pada baris ke 3 kolom sulphates memiliki missing values, selanjutnya kolom seperti quality tidak digunakan karena kolom tersebut merupakan class. 
@@ -102,9 +86,11 @@ selanjutnya untuk melakukan normalisasi perlu menentukan nilai min dan max setia
 Baris 1 adalah nilai min, baris 2 adalah nilai max
 
 Contoh perhitungan normalisasi:
+
 $$
 x' = \frac{7.4 - 7.4}{7.8 - 7.4} = 0
 $$
+
 Hasil diatas merupakan contoh perhitungan normalisasi untuk baris 1 kolom 1, lakukan terhadap semuanya 
 Hasil akhir:
 ![original image](https://cdn.mathpix.com/snip/images/UWukQP7caBcXZ1_w7TJRoDZHf_gExp88MPlEoEedmd4.original.fullsize.png)
