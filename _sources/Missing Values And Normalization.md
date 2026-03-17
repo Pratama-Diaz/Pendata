@@ -1,5 +1,7 @@
 # Missing Values Inputation dan normalisasi data
+
 ## 1. Missing values inputation dengan metode WKNN
+
 Missing values adalah suatu kondisi dimana dataset yang dimiliki memiliki nilai atribut yang tidak tersedia atau kosong. Hal itu akan memengaruhi kualitas suatu data, sehingga ada metode yang dapat digunakan untuk mengisi atau lebih tepatnya memperkirakan untuk mengisi missing values tersebut. Salah satu metode yang dapat digunakan adalah Weighted K-Nearest Neighbour (WKNN).
 
 Metode WKNN merupakan pengembangan dari metode K-Nearest Neighbour (KNN) yang digunakan untuk melakukan imputasi nilai yang hilang berdasarkan kemiripan antar data. Pada metode ini nilai yang hilang diperkirakan denggan tetangga terdekat (nearest neighbours) yang memiliki kemiripan tertinggi. Perbedaan utama antara KNN dengan WKNN terletak pada pemberian bobot untuk setiap tetangga, dalam WKNN data yang jaraknya dekat akan diberikan bobot lebih besar dibandingkan jarak yang jauh.
