@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Data Understanding';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Data Preparation" href="Data%20Preparation.html" />
+    <link rel="next" title="Missing Values Inputation dan normalisasi data" href="Missing%20Values%20And%20Normalization.html" />
     <link rel="prev" title="Business Understanding" href="Business%20Understanding.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,8 +183,24 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Business%20Understanding.html">Business Understanding</a></li>
+
+
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Understanding</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Missing%20Values%20And%20Normalization.html">Missing Values Inputation dan normalisasi data</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="Data%20Preparation.html">Data Preparation</a></li>
+
+
+
+
 </ul>
 
     </div>
@@ -380,78 +396,80 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">1. Sumber Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-dataset">2. Eksplorasi Dataset</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-pyhton-ke-database">2.1 Connect Pyhton ke Database</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-mysql-ke-python">2.1.1 Connect MySQL ke Python</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-postgresql-ke-python">2.1.2 Connect PostgreSQL ke Python</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-postgresql-ke-orange">2.1.3 Connect PostgreSQL ke Orange</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Understanding</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">1. Sumber Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-dataset">2. Eksplorasi Dataset</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-pyhton-ke-database">2.1 Connect Pyhton ke Database</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-mysql-ke-python">2.1.1 Connect MySQL ke Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-postgresql-ke-python">2.1.2 Connect PostgreSQL ke Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-postgresql-ke-orange">2.1.3 Connect PostgreSQL ke Orange</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-library-dan-import-file-tanpa-menggunakan-database">2.2 Persiapan library dan import file tanpa menggunakan database</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-drive">2.3 Menentukan path drive</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-dataset">2.4 Struktur Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif-awal-dan-pengecekan-jumlah-class">2.5 Statistik Deskriptif Awal dan pengecekan jumlah class</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-duplikat">2.6 Pengecekan Data Duplikat</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-null">2.7 Pengecekan Data Null</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-library-dan-import-file-tanpa-menggunakan-database">2.2 Persiapan library dan import file tanpa menggunakan database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-drive">2.3 Menentukan path drive</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-dataset">2.4 Struktur Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif-awal-dan-pengecekan-jumlah-class">2.5 Statistik Deskriptif Awal dan pengecekan jumlah class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-duplikat">2.6 Pengecekan Data Duplikat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-null">2.7 Pengecekan Data Null</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisa-korelasi">3. Analisa korelasi</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi">Interpretasi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisa-korelasi">3. Analisa korelasi</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi">Interpretasi</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-data">4. Verifikasi Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">5. Visualisasi Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-menggunakan-python">5.1 Visualisasi data menggunakan Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-jumlah-kelas-iris">- Distribusi Jumlah kelas Iris</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-data-fitur-numerik-pada-dataset-iris">- Distribusi Data Fitur Numerik pada Dataset Iris</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-scatter-plot-sepal-dan-petal">- Visualisasi scatter plot sepal dan petal</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-penyebaran-data-dan-deteksi-outlier-menggunakan-boxplot">- Analisis Penyebaran Data dan Deteksi Outlier Menggunakan Boxplot</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-data">4. Verifikasi Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">5. Visualisasi Data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-menggunakan-python">5.1 Visualisasi data menggunakan Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-jumlah-kelas-iris">- Distribusi Jumlah kelas Iris</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-data-fitur-numerik-pada-dataset-iris">- Distribusi Data Fitur Numerik pada Dataset Iris</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-scatter-plot-sepal-dan-petal">- Visualisasi scatter plot sepal dan petal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-penyebaran-data-dan-deteksi-outlier-menggunakan-boxplot">- Analisis Penyebaran Data dan Deteksi Outlier Menggunakan Boxplot</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-menggunakan-orange">5.2 Visualisasi data menggunakan Orange</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-jumlah-keseluruhan-data">- Statistik jumlah keseluruhan data</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-bar-chart">- Visualisasi Bar Chart</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">- Visualisasi scatter plot sepal dan petal</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-box-plot">- Visualisasi Box plot</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analisa-korelasi-pada-orange">- Analisa korelasi pada orange</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-data">6. Mengukur jarak data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-similarity-dan-dissimilarity">6.1 Pengertian Similarity dan Dissimilarity</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity">6.1.1 Similarity</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity">6.1.2 Dissimilarity</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#minkowski-distance">6.1.2.1 Minkowski Distance</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#manhattan-distance">6.1.2.2 Manhattan Distance</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#euclidean-distance">6.1.2.3 Euclidean Distance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-menggunakan-orange">5.2 Visualisasi data menggunakan Orange</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-jumlah-keseluruhan-data">- Statistik jumlah keseluruhan data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-bar-chart">- Visualisasi Bar Chart</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">- Visualisasi scatter plot sepal dan petal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-box-plot">- Visualisasi Box plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisa-korelasi-pada-orange">- Analisa korelasi pada orange</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-dissimilarity-pada-suatu-dataset">6.2 Mengukur jarak dissimilarity pada suatu dataset</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-dataset-iris">6.2.1 Mengukur jarak dataset Iris</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manual">6.2.1.1 Perhitungan manual</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-python">6.2.1.2 Perhitungan Python</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-orange">6.2.1.3 Perhitungan Orange</a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-dataset-tipe-data-campuran">6.2.2 Mengukur jarak dataset Tipe data campuran</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.2.2.1 Perhitungan manual</a><ul class="nav section-nav flex-column">
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-ordinal-dan-numerik-pada-baris-1-dan-2-lalu-1-dan-3">1. Hitung ordinal dan numerik pada baris 1 dan 2 lalu 1 dan 3</a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-binary-pada-baris-1-dan-2-lal-baris-1-dan-3">2. Hitung Binary pada baris 1 dan 2 lal baris 1 dan 3</a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3">3. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3</a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-perhitungan-baris-1-dan-2-lalu-baris-1-dan-3">3. Hasil Akhir perhitungan baris 1 dan 2 lalu baris 1 dan 3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-data">6. Mengukur jarak data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-similarity-dan-dissimilarity">6.1 Pengertian Similarity dan Dissimilarity</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity">6.1.1 Similarity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity">6.1.2 Dissimilarity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#minkowski-distance">6.1.2.1 Minkowski Distance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manhattan-distance">6.1.2.2 Manhattan Distance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euclidean-distance">6.1.2.3 Euclidean Distance</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-dissimilarity-pada-suatu-dataset">6.2 Mengukur jarak dissimilarity pada suatu dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-dataset-iris">6.2.1 Mengukur jarak dataset Iris</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manual">6.2.1.1 Perhitungan manual</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-python">6.2.1.2 Perhitungan Python</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-orange">6.2.1.3 Perhitungan Orange</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-dataset-tipe-data-campuran">6.2.2 Mengukur jarak dataset Tipe data campuran</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.2.2.1 Perhitungan manual</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-ordinal-dan-numerik-pada-baris-1-dan-2-lalu-1-dan-3">1. Hitung ordinal dan numerik pada baris 1 dan 2 lalu 1 dan 3</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-binary-pada-baris-1-dan-2-lal-baris-1-dan-3">2. Hitung Binary pada baris 1 dan 2 lal baris 1 dan 3</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3">3. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-perhitungan-baris-1-dan-2-lalu-baris-1-dan-3">3. Hasil Akhir perhitungan baris 1 dan 2 lalu baris 1 dan 3</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -462,22 +480,23 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-understanding">
+  <section id="data-understanding">
 <h1>Data Understanding<a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h1>
 <p>Tahap Data Understanding merupakan fase awal dalam metodologi CRISP-DM setelah tahap Business Understanding selesai dilakukan. Pada tahap ini, fokus utama adalah memahami data yang akan digunakan dalam proses analisis sebelum dilakukan persiapan atau pemodelan lebih lanjut.</p>
 <p>Tujuan utama dari tahap Data Understanding adalah memperoleh pemahaman menyeluruh terhadap data sehingga peneliti atau analis dapat menentukan langkah yang tepat pada tahap berikutnya, yaitu Data Preparation. Dengan pemahaman yang baik terhadap kondisi dan karakteristik data, proses analisis dapat dilakukan secara lebih terarah dan meminimalkan kesalahan dalam pembangunan model.</p>
+</section>
 <section id="sumber-data">
-<h2>1. Sumber Data<a class="headerlink" href="#sumber-data" title="Link to this heading">#</a></h2>
+<h1>1. Sumber Data<a class="headerlink" href="#sumber-data" title="Link to this heading">#</a></h1>
 <p>Dataset yang digunakan dalam penelitian ini adalah Iris Flower Dataset yang diperoleh dari platform Kaggle. Dataset ini berisi data pengukuran morfologi bunga iris yang terdiri dari tiga spesies, yaitu Iris-setosa, Iris-versicolor, dan Iris-virginica. Dataset Iris Flower terdiri dari 150 data observasi dengan 5 atribut utama. Empat atribut pertama merupakan variabel numerik yang berisi hasil pengukuran fisik bunga, yaitu sepal length, sepal width, petal length, dan petal width. Keempat atribut tersebut bertipe numerik karena nilainya berupa angka hasil pengukuran dalam satuan tertentu. Atribut kelima adalah species, yang merupakan variabel kategorikal dan berfungsi sebagai label atau target dalam proses klasifikasi.
 <a class="reference external" href="https://www.kaggle.com/datasets/arshid/iris-flower-dataset?resource=download">Dataset Iris</a></p>
 </section>
 <section id="eksplorasi-dataset">
-<h2>2. Eksplorasi Dataset<a class="headerlink" href="#eksplorasi-dataset" title="Link to this heading">#</a></h2>
+<h1>2. Eksplorasi Dataset<a class="headerlink" href="#eksplorasi-dataset" title="Link to this heading">#</a></h1>
 <p>Dalam proses mengidentifikasi dataset ini, salah satu tools yang dapat dimanfaatkan untuk pengidentifikasian nya adalah python</p>
 <section id="connect-pyhton-ke-database">
-<h3>2.1 Connect Pyhton ke Database<a class="headerlink" href="#connect-pyhton-ke-database" title="Link to this heading">#</a></h3>
+<h2>2.1 Connect Pyhton ke Database<a class="headerlink" href="#connect-pyhton-ke-database" title="Link to this heading">#</a></h2>
 <section id="connect-mysql-ke-python">
-<h4>2.1.1 Connect MySQL ke Python<a class="headerlink" href="#connect-mysql-ke-python" title="Link to this heading">#</a></h4>
+<h3>2.1.1 Connect MySQL ke Python<a class="headerlink" href="#connect-mysql-ke-python" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span>
 </pre></div>
 </div>
@@ -508,7 +527,7 @@ document.write(`
 <p>Hasil jika di running dan berhasil melakukan koneksi antara MySQL dan Python</p>
 </section>
 <section id="connect-postgresql-ke-python">
-<h4>2.1.2 Connect PostgreSQL ke Python<a class="headerlink" href="#connect-postgresql-ke-python" title="Link to this heading">#</a></h4>
+<h3>2.1.2 Connect PostgreSQL ke Python<a class="headerlink" href="#connect-postgresql-ke-python" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">psycopg2</span>
 </pre></div>
 </div>
@@ -539,13 +558,13 @@ document.write(`
 <p>Berikut adalah hasil jika kita sukses untuk melakukan koneksi database</p>
 </section>
 <section id="connect-postgresql-ke-orange">
-<h4>2.1.3 Connect PostgreSQL ke Orange<a class="headerlink" href="#connect-postgresql-ke-orange" title="Link to this heading">#</a></h4>
+<h3>2.1.3 Connect PostgreSQL ke Orange<a class="headerlink" href="#connect-postgresql-ke-orange" title="Link to this heading">#</a></h3>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/-KJeUqpmHj-zFuA481aumFKz6pdUVTHKyqNwDAbKeww.original.fullsize.png" />
 Berikut adalah hasil jika PostgreSQL dapat connect dengan aplikasi orange yang dimiliki</p>
 </section>
 </section>
 <section id="persiapan-library-dan-import-file-tanpa-menggunakan-database">
-<h3>2.2 Persiapan library dan import file tanpa menggunakan database<a class="headerlink" href="#persiapan-library-dan-import-file-tanpa-menggunakan-database" title="Link to this heading">#</a></h3>
+<h2>2.2 Persiapan library dan import file tanpa menggunakan database<a class="headerlink" href="#persiapan-library-dan-import-file-tanpa-menggunakan-database" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">drive</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -560,7 +579,7 @@ Berikut adalah hasil jika PostgreSQL dapat connect dengan aplikasi orange yang d
 </ul>
 </section>
 <section id="menentukan-path-drive">
-<h3>2.3 Menentukan path drive<a class="headerlink" href="#menentukan-path-drive" title="Link to this heading">#</a></h3>
+<h2>2.3 Menentukan path drive<a class="headerlink" href="#menentukan-path-drive" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/content/drive/MyDrive/tugas/IRIS.csv&quot;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </pre></div>
@@ -568,7 +587,7 @@ Berikut adalah hasil jika PostgreSQL dapat connect dengan aplikasi orange yang d
 <p>Dalam kasus ini file IRIS.csv berada dalam folder tugas, maka path kita arahkan menuju folder tugas, lalu gunakan library pandas untuk membaca isi file nya</p>
 </section>
 <section id="struktur-dataset">
-<h3>2.4 Struktur Dataset<a class="headerlink" href="#struktur-dataset" title="Link to this heading">#</a></h3>
+<h2>2.4 Struktur Dataset<a class="headerlink" href="#struktur-dataset" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -640,7 +659,7 @@ Selain itu, terdapat satu atribut kategorikal yaitu:</p></li>
 </ol>
 </section>
 <section id="statistik-deskriptif-awal-dan-pengecekan-jumlah-class">
-<h3>2.5 Statistik Deskriptif Awal dan pengecekan jumlah class<a class="headerlink" href="#statistik-deskriptif-awal-dan-pengecekan-jumlah-class" title="Link to this heading">#</a></h3>
+<h2>2.5 Statistik Deskriptif Awal dan pengecekan jumlah class<a class="headerlink" href="#statistik-deskriptif-awal-dan-pengecekan-jumlah-class" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 <span class="n">kelas</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="n">jumlah_kelas</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
@@ -721,7 +740,7 @@ Selain itu, terdapat satu atribut kategorikal yaitu:</p></li>
 <p>Lalu nilai jumlah kelas pada dataset iris berjumlah 3 kelas dengan keterangan yang ada diatas</p>
 </section>
 <section id="pengecekan-data-duplikat">
-<h3>2.6 Pengecekan Data Duplikat<a class="headerlink" href="#pengecekan-data-duplikat" title="Link to this heading">#</a></h3>
+<h2>2.6 Pengecekan Data Duplikat<a class="headerlink" href="#pengecekan-data-duplikat" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -732,7 +751,7 @@ Selain itu, terdapat satu atribut kategorikal yaitu:</p></li>
 <p>Jadi setelah dilakukan pengecekan, terdapat data duplikat yaitu ada 3 data duplikat.</p>
 </section>
 <section id="pengecekan-data-null">
-<h3>2.7 Pengecekan Data Null<a class="headerlink" href="#pengecekan-data-null" title="Link to this heading">#</a></h3>
+<h2>2.7 Pengecekan Data Null<a class="headerlink" href="#pengecekan-data-null" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -766,7 +785,7 @@ Selain itu, terdapat satu atribut kategorikal yaitu:</p></li>
 </section>
 </section>
 <section id="analisa-korelasi">
-<h2>3. Analisa korelasi<a class="headerlink" href="#analisa-korelasi" title="Link to this heading">#</a></h2>
+<h1>3. Analisa korelasi<a class="headerlink" href="#analisa-korelasi" title="Link to this heading">#</a></h1>
 <p>Analisis korelasi digunakan untuk mengetahui hubungan antar variabel numerik dalam dataset. Korelasi menunjukkan seberapa kuat hubungan antara dua variabel serta arah hubungannya (positif atau negatif).</p>
 <p>Nilai korelasi berada pada rentang:</p>
 <ul class="simple">
@@ -824,7 +843,7 @@ Selain itu, terdapat satu atribut kategorikal yaitu:</p></li>
 </table>
 </div>
 <section id="interpretasi">
-<h3>Interpretasi<a class="headerlink" href="#interpretasi" title="Link to this heading">#</a></h3>
+<h2>Interpretasi<a class="headerlink" href="#interpretasi" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>petal_length dan petal_width (0.962757) memiliki korelasi positif yang sangat kuat. Hal ini menunjukkan bahwa semakin panjang petal, maka semakin lebar petal.</p></li>
 <li><p>sepal_length dan petal_length (0.871754) menunjukkan hubungan positif yang kuat.</p></li>
@@ -834,33 +853,33 @@ Selain itu, terdapat satu atribut kategorikal yaitu:</p></li>
 </section>
 </section>
 <section id="verifikasi-data">
-<h2>4. Verifikasi Data<a class="headerlink" href="#verifikasi-data" title="Link to this heading">#</a></h2>
+<h1>4. Verifikasi Data<a class="headerlink" href="#verifikasi-data" title="Link to this heading">#</a></h1>
 <p>Berdasarkan hasil eksplorasi sebelumnya, diketahui bahwa dataset terdiri dari 150 data dengan jumlah yang konsisten pada setiap atribut numerik. Hasil pengecekan menggunakan df.isnull().sum() menunjukkan bahwa seluruh kolom memiliki nilai 0 pada bagian null, yang berarti tidak terdapat data kosong (missing value) pada dataset.</p>
 <p>Selanjutnya, dilakukan pengecekan data duplikat menggunakan df.duplicated().sum(), dan diperoleh hasil sebanyak 3 data duplikat. Hal ini menunjukkan bahwa terdapat beberapa baris data yang identik dan berpotensi mempengaruhi hasil analisis jika tidak ditangani.</p>
 </section>
 <section id="visualisasi-data">
-<h2>5. Visualisasi Data<a class="headerlink" href="#visualisasi-data" title="Link to this heading">#</a></h2>
+<h1>5. Visualisasi Data<a class="headerlink" href="#visualisasi-data" title="Link to this heading">#</a></h1>
 <section id="visualisasi-data-menggunakan-python">
-<h3>5.1 Visualisasi data menggunakan Python<a class="headerlink" href="#visualisasi-data-menggunakan-python" title="Link to this heading">#</a></h3>
+<h2>5.1 Visualisasi data menggunakan Python<a class="headerlink" href="#visualisasi-data-menggunakan-python" title="Link to this heading">#</a></h2>
 <section id="distribusi-jumlah-kelas-iris">
-<h4>- Distribusi Jumlah kelas Iris<a class="headerlink" href="#distribusi-jumlah-kelas-iris" title="Link to this heading">#</a></h4>
+<h3>- Distribusi Jumlah kelas Iris<a class="headerlink" href="#distribusi-jumlah-kelas-iris" title="Link to this heading">#</a></h3>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/Gt4lANFXJ1tvApce6vXv0vo4hu08VXJb7_bTkbfgn-M.original.fullsize.png" /></p>
 <p>Grafik bar digunakan untuk melihat jumlah data pada setiap species. Berdasarkan grafik, diketahui bahwa setiap kelas species yaitu Iris-setosa, Iris-versicolor, dan Iris-virginica masing-masing memiliki 50 data. Hal ini menunjukkan bahwa dataset dalam kondisi seimbang (balanced dataset), sehingga tidak terdapat ketimpangan jumlah data antar kelas. Kondisi ini sangat baik untuk proses modeling karena dapat membantu menghasilkan model klasifikasi yang lebih akurat dan tidak bias terhadap kelas tertentu.</p>
 </section>
 <section id="distribusi-data-fitur-numerik-pada-dataset-iris">
-<h4>- Distribusi Data Fitur Numerik pada Dataset Iris<a class="headerlink" href="#distribusi-data-fitur-numerik-pada-dataset-iris" title="Link to this heading">#</a></h4>
+<h3>- Distribusi Data Fitur Numerik pada Dataset Iris<a class="headerlink" href="#distribusi-data-fitur-numerik-pada-dataset-iris" title="Link to this heading">#</a></h3>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/6u595jYczu5oHxd1yDMvEGkfvzQYsyvFrhOICQnLnGY.original.fullsize.png" /></p>
 <p>Berdasarkan histogram, dapat disimpulkan bahwa seluruh fitur numerik memiliki distribusi yang bervariasi dan tidak terdapat anomali yang ekstrem. Fitur petal_length dan petal_width menunjukkan pola distribusi yang lebih jelas dalam membedakan kelompok data, sehingga kedua fitur ini sangat berpotensi menjadi fitur penting dalam proses klasifikasi pada tahap modeling. Visualisasi ini membantu dalam memahami karakteristik dan penyebaran data pada tahap Data Understanding dalam metodologi CRISP-DM.</p>
 </section>
 <section id="visualisasi-scatter-plot-sepal-dan-petal">
-<h4>- Visualisasi scatter plot sepal dan petal<a class="headerlink" href="#visualisasi-scatter-plot-sepal-dan-petal" title="Link to this heading">#</a></h4>
+<h3>- Visualisasi scatter plot sepal dan petal<a class="headerlink" href="#visualisasi-scatter-plot-sepal-dan-petal" title="Link to this heading">#</a></h3>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/Y0D4Vc_bKZyv6KgPthBSm8pOPKFWZf-ZcZEN1qaBDpM.original.fullsize.png" /></p>
 <p>Scatter plot diatas menunjukan hubungan antara sepal_length pada sumbu X dan sepal_width pada sumbu Y. Pada visualisasi ini pola hubungan terlihat lebih menyebar dan tidak membentuk pola linear yang kuat. Penyebaran titik data cenderung acak dan tidak menunjukkan korelasi yang signifikan. Hal ini menunjukkan bahwa hubungan antara kedua fitur tersebut relatif lemah dibandingkan fitur petal. Dengan demikian, fitur sepal kurang efektif dalam membedakan species dibandingkan fitur petal.</p>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/cbXgTI0n7n5F-Hm_QEabnsoY06-1zrCTGJM6BGw0VT4.original.fullsize.png" /></p>
 <p>Scatter plot selanjutnya ini menunjukan hubungan antara petal_length pada sumbu X dan petal_width pada sumbu Y. Titik-titik data membentuk pola naik yang cukup linear, yang menunjukkan bahwa semakin panjang petal, maka semakin lebar petal. Selain itu, terlihat adanya pengelompokan data yang cukup jelas, yang mengindikasikan bahwa kedua fitur ini mampu membedakan species dengan baik. Hal ini mendukung hasil analisis korelasi yang menunjukkan bahwa petal_length dan petal_width memiliki nilai korelasi yang tinggi.</p>
 </section>
 <section id="analisis-penyebaran-data-dan-deteksi-outlier-menggunakan-boxplot">
-<h4>- Analisis Penyebaran Data dan Deteksi Outlier Menggunakan Boxplot<a class="headerlink" href="#analisis-penyebaran-data-dan-deteksi-outlier-menggunakan-boxplot" title="Link to this heading">#</a></h4>
+<h3>- Analisis Penyebaran Data dan Deteksi Outlier Menggunakan Boxplot<a class="headerlink" href="#analisis-penyebaran-data-dan-deteksi-outlier-menggunakan-boxplot" title="Link to this heading">#</a></h3>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/YfGQj5-WjGnpPQF6mWpdtoRSXTPrJIw5sXZ6l769Xo0.original.fullsize.png" /></p>
 <p>Pada setiap kotak:</p>
 <ul class="simple">
@@ -872,45 +891,45 @@ Selain itu, terdapat satu atribut kategorikal yaitu:</p></li>
 </section>
 </section>
 <section id="visualisasi-data-menggunakan-orange">
-<h3>5.2 Visualisasi data menggunakan Orange<a class="headerlink" href="#visualisasi-data-menggunakan-orange" title="Link to this heading">#</a></h3>
+<h2>5.2 Visualisasi data menggunakan Orange<a class="headerlink" href="#visualisasi-data-menggunakan-orange" title="Link to this heading">#</a></h2>
 <section id="statistik-jumlah-keseluruhan-data">
-<h4>- Statistik jumlah keseluruhan data<a class="headerlink" href="#statistik-jumlah-keseluruhan-data" title="Link to this heading">#</a></h4>
+<h3>- Statistik jumlah keseluruhan data<a class="headerlink" href="#statistik-jumlah-keseluruhan-data" title="Link to this heading">#</a></h3>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/HDC--owJyN2brHw80LVv73mBWygr0yxk9lX4t96wFvc.original.fullsize.png" /></p>
 </section>
 <section id="visualisasi-bar-chart">
-<h4>- Visualisasi Bar Chart<a class="headerlink" href="#visualisasi-bar-chart" title="Link to this heading">#</a></h4>
+<h3>- Visualisasi Bar Chart<a class="headerlink" href="#visualisasi-bar-chart" title="Link to this heading">#</a></h3>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/0fNG62bZBym-M-49gaNRJ-AExLKqTm4Y6JaYxtxx_L0.original.fullsize.png" /></p>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/5GkmBEAXfm44a2sSxu5ec27ANj-g9KUY8pKwPG6wNAU.original.fullsize.png" /></p>
 </section>
 <section id="id1">
-<h4>- Visualisasi scatter plot sepal dan petal<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<h3>- Visualisasi scatter plot sepal dan petal<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/wdF8Z79VGVflh2mDtT56v_4f5q5SlGbLHtM778Ut6ac.original.fullsize.png" /></p>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/1K4uhfC_chCDhN56N1oE_UogCOe7cSdr_zdgA9iD8zI.original.fullsize.png" /></p>
 </section>
 <section id="visualisasi-box-plot">
-<h4>- Visualisasi Box plot<a class="headerlink" href="#visualisasi-box-plot" title="Link to this heading">#</a></h4>
+<h3>- Visualisasi Box plot<a class="headerlink" href="#visualisasi-box-plot" title="Link to this heading">#</a></h3>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/0IzZzwtAwUWlcBUmvnfO6rYeciTHx-oNosmnHghUypU.original.fullsize.png" /></p>
 </section>
 <section id="analisa-korelasi-pada-orange">
-<h4>- Analisa korelasi pada orange<a class="headerlink" href="#analisa-korelasi-pada-orange" title="Link to this heading">#</a></h4>
+<h3>- Analisa korelasi pada orange<a class="headerlink" href="#analisa-korelasi-pada-orange" title="Link to this heading">#</a></h3>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/5LdarTZMEcRto-WhHPhbKFnrNfQpFu_pgj1JCbCikyQ.original.fullsize.png" /></p>
 </section>
 </section>
 </section>
 <section id="mengukur-jarak-data">
-<h2>6. Mengukur jarak data<a class="headerlink" href="#mengukur-jarak-data" title="Link to this heading">#</a></h2>
+<h1>6. Mengukur jarak data<a class="headerlink" href="#mengukur-jarak-data" title="Link to this heading">#</a></h1>
 <section id="pengertian-similarity-dan-dissimilarity">
-<h3>6.1 Pengertian Similarity dan Dissimilarity<a class="headerlink" href="#pengertian-similarity-dan-dissimilarity" title="Link to this heading">#</a></h3>
+<h2>6.1 Pengertian Similarity dan Dissimilarity<a class="headerlink" href="#pengertian-similarity-dan-dissimilarity" title="Link to this heading">#</a></h2>
 <section id="similarity">
-<h4>6.1.1 Similarity<a class="headerlink" href="#similarity" title="Link to this heading">#</a></h4>
+<h3>6.1.1 Similarity<a class="headerlink" href="#similarity" title="Link to this heading">#</a></h3>
 <p>Sesuai namanya adalah kemiripan, dalam similarity yang diukur adalah mengukur seberapa mirip dua objek yang sedang disandingkan, semakin besar nilai yang dimiliki maka semakin mirip objek tersebut. Tinggi nilainya berada pada range [0,1]. Semakin tinggi nilai nya, maka semakin mirip objek yang dimaksud</p>
 </section>
 <section id="dissimilarity">
-<h4>6.1.2 Dissimilarity<a class="headerlink" href="#dissimilarity" title="Link to this heading">#</a></h4>
+<h3>6.1.2 Dissimilarity<a class="headerlink" href="#dissimilarity" title="Link to this heading">#</a></h3>
 <p>Terbanding terbalik dengan similarity, Disisimilarity mengukur seberapa berbeda dua objek yang sedang disandingkan. Nilai nya berawal dari 0, semakin besar nilai yang dimiliki, maka semakin tidak mirip objek tersebut.
 Contoh Dissimilarity:</p>
 <section id="minkowski-distance">
-<h5>6.1.2.1 Minkowski Distance<a class="headerlink" href="#minkowski-distance" title="Link to this heading">#</a></h5>
+<h4>6.1.2.1 Minkowski Distance<a class="headerlink" href="#minkowski-distance" title="Link to this heading">#</a></h4>
 <p>Minkowski Distance adalah bentuk generalisasi dari Euclidean dan Manhattan. Artinya Euclidean dan Manhattan adalah bagian dari kelompok
 $<span class="math notranslate nohighlight">\(
 \begin{aligned}
@@ -927,26 +946,26 @@ xi1 = Nilai fitur 1 dari objek ke-i
 xj1 = Nilai fitur 1 dari objek ke-j</p>
 </section>
 <section id="manhattan-distance">
-<h5>6.1.2.2 Manhattan Distance<a class="headerlink" href="#manhattan-distance" title="Link to this heading">#</a></h5>
+<h4>6.1.2.2 Manhattan Distance<a class="headerlink" href="#manhattan-distance" title="Link to this heading">#</a></h4>
 <p>Manhattan Distance mengukur seberapa jauh jarak antara 2 titik dengan menjumlahkan selisih absolut dari koordinatnya. Manhattan distance lebih memliki ketahanan terhadap outlier dibandingkan dengan euclidean distance. Manhattan distance cocok untuk data yang berdimensi tinggi
 $<span class="math notranslate nohighlight">\(
 d(i,j) = |x_{i1} - x_{j1}| + |x_{i2} - x_{j2}| + \cdots + |x_{ip} - x_{jp}|
 \)</span>$</p>
 </section>
 <section id="euclidean-distance">
-<h5>6.1.2.3 Euclidean Distance<a class="headerlink" href="#euclidean-distance" title="Link to this heading">#</a></h5>
+<h4>6.1.2.3 Euclidean Distance<a class="headerlink" href="#euclidean-distance" title="Link to this heading">#</a></h4>
 <p>Yang terakhir ada Euclidean Distance, Euclidean digunakan untuk data bertipe numerik meskipun jarak Euclidean sangat umum dalam pengelompokan. Salah satu permasalahan yang ada dalam Euclidean adalahjarak Euclidean sebagai fitur skala terbesar akan mendominasi yang lain. Normalisasi fitur kontinu adalah solusi untuk mengatasi kelemahan ini.</p>
 <p><span class="math notranslate nohighlight">\(d(i,j) = \sqrt{(x_{i1} - x_{j1}|^2 +| x_{i2} - x_{j2}|^2 + \ldots + |x_{ip} - x_{jp}|^2})\)</span></p>
 </section>
 </section>
 </section>
 <section id="mengukur-jarak-dissimilarity-pada-suatu-dataset">
-<h3>6.2 Mengukur jarak dissimilarity pada suatu dataset<a class="headerlink" href="#mengukur-jarak-dissimilarity-pada-suatu-dataset" title="Link to this heading">#</a></h3>
+<h2>6.2 Mengukur jarak dissimilarity pada suatu dataset<a class="headerlink" href="#mengukur-jarak-dissimilarity-pada-suatu-dataset" title="Link to this heading">#</a></h2>
 <section id="mengukur-jarak-dataset-iris">
-<h4>6.2.1 Mengukur jarak dataset Iris<a class="headerlink" href="#mengukur-jarak-dataset-iris" title="Link to this heading">#</a></h4>
+<h3>6.2.1 Mengukur jarak dataset Iris<a class="headerlink" href="#mengukur-jarak-dataset-iris" title="Link to this heading">#</a></h3>
 <p>Pada dataset Iris diatas, tipe data yang dimiliki adalah bernilai numerik, karena hal itu penghitungan jarak untuk tipe data Iris kali ini akan digunakan metode Eucledian Distance</p>
 <section id="perhitungan-manual">
-<h5>6.2.1.1 Perhitungan manual<a class="headerlink" href="#perhitungan-manual" title="Link to this heading">#</a></h5>
+<h4>6.2.1.1 Perhitungan manual<a class="headerlink" href="#perhitungan-manual" title="Link to this heading">#</a></h4>
 <p>Contoh perhitungan secara manual pada baris 2 dan 3 dengan kolom 1:
 $<span class="math notranslate nohighlight">\(
 d(2,1) = \sqrt{(
@@ -982,7 +1001,7 @@ d(3,1) = \sqrt{(
 \]</div>
 </section>
 <section id="perhitungan-python">
-<h5>6.2.1.2 Perhitungan Python<a class="headerlink" href="#perhitungan-python" title="Link to this heading">#</a></h5>
+<h4>6.2.1.2 Perhitungan Python<a class="headerlink" href="#perhitungan-python" title="Link to this heading">#</a></h4>
 <p>Kita juga dapat menggunakan tools seperti python untuk mempermudah perhitungan ini</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial.distance</span><span class="w"> </span><span class="kn">import</span> <span class="n">pdist</span><span class="p">,</span> <span class="n">squareform</span>
 
@@ -1047,20 +1066,20 @@ d(3,1) = \sqrt{(
 </div>
 </section>
 <section id="perhitungan-orange">
-<h5>6.2.1.3 Perhitungan Orange<a class="headerlink" href="#perhitungan-orange" title="Link to this heading">#</a></h5>
+<h4>6.2.1.3 Perhitungan Orange<a class="headerlink" href="#perhitungan-orange" title="Link to this heading">#</a></h4>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/9PGgc7ny0uksXf9OeJWUUqJ1W74_wYqqPmGLGPGhBL8.original.fullsize.png" />
 3 perhitungan diatas, memiliki kesamaan nilai, artinya perhitungan yang dilakukan sudah dilakukan secara benar dan urut</p>
 </section>
 </section>
 <section id="mengukur-jarak-dataset-tipe-data-campuran">
-<h4>6.2.2 Mengukur jarak dataset Tipe data campuran<a class="headerlink" href="#mengukur-jarak-dataset-tipe-data-campuran" title="Link to this heading">#</a></h4>
+<h3>6.2.2 Mengukur jarak dataset Tipe data campuran<a class="headerlink" href="#mengukur-jarak-dataset-tipe-data-campuran" title="Link to this heading">#</a></h3>
 <p>Dataset yang digunakan untuk contoh kali ini adalah dataset berjudu; ‘Student Alcohol Consumption’. Dimana dataset ini memiliki sekitar 30 fitur di dalam nya. Namun pada penugasan kali ini, kami menggunakan hanya 7 fitur diantaranya yaitu fitur sex, age, Medu, Fedu, Fjob, activities, schoolsup. Dimana tipe data Binary dimiliki oleh [sex, activities, schoolsup] lalu tipe data numerik [Age] dan tipe data kategorikal [fjob] terakhir adalah tipe data ordinal [medu, fedu].
 <a class="reference external" href="https://www.kaggle.com/datasets/uciml/student-alcohol-consumption">Dataset Student alcohol consumption</a></p>
 <section id="id2">
-<h5>6.2.2.1 Perhitungan manual<a class="headerlink" href="#id2" title="Link to this heading">#</a></h5>
+<h4>6.2.2.1 Perhitungan manual<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
 <p>Contoh perhitungan manual antara baris 1 dan 2</p>
 <section id="hitung-ordinal-dan-numerik-pada-baris-1-dan-2-lalu-1-dan-3">
-<h6>1. Hitung ordinal dan numerik pada baris 1 dan 2 lalu 1 dan 3<a class="headerlink" href="#hitung-ordinal-dan-numerik-pada-baris-1-dan-2-lalu-1-dan-3" title="Link to this heading">#</a></h6>
+<h5>1. Hitung ordinal dan numerik pada baris 1 dan 2 lalu 1 dan 3<a class="headerlink" href="#hitung-ordinal-dan-numerik-pada-baris-1-dan-2-lalu-1-dan-3" title="Link to this heading">#</a></h5>
 <p>Untuk menghitung tipe data ordinal kita perlu melakukan normalisasi terhadap data tersebut dengan rumus</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1095,7 +1114,7 @@ d(1,3) = \sqrt{(0-1)^2 + (0-1)^2 + (15-18)^2} = \sqrt{1+1+9} = \sqrt{11} = 3,316
 \]</div>
 </section>
 <section id="hitung-binary-pada-baris-1-dan-2-lal-baris-1-dan-3">
-<h6>2. Hitung Binary pada baris 1 dan 2 lal baris 1 dan 3<a class="headerlink" href="#hitung-binary-pada-baris-1-dan-2-lal-baris-1-dan-3" title="Link to this heading">#</a></h6>
+<h5>2. Hitung Binary pada baris 1 dan 2 lal baris 1 dan 3<a class="headerlink" href="#hitung-binary-pada-baris-1-dan-2-lal-baris-1-dan-3" title="Link to this heading">#</a></h5>
 <p>Pertama kita perlu mengidentifikasi, apakah data binary yang kita miliki simetris atau asimetris. Cara untuk mengidentifikasi nya adalah ketika data tersebut tidak memiliki tingkatan, maka dia simetris sebagai contoh <strong>gender</strong>. Jika data tersebut memiliki tingkatan maka dia asimetris sebagai contoh <strong>penyakit</strong>.</p>
 <p>Untuk rumus simetris adalah sebagai berikut:</p>
 <div class="math notranslate nohighlight">
@@ -1203,7 +1222,7 @@ d(1,3) = 0
 \]</div>
 </section>
 <section id="hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3">
-<h6>3. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3<a class="headerlink" href="#hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3" title="Link to this heading">#</a></h6>
+<h5>3. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3<a class="headerlink" href="#hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3" title="Link to this heading">#</a></h5>
 <p>Untuk melakuka perhitungan kategori, ada beberapa hal yang perlu diperhatikan, pertama adalah jumlah fitur yang dimiliki, kedua adalah data yang sama yang sedang dibandingkan, maka rumusnya dapat ditulis sebagai berikut:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1226,7 +1245,7 @@ d(1,3) = \frac{1-0}{1} = 1
 \]</div>
 </section>
 <section id="hasil-akhir-perhitungan-baris-1-dan-2-lalu-baris-1-dan-3">
-<h6>3. Hasil Akhir perhitungan baris 1 dan 2 lalu baris 1 dan 3<a class="headerlink" href="#hasil-akhir-perhitungan-baris-1-dan-2-lalu-baris-1-dan-3" title="Link to this heading">#</a></h6>
+<h5>3. Hasil Akhir perhitungan baris 1 dan 2 lalu baris 1 dan 3<a class="headerlink" href="#hasil-akhir-perhitungan-baris-1-dan-2-lalu-baris-1-dan-3" title="Link to this heading">#</a></h5>
 <p>Nilai dari hasil perhitungan sebelumnya akan kita jumlahkan seluruhnya</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1236,7 +1255,6 @@ d(1,2) = 1,732 + 0 + 1 + 1 = 3,732
 \[
 d(1,3) = 3,316 + 0 + 0 + 1 = 4,316
 \]</div>
-</section>
 </section>
 </section>
 </section>
@@ -1283,11 +1301,11 @@ d(1,3) = 3,316 + 0 + 0 + 1 = 4,316
       </div>
     </a>
     <a class="right-next"
-       href="Data%20Preparation.html"
+       href="Missing%20Values%20And%20Normalization.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Data Preparation</p>
+        <p class="prev-next-title">Missing Values Inputation dan normalisasi data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1307,78 +1325,80 @@ d(1,3) = 3,316 + 0 + 0 + 1 = 4,316
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">1. Sumber Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-dataset">2. Eksplorasi Dataset</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-pyhton-ke-database">2.1 Connect Pyhton ke Database</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-mysql-ke-python">2.1.1 Connect MySQL ke Python</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-postgresql-ke-python">2.1.2 Connect PostgreSQL ke Python</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-postgresql-ke-orange">2.1.3 Connect PostgreSQL ke Orange</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Understanding</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">1. Sumber Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-dataset">2. Eksplorasi Dataset</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-pyhton-ke-database">2.1 Connect Pyhton ke Database</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-mysql-ke-python">2.1.1 Connect MySQL ke Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-postgresql-ke-python">2.1.2 Connect PostgreSQL ke Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-postgresql-ke-orange">2.1.3 Connect PostgreSQL ke Orange</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-library-dan-import-file-tanpa-menggunakan-database">2.2 Persiapan library dan import file tanpa menggunakan database</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-drive">2.3 Menentukan path drive</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-dataset">2.4 Struktur Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif-awal-dan-pengecekan-jumlah-class">2.5 Statistik Deskriptif Awal dan pengecekan jumlah class</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-duplikat">2.6 Pengecekan Data Duplikat</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-null">2.7 Pengecekan Data Null</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-library-dan-import-file-tanpa-menggunakan-database">2.2 Persiapan library dan import file tanpa menggunakan database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-drive">2.3 Menentukan path drive</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-dataset">2.4 Struktur Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif-awal-dan-pengecekan-jumlah-class">2.5 Statistik Deskriptif Awal dan pengecekan jumlah class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-duplikat">2.6 Pengecekan Data Duplikat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-data-null">2.7 Pengecekan Data Null</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisa-korelasi">3. Analisa korelasi</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi">Interpretasi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisa-korelasi">3. Analisa korelasi</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi">Interpretasi</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-data">4. Verifikasi Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">5. Visualisasi Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-menggunakan-python">5.1 Visualisasi data menggunakan Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-jumlah-kelas-iris">- Distribusi Jumlah kelas Iris</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-data-fitur-numerik-pada-dataset-iris">- Distribusi Data Fitur Numerik pada Dataset Iris</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-scatter-plot-sepal-dan-petal">- Visualisasi scatter plot sepal dan petal</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-penyebaran-data-dan-deteksi-outlier-menggunakan-boxplot">- Analisis Penyebaran Data dan Deteksi Outlier Menggunakan Boxplot</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-data">4. Verifikasi Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">5. Visualisasi Data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-menggunakan-python">5.1 Visualisasi data menggunakan Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-jumlah-kelas-iris">- Distribusi Jumlah kelas Iris</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-data-fitur-numerik-pada-dataset-iris">- Distribusi Data Fitur Numerik pada Dataset Iris</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-scatter-plot-sepal-dan-petal">- Visualisasi scatter plot sepal dan petal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-penyebaran-data-dan-deteksi-outlier-menggunakan-boxplot">- Analisis Penyebaran Data dan Deteksi Outlier Menggunakan Boxplot</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-menggunakan-orange">5.2 Visualisasi data menggunakan Orange</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-jumlah-keseluruhan-data">- Statistik jumlah keseluruhan data</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-bar-chart">- Visualisasi Bar Chart</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">- Visualisasi scatter plot sepal dan petal</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-box-plot">- Visualisasi Box plot</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analisa-korelasi-pada-orange">- Analisa korelasi pada orange</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-data">6. Mengukur jarak data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-similarity-dan-dissimilarity">6.1 Pengertian Similarity dan Dissimilarity</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity">6.1.1 Similarity</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity">6.1.2 Dissimilarity</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#minkowski-distance">6.1.2.1 Minkowski Distance</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#manhattan-distance">6.1.2.2 Manhattan Distance</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#euclidean-distance">6.1.2.3 Euclidean Distance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-menggunakan-orange">5.2 Visualisasi data menggunakan Orange</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-jumlah-keseluruhan-data">- Statistik jumlah keseluruhan data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-bar-chart">- Visualisasi Bar Chart</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">- Visualisasi scatter plot sepal dan petal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-box-plot">- Visualisasi Box plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisa-korelasi-pada-orange">- Analisa korelasi pada orange</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-dissimilarity-pada-suatu-dataset">6.2 Mengukur jarak dissimilarity pada suatu dataset</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-dataset-iris">6.2.1 Mengukur jarak dataset Iris</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manual">6.2.1.1 Perhitungan manual</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-python">6.2.1.2 Perhitungan Python</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-orange">6.2.1.3 Perhitungan Orange</a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-dataset-tipe-data-campuran">6.2.2 Mengukur jarak dataset Tipe data campuran</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.2.2.1 Perhitungan manual</a><ul class="nav section-nav flex-column">
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-ordinal-dan-numerik-pada-baris-1-dan-2-lalu-1-dan-3">1. Hitung ordinal dan numerik pada baris 1 dan 2 lalu 1 dan 3</a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-binary-pada-baris-1-dan-2-lal-baris-1-dan-3">2. Hitung Binary pada baris 1 dan 2 lal baris 1 dan 3</a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3">3. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3</a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-perhitungan-baris-1-dan-2-lalu-baris-1-dan-3">3. Hasil Akhir perhitungan baris 1 dan 2 lalu baris 1 dan 3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-data">6. Mengukur jarak data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-similarity-dan-dissimilarity">6.1 Pengertian Similarity dan Dissimilarity</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity">6.1.1 Similarity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity">6.1.2 Dissimilarity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#minkowski-distance">6.1.2.1 Minkowski Distance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manhattan-distance">6.1.2.2 Manhattan Distance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euclidean-distance">6.1.2.3 Euclidean Distance</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-dissimilarity-pada-suatu-dataset">6.2 Mengukur jarak dissimilarity pada suatu dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-dataset-iris">6.2.1 Mengukur jarak dataset Iris</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manual">6.2.1.1 Perhitungan manual</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-python">6.2.1.2 Perhitungan Python</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-orange">6.2.1.3 Perhitungan Orange</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-dataset-tipe-data-campuran">6.2.2 Mengukur jarak dataset Tipe data campuran</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.2.2.1 Perhitungan manual</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-ordinal-dan-numerik-pada-baris-1-dan-2-lalu-1-dan-3">1. Hitung ordinal dan numerik pada baris 1 dan 2 lalu 1 dan 3</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-binary-pada-baris-1-dan-2-lal-baris-1-dan-3">2. Hitung Binary pada baris 1 dan 2 lal baris 1 dan 3</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-kategorikal-pada-baris-1-dan-2-dan-baris-1-dan-3">3. Hitung Kategorikal pada baris 1 dan 2 dan baris 1 dan 3</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-perhitungan-baris-1-dan-2-lalu-baris-1-dan-3">3. Hasil Akhir perhitungan baris 1 dan 2 lalu baris 1 dan 3</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

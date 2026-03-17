@@ -1,4 +1,4 @@
-# Missing Values Inputation dan normalisasi data
+## Missing Values Inputation dan normalisasi data
 
 ## 1. Missing values inputation dengan metode WKNN
 

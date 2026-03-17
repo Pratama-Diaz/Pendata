@@ -1,4 +1,4 @@
-# Data Understanding
+## Data Understanding
 
 Tahap Data Understanding merupakan fase awal dalam metodologi CRISP-DM setelah tahap Business Understanding selesai dilakukan. Pada tahap ini, fokus utama adalah memahami data yang akan digunakan dalam proses analisis sebelum dilakukan persiapan atau pemodelan lebih lanjut.
 
