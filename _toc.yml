@@ -1,0 +1,13 @@
+﻿format: jb-book
+root: intro
+chapters:
+- file: md/00_intro
+  title: "240411100065 - Diaz Rizki Pratama"
+- file: md/01_businessUnderstanding
+  title: "businessUnderstanding"
+- file: md/02_dataPreparation
+  title: "dataPreparation"
+- file: md/03_UTS
+  title: "UTS"
+- file: md/04_dataUnderstanding
+  title: "dataUnderstanding"
