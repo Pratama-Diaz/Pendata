@@ -382,20 +382,20 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keterangan">Keterangan:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">3. Dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-perhitungan">4. Proses Perhitungan</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-menggunakan-excel">4.1 Perhitungan Menggunakan Excel</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-probabilitas-prior">4.1.1 Menghitung Probabilitas Prior</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-probabilitas-likelihood">4.1.2 Menghitung Probabilitas Likelihood</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-likelihood-gabungan">4.1.3 Menghitung Likelihood Gabungan</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-posterior">4.1.4 Menghitung Posterior</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-hasil-klasifikasi">4.1.5 Menentukan Hasil Klasifikasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">2. Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-perhitungan">3. Proses Perhitungan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-menggunakan-excel">3.1 Perhitungan Menggunakan Excel</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-probabilitas-prior">3.1.1 Menghitung Probabilitas Prior</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-probabilitas-likelihood">3.1.2 Menghitung Probabilitas Likelihood</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-likelihood-gabungan">3.1.3 Menghitung Likelihood Gabungan</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-posterior">3.1.4 Menghitung Posterior</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-hasil-klasifikasi">3.1.5 Menentukan Hasil Klasifikasi</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-menggunakan-knime-script-python">4.2 Perhitungan Menggunakan KNIME Script Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#node-csv-reader">4.2.1 Node csv reader</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-values">4.2.1 Missing values</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#node-python-script">4.2.1 Node python script</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-menggunakan-knime-script-python">3.2 Perhitungan Menggunakan KNIME Script Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#node-csv-reader">3.2.1 Node csv reader</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-values">3.2.2 Missing values</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#node-python-script">3.2.3 Node python script</a></li>
 </ul>
 </li>
 </ul>
@@ -435,7 +435,7 @@ P(C_i \mid X) = \frac{P(X \mid C_i) \cdot P(C_i)}{P(X)}
 </section>
 </section>
 <section id="dataset">
-<h2>3. Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h2>
+<h2>2. Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h2>
 <p>Dataset yang digunakan dalam penelitian ini adalah <strong>Play Tennis Dataset: Weather-based Classifier</strong></p>
 <p><a class="reference external" href="https://www.kaggle.com/datasets/milapgohil/play-tennis-dataset-weather-based-classifier">Dataset</a></p>
 <p>Dataset ini mengenai keputusan akan melakukan olahraga tennis atau tidak berdasarkan fitur yang ada. data diperoleh dari Kaggle.</p>
@@ -473,9 +473,9 @@ P(C_i \mid X) = \frac{P(X \mid C_i) \cdot P(C_i)}{P(X)}
 </ol>
 </section>
 <section id="proses-perhitungan">
-<h2>4. Proses Perhitungan<a class="headerlink" href="#proses-perhitungan" title="Link to this heading">#</a></h2>
+<h2>3. Proses Perhitungan<a class="headerlink" href="#proses-perhitungan" title="Link to this heading">#</a></h2>
 <section id="perhitungan-menggunakan-excel">
-<h3>4.1 Perhitungan Menggunakan Excel<a class="headerlink" href="#perhitungan-menggunakan-excel" title="Link to this heading">#</a></h3>
+<h3>3.1 Perhitungan Menggunakan Excel<a class="headerlink" href="#perhitungan-menggunakan-excel" title="Link to this heading">#</a></h3>
 <p>Terdapat  20 data yang digunakan dalam perhitungan manual ini, dimana data dibagi dengan perbandingan 80:20. Dengan data training 16 dan data testing 4.</p>
 <p>Data training:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -648,7 +648,7 @@ P(C_i \mid X) = \frac{P(X \mid C_i) \cdot P(C_i)}{P(X)}
 </table>
 </div>
 <section id="menghitung-probabilitas-prior">
-<h4>4.1.1 Menghitung Probabilitas Prior<a class="headerlink" href="#menghitung-probabilitas-prior" title="Link to this heading">#</a></h4>
+<h4>3.1.1 Menghitung Probabilitas Prior<a class="headerlink" href="#menghitung-probabilitas-prior" title="Link to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
 \[
 P(C_i) = \frac{\text{jumlah data pada kelas } C_i}{\text{total data}}
@@ -657,35 +657,34 @@ P(C_i) = \frac{\text{jumlah data pada kelas } C_i}{\text{total data}}
 <img alt="original image" src="https://cdn.mathpix.com/snip/images/MbTREEMwmbSxujp2K02E8Joyj4SgzX1o8gRKoqIimwg.original.fullsize.png" /></p>
 </section>
 <section id="menghitung-probabilitas-likelihood">
-<h4>4.1.2 Menghitung Probabilitas Likelihood<a class="headerlink" href="#menghitung-probabilitas-likelihood" title="Link to this heading">#</a></h4>
+<h4>3.1.2 Menghitung Probabilitas Likelihood<a class="headerlink" href="#menghitung-probabilitas-likelihood" title="Link to this heading">#</a></h4>
 <p>a. Untuk data kategorikal/biner:
-$<span class="math notranslate nohighlight">\(
+<span class="math notranslate nohighlight">\(
 P(x_j \mid C_i) = \frac{\text{jumlah kemunculan } x_j \text{ pada } C_i}{\text{jumlah data pada } C_i}
-\)</span>$
+\)</span>
 Selanjutnya perhitungan likelihood dilakukan berdasarkan nilai prior yang fitur miliki. Hasil akhirnya sebagai berikut:
 <img alt="original image" src="https://cdn.mathpix.com/snip/images/uytIyzFkN_q67pZ5wkVoe1AppmaRQRLN-ZTAHNrbdAQ.original.fullsize.png" />
 Misal Outlook memiliki 4 kategori, maka ke 4 nya dihitung dengan nilai prior yes dan no seperti gambar diatas</p>
 <p>Lalu kita lihat berdasarkan data testing yang digunakan, sebagai contoh data D17, maka pilih likelihood yang sesuai dengan nilai diatas untuk dikalikan semuanya. Hasil akhir akan ada di likelihood gabungan</p>
 </section>
 <section id="menghitung-likelihood-gabungan">
-<h4>4.1.3 Menghitung Likelihood Gabungan<a class="headerlink" href="#menghitung-likelihood-gabungan" title="Link to this heading">#</a></h4>
-<div class="math notranslate nohighlight">
-\[
+<h4>3.1.3 Menghitung Likelihood Gabungan<a class="headerlink" href="#menghitung-likelihood-gabungan" title="Link to this heading">#</a></h4>
+<p><span class="math notranslate nohighlight">\(
 P(X \mid C_i) = \prod_{j=1}^{n} P(x_j \mid C_i)
-\]</div>
-<p>Hasil akhir akan seperti ini:</p>
+\)</span>
+Hasil akhir akan seperti ini:</p>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/r6sHgk8F8FuAcRgGra3YDH-L0TljCqHP5a9Q5I8ncJo.original.fullsize.png" /></p>
 </section>
 <section id="menghitung-posterior">
-<h4>4.1.4 Menghitung Posterior<a class="headerlink" href="#menghitung-posterior" title="Link to this heading">#</a></h4>
+<h4>3.1.4 Menghitung Posterior<a class="headerlink" href="#menghitung-posterior" title="Link to this heading">#</a></h4>
 <p>Selanjutnya kita hitung posterion dengan cara mengkalikan nilai prior dengan likelihood gabungan
-$<span class="math notranslate nohighlight">\(
+<span class="math notranslate nohighlight">\(
 P(X \mid C_i) \cdot P(C_i)
-\)</span>$
-<img alt="original image" src="https://cdn.mathpix.com/snip/images/Reh_NsjO2O7ZUCB4tCi7L4CERGapsr7XLGMKvXtqmXg.original.fullsize.png" /></p>
+\)</span></p>
+<p><img alt="original image" src="https://cdn.mathpix.com/snip/images/Reh_NsjO2O7ZUCB4tCi7L4CERGapsr7XLGMKvXtqmXg.original.fullsize.png" /></p>
 </section>
 <section id="menentukan-hasil-klasifikasi">
-<h4>4.1.5 Menentukan Hasil Klasifikasi<a class="headerlink" href="#menentukan-hasil-klasifikasi" title="Link to this heading">#</a></h4>
+<h4>3.1.5 Menentukan Hasil Klasifikasi<a class="headerlink" href="#menentukan-hasil-klasifikasi" title="Link to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
 \[
 \hat{C} = \arg\max_{C_i} \left[ P(C_i) \cdot P(X \mid C_i) \right]
@@ -699,7 +698,7 @@ maka hasil = <strong>Yes</strong></p></li>
 </section>
 </section>
 <section id="perhitungan-menggunakan-knime-script-python">
-<h3>4.2 Perhitungan Menggunakan KNIME Script Python<a class="headerlink" href="#perhitungan-menggunakan-knime-script-python" title="Link to this heading">#</a></h3>
+<h3>3.2 Perhitungan Menggunakan KNIME Script Python<a class="headerlink" href="#perhitungan-menggunakan-knime-script-python" title="Link to this heading">#</a></h3>
 <p>Pada tahap ini kita gunakan knime dengan menggunakan seluruh dataset yang ada</p>
 <p>Langkah-langkah:</p>
 <ol class="arabic simple">
@@ -708,18 +707,18 @@ maka hasil = <strong>Yes</strong></p></li>
 <li><p>Masukkan python script pada node script python</p></li>
 </ol>
 <section id="node-csv-reader">
-<h4>4.2.1 Node csv reader<a class="headerlink" href="#node-csv-reader" title="Link to this heading">#</a></h4>
-<p><img alt="original image" src="https://cdn.mathpix.com/snip/images/MbrhanYpFUG_G9s0or9cjZW6Rhw8_O-P3twzBLjU1cM.original.fullsize.png" />
-Gunakan node ini untuk membaca data dari csv yang ada. Hasilnya:
-<img alt="original image" src="https://cdn.mathpix.com/snip/images/OCMAKvGpz77v0TtIsnuhmko8I_V9zsIb3aibL1Xadmk.original.fullsize.png" /></p>
+<h4>3.2.1 Node csv reader<a class="headerlink" href="#node-csv-reader" title="Link to this heading">#</a></h4>
+<p><img alt="original image" src="https://cdn.mathpix.com/snip/images/MbrhanYpFUG_G9s0or9cjZW6Rhw8_O-P3twzBLjU1cM.original.fullsize.png" /></p>
+<p>Gunakan node ini untuk membaca data dari csv yang ada. Hasilnya:</p>
+<p><img alt="original image" src="https://cdn.mathpix.com/snip/images/OCMAKvGpz77v0TtIsnuhmko8I_V9zsIb3aibL1Xadmk.original.fullsize.png" /></p>
 </section>
 <section id="missing-values">
-<h4>4.2.1 Missing values<a class="headerlink" href="#missing-values" title="Link to this heading">#</a></h4>
+<h4>3.2.2 Missing values<a class="headerlink" href="#missing-values" title="Link to this heading">#</a></h4>
 <p><img alt="original image" src="https://cdn.mathpix.com/snip/images/ZEDbXstQJvUyrOM4Lewgt89u9e2WSF7IJExsU6i-JTE.original.fullsize.png" /></p>
 <p>Digunakan remove row jika terdapat missing value di dalamnya,namun dapat dilihat jumlah data tetap konsisten artinya data tidak terdapat missing value di dalamnya.</p>
 </section>
 <section id="node-python-script">
-<h4>4.2.1 Node python script<a class="headerlink" href="#node-python-script" title="Link to this heading">#</a></h4>
+<h4>3.2.3 Node python script<a class="headerlink" href="#node-python-script" title="Link to this heading">#</a></h4>
 <p>Code dalam node script python</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">knime.scripting.io</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">knio</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -858,20 +857,20 @@ Lalu hasil accuracy seperti dibawah ini:</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keterangan">Keterangan:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">3. Dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-perhitungan">4. Proses Perhitungan</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-menggunakan-excel">4.1 Perhitungan Menggunakan Excel</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-probabilitas-prior">4.1.1 Menghitung Probabilitas Prior</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-probabilitas-likelihood">4.1.2 Menghitung Probabilitas Likelihood</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-likelihood-gabungan">4.1.3 Menghitung Likelihood Gabungan</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-posterior">4.1.4 Menghitung Posterior</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-hasil-klasifikasi">4.1.5 Menentukan Hasil Klasifikasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">2. Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-perhitungan">3. Proses Perhitungan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-menggunakan-excel">3.1 Perhitungan Menggunakan Excel</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-probabilitas-prior">3.1.1 Menghitung Probabilitas Prior</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-probabilitas-likelihood">3.1.2 Menghitung Probabilitas Likelihood</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-likelihood-gabungan">3.1.3 Menghitung Likelihood Gabungan</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-posterior">3.1.4 Menghitung Posterior</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-hasil-klasifikasi">3.1.5 Menentukan Hasil Klasifikasi</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-menggunakan-knime-script-python">4.2 Perhitungan Menggunakan KNIME Script Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#node-csv-reader">4.2.1 Node csv reader</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-values">4.2.1 Missing values</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#node-python-script">4.2.1 Node python script</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-menggunakan-knime-script-python">3.2 Perhitungan Menggunakan KNIME Script Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#node-csv-reader">3.2.1 Node csv reader</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-values">3.2.2 Missing values</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#node-python-script">3.2.3 Node python script</a></li>
 </ul>
 </li>
 </ul>

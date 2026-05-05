@@ -19,7 +19,7 @@ $$
 
 
 
-## 3. Dataset
+## 2. Dataset
 
 Dataset yang digunakan dalam penelitian ini adalah **Play Tennis Dataset: Weather-based Classifier** 
 
@@ -58,9 +58,9 @@ Dalam tugas ini, dataset digunakan dengan dua pendekatan:
 
 
 
-## 4. Proses Perhitungan
+## 3. Proses Perhitungan
 
-### 4.1 Perhitungan Menggunakan Excel
+### 3.1 Perhitungan Menggunakan Excel
 Terdapat  20 data yang digunakan dalam perhitungan manual ini, dimana data dibagi dengan perbandingan 80:20. Dengan data training 16 dan data testing 4.
 
 Data training:
@@ -92,7 +92,7 @@ Data test:
 | D20 | Rainy    | Hot         | High     | Strong | No   |
 
 
-#### 4.1.1 Menghitung Probabilitas Prior
+#### 3.1.1 Menghitung Probabilitas Prior
 $$
 P(C_i) = \frac{\text{jumlah data pada kelas } C_i}{\text{total data}}
 $$
@@ -100,7 +100,7 @@ Berdasarkan data training diatas, kita bisa melihat prior dengan hasil sebagai b
 ![original image](https://cdn.mathpix.com/snip/images/MbTREEMwmbSxujp2K02E8Joyj4SgzX1o8gRKoqIimwg.original.fullsize.png)
 
 
-#### 4.1.2 Menghitung Probabilitas Likelihood
+#### 3.1.2 Menghitung Probabilitas Likelihood
 
 a. Untuk data kategorikal/biner:
 $
@@ -113,17 +113,18 @@ Misal Outlook memiliki 4 kategori, maka ke 4 nya dihitung dengan nilai prior yes
 Lalu kita lihat berdasarkan data testing yang digunakan, sebagai contoh data D17, maka pilih likelihood yang sesuai dengan nilai diatas untuk dikalikan semuanya. Hasil akhir akan ada di likelihood gabungan
 
 
-#### 4.1.3 Menghitung Likelihood Gabungan
-$$
+#### 3.1.3 Menghitung Likelihood Gabungan
+$
 P(X \mid C_i) = \prod_{j=1}^{n} P(x_j \mid C_i)
-$$
+$
 Hasil akhir akan seperti ini:
+
 
 ![original image](https://cdn.mathpix.com/snip/images/r6sHgk8F8FuAcRgGra3YDH-L0TljCqHP5a9Q5I8ncJo.original.fullsize.png)
 
 
 
-#### 4.1.4 Menghitung Posterior
+#### 3.1.4 Menghitung Posterior
 Selanjutnya kita hitung posterion dengan cara mengkalikan nilai prior dengan likelihood gabungan
 $
 P(X \mid C_i) \cdot P(C_i)
@@ -132,7 +133,7 @@ $
 ![original image](https://cdn.mathpix.com/snip/images/Reh_NsjO2O7ZUCB4tCi7L4CERGapsr7XLGMKvXtqmXg.original.fullsize.png)
 
 
-#### 4.1.5 Menentukan Hasil Klasifikasi
+#### 3.1.5 Menentukan Hasil Klasifikasi
 $$
 \hat{C} = \arg\max_{C_i} \left[ P(C_i) \cdot P(X \mid C_i) \right]
 $$
@@ -144,7 +145,7 @@ maka hasil = **Yes**
 
 
 
-### 4.2 Perhitungan Menggunakan KNIME Script Python
+### 3.2 Perhitungan Menggunakan KNIME Script Python
 
 Pada tahap ini kita gunakan knime dengan menggunakan seluruh dataset yang ada
 
@@ -153,19 +154,19 @@ Langkah-langkah:
 2. Cek dan tangani missing values
 3. Masukkan python script pada node script python
 
-#### 4.2.1 Node csv reader
+#### 3.2.1 Node csv reader
 ![original image](https://cdn.mathpix.com/snip/images/MbrhanYpFUG_G9s0or9cjZW6Rhw8_O-P3twzBLjU1cM.original.fullsize.png)
 
 Gunakan node ini untuk membaca data dari csv yang ada. Hasilnya:
 
 ![original image](https://cdn.mathpix.com/snip/images/OCMAKvGpz77v0TtIsnuhmko8I_V9zsIb3aibL1Xadmk.original.fullsize.png)
 
-#### 4.2.2 Missing values
+#### 3.2.2 Missing values
 ![original image](https://cdn.mathpix.com/snip/images/ZEDbXstQJvUyrOM4Lewgt89u9e2WSF7IJExsU6i-JTE.original.fullsize.png)
 
 Digunakan remove row jika terdapat missing value di dalamnya,namun dapat dilihat jumlah data tetap konsisten artinya data tidak terdapat missing value di dalamnya.
 
-#### 4.2.3 Node python script
+#### 3.2.3 Node python script
 Code dalam node script python
 ```
 import knime.scripting.io as knio
