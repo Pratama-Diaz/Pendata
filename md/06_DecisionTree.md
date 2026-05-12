@@ -63,11 +63,11 @@ Gain Ratio membandingkan Information Gain dengan Split Information. Jika sebuah 
 
 ## 4. Dataset 
 Dataset yang digunakan dalam tugas ini adalah Mushroom Dataset yang berisi data karakteristik berbagai jenis jamur untuk proses klasifikasi apakah jamur tersebut dapat dimakan (edible) atau beracun (poisonous). Dataset ini memiliki 8124 data dengan 23 atribut, di mana atribut target yang digunakan adalah kolom class. Nilai e pada kolom class menunjukkan jamur dapat dimakan, sedangkan nilai p menunjukkan jamur beracun. Setiap data memiliki beberapa karakteristik fisik seperti bentuk tudung jamur (cap-shape), warna tudung (cap-color), bau (odor), ukuran insang (gill-size), dan habitat jamur. Dataset ini dipilih karena memiliki struktur data yang lengkap, bersih, dan cocok digunakan untuk metode klasifikasi menggunakan algoritma Decision Tree dengan ukuran Gain Ratio pada KNIME Analytics Platform.
-[Data yang digunakan](https://www.kaggle.com/datasets/uciml/mushroom-classification)
 
 Dalam pembangunan pohon keputusan digunakan metode Gain Ratio sebagai ukuran pemilihan atribut terbaik. Gain Ratio dipilih karena dataset mushroom memiliki banyak atribut kategorikal dengan jumlah kategori yang berbeda-beda. Jika hanya menggunakan Information Gain, atribut dengan jumlah kategori lebih banyak cenderung lebih diutamakan sehingga dapat menyebabkan bias dalam pembentukan pohon keputusan. Oleh karena itu, Gain Ratio digunakan untuk mengurangi bias tersebut dengan mempertimbangkan nilai pembagian data (Split Information), sehingga atribut yang dipilih benar-benar memberikan pembagian data yang paling optimal dan menghasilkan model klasifikasi yang lebih akurat.
 
-Sumber dataset : ...
+Sumber dataset : [Data yang digunakan](https://www.kaggle.com/datasets/uciml/mushroom-classification)
+
 ## 5. Implementasi Decision Tree di Knime
 ![original image](https://cdn.mathpix.com/snip/images/dmcgEaDPjlKkbWpitHjfbvUIJ9x7lNwYvfA8sWTUirk.original.fullsize.png)
 
