@@ -13,3 +13,5 @@ chapters:
   title: "Data Preparation"
 - file: md/05_NaiveBayes
   title: "Analisis Data Menggunakan Naive Bayes"
+- file: md/06_DecisionTree
+  title: "Analisis Data Menggunakan Decision Tree dengan Metode Gain Ratio pada KNIME"
