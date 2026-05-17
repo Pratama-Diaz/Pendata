@@ -1,12 +1,12 @@
-﻿format: jb-book
+format: jb-book
 root: intro
 chapters:
 - file: md/00_intro
   title: "240411100065 - Diaz Rizki Pratama"
 - file: md/01_businessUnderstanding
-  title: "businessUnderstanding"
+  title: "01 Businessunderstanding"
 - file: md/02_dataUnderstanding
-  title: "dataUnderstanding"
+  title: "02 Dataunderstanding"
 - file: md/03_UTS
   title: "UTS"
 - file: md/04_datapreparation
@@ -15,3 +15,5 @@ chapters:
   title: "Analisis Data Menggunakan Naive Bayes"
 - file: md/06_DecisionTree
   title: "Analisis Data Menggunakan Decision Tree dengan Metode Gain Ratio pada KNIME"
+- file: md/07_RandomForest
+  title: "Analisis data menggunakan random forest"
