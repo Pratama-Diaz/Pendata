@@ -65,6 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'md/08_LinearRegression';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Analisis data dengan Linear Regression" href="09_LinearRegression.html" />
     <link rel="prev" title="Analisis data menggunakan random forest" href="07_RandomForest.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -188,6 +189,7 @@
 <li class="toctree-l1"><a class="reference internal" href="06_DecisionTree.html">Analisis Data Menggunakan Decision Tree dengan Metode Gain Ratio pada KNIME</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_RandomForest.html">Analisis data menggunakan random forest</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Analisis data dengan Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_LinearRegression.html">Analisis data dengan Linear Regression</a></li>
 </ul>
 
     </div>
@@ -388,7 +390,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-tranpose-matriks-x-t">Hitung tranpose matriks (X^T)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-x-tx">Hitung (X^TX)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-inverse-x-tx-1">Hitung inverse ((X^TX)^{-1})</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-hitung-x-ty">hitung Hitung (X^Ty)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-x-ty">Hitung (X^Ty)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-koefisien-regresi">Hitung Koefisien regresi</a></li>
 </ul>
 </li>
 </ul>
@@ -424,87 +427,87 @@
 <section id="variabel-x">
 <h3>Variabel X<a class="headerlink" href="#variabel-x" title="Link to this heading">#</a></h3>
 <p>Data diatas yang berada pada Variabel X selanjutnya akan dibuat dengan matriks, namun pada variable X ini akan terdapat kolom bias/intercept dengan nilai 1. itu adalah Dummy column placeholder for error variable b0</p>
-<p>[
+<div class="math notranslate nohighlight">
+\[\begin{split}
 X=
 \begin{bmatrix}
-1 &amp; 2\
-1 &amp; 4\
-1 &amp; 3\
-1 &amp; 3\
-1 &amp; 3\
-1 &amp; 4\
+1 &amp; 2 \\
+1 &amp; 4 \\
+1 &amp; 3 \\
+1 &amp; 3 \\
+1 &amp; 3 \\
+1 &amp; 4 \\
 1 &amp; 5
 \end{bmatrix}
-]</p>
+\end{split}\]</div>
 </section>
 <section id="variable-y">
 <h3>Variable Y<a class="headerlink" href="#variable-y" title="Link to this heading">#</a></h3>
 <p>Lakukan hal yang sama juga pada variable Y namun tanpa data dummy
-[
+$<span class="math notranslate nohighlight">\(
 y=
 \begin{bmatrix}
-2\
-3\
-5\
-4\
-3\
-5\
+2 \\
+3 \\
+5 \\
+4 \\
+3 \\
+5 \\
 6
 \end{bmatrix}
-]</p>
+\)</span>$</p>
 </section>
 <section id="hitung-tranpose-matriks-x-t">
 <h3>Hitung tranpose matriks (X^T)<a class="headerlink" href="#hitung-tranpose-matriks-x-t" title="Link to this heading">#</a></h3>
 <p>Transpose dilakukan dengan mengubah baris menjadi kolom.</p>
-<p>[
+<div class="math notranslate nohighlight">
+\[\begin{split}
 X^T=
 \begin{bmatrix}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1\
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
 2 &amp; 4 &amp; 3 &amp; 3 &amp; 3 &amp; 4 &amp; 5
 \end{bmatrix}
-]</p>
+\end{split}\]</div>
 </section>
 <section id="hitung-x-tx">
 <h3>Hitung (X^TX)<a class="headerlink" href="#hitung-x-tx" title="Link to this heading">#</a></h3>
-<p>[
+<div class="math notranslate nohighlight">
+\[\begin{split}
 X^TX=
 \begin{bmatrix}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1\
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
 2 &amp; 4 &amp; 3 &amp; 3 &amp; 3 &amp; 4 &amp; 5
 \end{bmatrix}
 \begin{bmatrix}
-1 &amp; 2\
-1 &amp; 4\
-1 &amp; 3\
-1 &amp; 3\
-1 &amp; 3\
-1 &amp; 4\
+1 &amp; 2 \\
+1 &amp; 4 \\
+1 &amp; 3 \\
+1 &amp; 3 \\
+1 &amp; 3 \\
+1 &amp; 4 \\
 1 &amp; 5
 \end{bmatrix}
-]
-Hasil (X^TX)</p>
-<p>[
+\end{split}\]</div>
+<p>Hasil (X^TX)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 X^TX=
 \begin{bmatrix}
-7 &amp; 24\
+7 &amp; 24 \\
 24 &amp; 88
 \end{bmatrix}
-]</p>
+\end{split}\]</div>
 </section>
 <section id="hitung-inverse-x-tx-1">
 <h3>Hitung inverse ((X^TX)^{-1})<a class="headerlink" href="#hitung-inverse-x-tx-1" title="Link to this heading">#</a></h3>
 <p>Gunakan rumus inverse matriks 2x2:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-A^{-1} =
-\frac{1}{ad-bc}
-\left[
-\begin{array}{cc}
-d &amp; -b \\
+<p>A^-1 = 1 / (ad - bc)</p>
+<p>[
+\begin{bmatrix}
+d &amp; -b \
 -c &amp; a
-\end{array}
-\right]
-\end{split}\]</div>
+\end{bmatrix}
+]</p>
 <p>Hasil Determinan:</p>
 <p>[
 (7)(88)-(24)(24)
@@ -515,40 +518,98 @@ d &amp; -b \\
 <p>[
 =40
 ]</p>
-<p>Hasil inverse:
-(XᵀX)⁻¹ = (1/40) × | 88   -24 |
-| -24    7 |</p>
+<p>Subtitusi ke rumus invers:
+$<span class="math notranslate nohighlight">\(
+(X^TX)^{-1} =
+\left(
+\frac{1}{40}
+\right)
+\begin{bmatrix}
+88 &amp; -24 \\
+-24 &amp; 7
+\end{bmatrix}
+\)</span>$</p>
 <p>\begin{bmatrix}
 2.2 &amp; -0.6 \
 -0.6 &amp; 0.175
 \end{bmatrix}</p>
 </section>
-<section id="hitung-hitung-x-ty">
-<h3>hitung Hitung (X^Ty)<a class="headerlink" href="#hitung-hitung-x-ty" title="Link to this heading">#</a></h3>
-<p>[
+<section id="hitung-x-ty">
+<h3>Hitung (X^Ty)<a class="headerlink" href="#hitung-x-ty" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 X^Ty=
 \begin{bmatrix}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1\
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
 2 &amp; 4 &amp; 3 &amp; 3 &amp; 3 &amp; 4 &amp; 5
 \end{bmatrix}
 \begin{bmatrix}
-2\
-3\
-5\
-4\
-3\
-5\
+2 \\
+3 \\
+5 \\
+4 \\
+3 \\
+5 \\
 6
 \end{bmatrix}
-]</p>
-<p>Hasil (X^Ty)
-[
-X^Ty=
+\end{split}\]</div>
+</section>
+<section id="hitung-koefisien-regresi">
+<h3>Hitung Koefisien regresi<a class="headerlink" href="#hitung-koefisien-regresi" title="Link to this heading">#</a></h3>
+<p>Hitung Koefisien Regresi (\hat{\beta})</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\beta} = (X^TX)^{-1}(X^Ty)
+\]</div>
+<p>Substitusi nilai:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\beta} =
 \begin{bmatrix}
-28\
+2.2 &amp; -0.6 \\
+-0.6 &amp; 0.175
+\end{bmatrix}
+\times
+\begin{bmatrix}
+28 \\
 102
 \end{bmatrix}
-]</p>
+\end{split}\]</div>
+<p>Perhitungan Elemen Pertama</p>
+<div class="math notranslate nohighlight">
+\[
+(2.2 \times 28) + (-0.6 \times 102)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+= 61.6 - 61.2
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+= 0.4
+\]</div>
+<p>Perhitungan Elemen Kedua</p>
+<div class="math notranslate nohighlight">
+\[
+(-0.6 \times 28) + (0.175 \times 102)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+= -16.8 + 17.85
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+= 1.05
+\]</div>
+<p>Hasil Akhir</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\beta} =
+\begin{bmatrix}
+0.4 \\
+1.05
+\end{bmatrix}
+\end{split}\]</div>
 </section>
 </section>
 </section>
@@ -592,6 +653,15 @@ X^Ty=
         <p class="prev-next-title">Analisis data menggunakan random forest</p>
       </div>
     </a>
+    <a class="right-next"
+       href="09_LinearRegression.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Analisis data dengan Linear Regression</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -618,7 +688,8 @@ X^Ty=
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-tranpose-matriks-x-t">Hitung tranpose matriks (X^T)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-x-tx">Hitung (X^TX)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-inverse-x-tx-1">Hitung inverse ((X^TX)^{-1})</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-hitung-x-ty">hitung Hitung (X^Ty)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-x-ty">Hitung (X^Ty)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-koefisien-regresi">Hitung Koefisien regresi</a></li>
 </ul>
 </li>
 </ul>
