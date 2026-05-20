@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Business Understanding &#8212; My sample book</title>
+    <title>Analisis data dengan Linear Regression &#8212; My sample book</title>
   
   
   
@@ -60,11 +60,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'md/01_businessUnderstanding';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'md/08_LinearRegression';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Data Understanding" href="02_dataUnderstanding.html" />
-    <link rel="prev" title="240411100065 - Diaz Rizki Pratama" href="00_intro.html" />
+    <link rel="prev" title="Analisis data menggunakan random forest" href="07_RandomForest.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -170,7 +171,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="00_intro.html">240411100065 - Diaz Rizki Pratama</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Business Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_businessUnderstanding.html">Business Understanding</a></li>
 
 
 
@@ -186,7 +187,7 @@
 <li class="toctree-l1"><a class="reference internal" href="05_NaiveBayes.html">Analisis Data Menggunakan Naive Bayes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_DecisionTree.html">Analisis Data Menggunakan Decision Tree dengan Metode Gain Ratio pada KNIME</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_RandomForest.html">Analisis data menggunakan random forest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_LinearRegression.html">Analisis data dengan Linear Regression</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Analisis data dengan Linear Regression</a></li>
 </ul>
 
     </div>
@@ -263,7 +264,7 @@
       
       
       
-      <li><a href="https://github.com/Diaz-part/Pendata.git/issues/new?title=Issue%20on%20page%20%2Fmd/01_businessUnderstanding.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Diaz-part/Pendata.git/issues/new?title=Issue%20on%20page%20%2Fmd/08_LinearRegression.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -293,7 +294,7 @@
       
       
       
-      <li><a href="../_sources/md/01_businessUnderstanding.md" target="_blank"
+      <li><a href="../_sources/md/08_LinearRegression.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -369,7 +370,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Business Understanding</h1>
+    <h1>Analisis data dengan Linear Regression</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -379,12 +380,18 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Business Understanding</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">1. Latar Belakang</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-bisnis">2. Tujuan Bisnis</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat">3. Manfaat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-tugas">Deskripsi tugas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-manual-koefisien-dan-interception">Analisis Manual Koefisien dan Interception</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-equation">Normal equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variabel-x">Variabel X</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-y">Variable Y</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-tranpose-matriks-x-t">Hitung tranpose matriks (X^T)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-x-tx">Hitung (X^TX)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-inverse-x-tx-1">Hitung inverse ((X^TX)^{-1})</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-hitung-x-ty">hitung Hitung (X^Ty)</a></li>
 </ul>
-
+</li>
+</ul>
             </nav>
         </div>
     </div>
@@ -395,31 +402,155 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="business-understanding">
-<h1>Business Understanding<a class="headerlink" href="#business-understanding" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="analisis-data-dengan-linear-regression">
+<h1>Analisis data dengan Linear Regression<a class="headerlink" href="#analisis-data-dengan-linear-regression" title="Link to this heading">#</a></h1>
+<section id="deskripsi-tugas">
+<h2>Deskripsi tugas<a class="headerlink" href="#deskripsi-tugas" title="Link to this heading">#</a></h2>
+<p>Pada tugas kali ini, diberikan dataset berupa</p>
+<p><img alt="dataset" src="../_images/dataset.jpeg" /></p>
+<p>Dengan dataset tersebut terdapat 1 buah variabel independent dan 1 buah variabel dependent. Tugas kali ini fokus untuk mencari nilai Koefisien (B1) dan Interception (B0). Tujuan nya adalah untuk mencari garis linier terbaik untuk keseluruhan data</p>
 </section>
-<section id="latar-belakang">
-<h1>1. Latar Belakang<a class="headerlink" href="#latar-belakang" title="Link to this heading">#</a></h1>
-<p>Dataset yang digunakan memuat informasi mengenai karakteristik morfologi bunga iris yang terbagi ke dalam tiga jenis, yaitu Iris setosa, Iris versicolor, dan Iris virginica. Masing-masing jenis bunga memiliki perbedaan ukuran pada bagian kelopak (sepal) dan mahkota (petal), yang direpresentasikan melalui empat atribut numerik: sepal length, sepal width, petal length, dan petal width.</p>
-<p>Dalam analisis data, permasalahan yang diangkat adalah bagaimana memanfaatkan atribut-atribut tersebut untuk menentukan jenis spesies bunga iris secara tepat. Dengan kata lain, diperlukan suatu pendekatan analitik yang mampu mengelompokkan atau mengklasifikasikan spesies berdasarkan pola ukuran morfologi yang dimiliki setiap bunga.</p>
+<section id="analisis-manual-koefisien-dan-interception">
+<h2>Analisis Manual Koefisien dan Interception<a class="headerlink" href="#analisis-manual-koefisien-dan-interception" title="Link to this heading">#</a></h2>
+<section id="normal-equation">
+<h3>Normal equation<a class="headerlink" href="#normal-equation" title="Link to this heading">#</a></h3>
+<p>Untuk mencari nilai (b_0) dan juga (b_1) digunakan rumus Normal equation yaitu:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\beta} = (X^T X)^{-1} X^T y
+\]</div>
+<p>Rumus ini digunakan untuk menentukan nilai dari (b_0) dan juga (b_1) nantinya</p>
 </section>
-<section id="tujuan-bisnis">
-<h1>2. Tujuan Bisnis<a class="headerlink" href="#tujuan-bisnis" title="Link to this heading">#</a></h1>
-<p>Adapun tujuan dari analisis ini adalah sebagai berikut:</p>
-<ul class="simple">
-<li><p>Menganalisis hubungan antara ukuran sepal dan petal terhadap perbedaan spesies bunga iris.</p></li>
-<li><p>Mengembangkan model klasifikasi yang dapat digunakan untuk memprediksi jenis bunga iris berdasarkan data pengukuran yang tersedia.</p></li>
-<li><p>Menghasilkan sistem identifikasi spesies yang lebih efisien dan konsisten sehingga dapat mengurangi ketergantungan pada proses identifikasi manual.</p></li>
-</ul>
+<section id="variabel-x">
+<h3>Variabel X<a class="headerlink" href="#variabel-x" title="Link to this heading">#</a></h3>
+<p>Data diatas yang berada pada Variabel X selanjutnya akan dibuat dengan matriks, namun pada variable X ini akan terdapat kolom bias/intercept dengan nilai 1. itu adalah Dummy column placeholder for error variable b0</p>
+<p>[
+X=
+\begin{bmatrix}
+1 &amp; 2\
+1 &amp; 4\
+1 &amp; 3\
+1 &amp; 3\
+1 &amp; 3\
+1 &amp; 4\
+1 &amp; 5
+\end{bmatrix}
+]</p>
 </section>
-<section id="manfaat">
-<h1>3. Manfaat<a class="headerlink" href="#manfaat" title="Link to this heading">#</a></h1>
-<p>Pelaksanaan analisis ini diharapkan memberikan beberapa manfaat, antara lain:</p>
-<ul class="simple">
-<li><p>Memberikan gambaran penerapan tahapan metodologi CRISP-DM dalam studi kasus klasifikasi.</p></li>
-<li><p>Menjadi ilustrasi penggunaan teknik machine learning dalam pengenalan pola data.</p></li>
-<li><p>Mendukung proses pembelajaran terkait pembangunan model klasifikasi berbasis data secara sistematis.</p></li>
-</ul>
+<section id="variable-y">
+<h3>Variable Y<a class="headerlink" href="#variable-y" title="Link to this heading">#</a></h3>
+<p>Lakukan hal yang sama juga pada variable Y namun tanpa data dummy
+[
+y=
+\begin{bmatrix}
+2\
+3\
+5\
+4\
+3\
+5\
+6
+\end{bmatrix}
+]</p>
+</section>
+<section id="hitung-tranpose-matriks-x-t">
+<h3>Hitung tranpose matriks (X^T)<a class="headerlink" href="#hitung-tranpose-matriks-x-t" title="Link to this heading">#</a></h3>
+<p>Transpose dilakukan dengan mengubah baris menjadi kolom.</p>
+<p>[
+X^T=
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1\
+2 &amp; 4 &amp; 3 &amp; 3 &amp; 3 &amp; 4 &amp; 5
+\end{bmatrix}
+]</p>
+</section>
+<section id="hitung-x-tx">
+<h3>Hitung (X^TX)<a class="headerlink" href="#hitung-x-tx" title="Link to this heading">#</a></h3>
+<p>[
+X^TX=
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1\
+2 &amp; 4 &amp; 3 &amp; 3 &amp; 3 &amp; 4 &amp; 5
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 2\
+1 &amp; 4\
+1 &amp; 3\
+1 &amp; 3\
+1 &amp; 3\
+1 &amp; 4\
+1 &amp; 5
+\end{bmatrix}
+]
+Hasil (X^TX)</p>
+<p>[
+X^TX=
+\begin{bmatrix}
+7 &amp; 24\
+24 &amp; 88
+\end{bmatrix}
+]</p>
+</section>
+<section id="hitung-inverse-x-tx-1">
+<h3>Hitung inverse ((X^TX)^{-1})<a class="headerlink" href="#hitung-inverse-x-tx-1" title="Link to this heading">#</a></h3>
+<p>Gunakan rumus inverse matriks 2x2:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A^{-1} =
+\frac{1}{ad-bc}
+\left[
+\begin{array}{cc}
+d &amp; -b \\
+-c &amp; a
+\end{array}
+\right]
+\end{split}\]</div>
+<p>Hasil Determinan:</p>
+<p>[
+(7)(88)-(24)(24)
+]</p>
+<p>[
+=616-576
+]</p>
+<p>[
+=40
+]</p>
+<p>Hasil inverse:
+(XᵀX)⁻¹ = (1/40) × | 88   -24 |
+| -24    7 |</p>
+<p>\begin{bmatrix}
+2.2 &amp; -0.6 \
+-0.6 &amp; 0.175
+\end{bmatrix}</p>
+</section>
+<section id="hitung-hitung-x-ty">
+<h3>hitung Hitung (X^Ty)<a class="headerlink" href="#hitung-hitung-x-ty" title="Link to this heading">#</a></h3>
+<p>[
+X^Ty=
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1\
+2 &amp; 4 &amp; 3 &amp; 3 &amp; 3 &amp; 4 &amp; 5
+\end{bmatrix}
+\begin{bmatrix}
+2\
+3\
+5\
+4\
+3\
+5\
+6
+\end{bmatrix}
+]</p>
+<p>Hasil (X^Ty)
+[
+X^Ty=
+\begin{bmatrix}
+28\
+102
+\end{bmatrix}
+]</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -453,22 +584,13 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="00_intro.html"
+       href="07_RandomForest.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">240411100065 - Diaz Rizki Pratama</p>
+        <p class="prev-next-title">Analisis data menggunakan random forest</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="02_dataUnderstanding.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Data Understanding</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -488,12 +610,18 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Business Understanding</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">1. Latar Belakang</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-bisnis">2. Tujuan Bisnis</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat">3. Manfaat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-tugas">Deskripsi tugas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-manual-koefisien-dan-interception">Analisis Manual Koefisien dan Interception</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-equation">Normal equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variabel-x">Variabel X</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-y">Variable Y</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-tranpose-matriks-x-t">Hitung tranpose matriks (X^T)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-x-tx">Hitung (X^TX)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-inverse-x-tx-1">Hitung inverse ((X^TX)^{-1})</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-hitung-x-ty">hitung Hitung (X^Ty)</a></li>
 </ul>
-
+</li>
+</ul>
   </nav></div>
 
 </div></div>
