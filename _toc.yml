@@ -18,6 +18,4 @@ chapters:
 - file: md/07_RandomForest
   title: "Analisis data menggunakan random forest"
 - file: md/08_LinearRegression
-  title: "Analisis data dengan Linear Regression"
-- file: md/09_LinearRegression
-  title: "Analisis data dengan Linear Regression"
+  title: "LinearRegression"
