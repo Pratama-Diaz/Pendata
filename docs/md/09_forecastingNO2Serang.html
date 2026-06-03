@@ -397,6 +397,7 @@
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemodelan-menggunakan-knn-regression">3. Pemodelan Menggunakan KNN Regression</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uji-korelasi-lag">3.1 Uji Korelasi Lag</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-dataset-supervised">3.2 Pembentukan Dataset Supervised</a></li>
@@ -404,6 +405,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi">3.4 Visualisasi Hasil Prediksi</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">4. Kesimpulan</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-drive">5. File drive</a></li>
 </ul>
@@ -575,10 +577,39 @@ atau dapat dipantau melalui website <a class="reference external" href="https://
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">no2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span> <span class="c1"># 8 (kolom grid)</span>
 </pre></div>
 </div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>📦 Variabel dalam file:
+dict_keys([&#39;t&#39;, &#39;x&#39;, &#39;y&#39;, &#39;crs&#39;, &#39;NO2&#39;])
+&lt;class &#39;numpy.ma.MaskedArray&#39;&gt;
+395
+9
+8
+0.00012387814
+</pre></div>
+</div>
 <p>Untuk memahami bentuk data, dapat dilihat 10 record pertama:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Contoh data pertama:&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">no2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Contoh</span> <span class="n">data</span> <span class="n">pertama</span><span class="p">:</span>
+<span class="p">[[</span><span class="mf">0.0001238781405845657</span> <span class="o">--</span> <span class="o">--</span> <span class="mf">4.7935303882695735e-05</span>
+  <span class="mf">5.105010131956078e-05</span> <span class="mf">6.0547299653990194e-05</span> <span class="mf">4.1275794501416385e-05</span>
+  <span class="mf">5.8968736993847415e-05</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="mf">4.7935303882695735e-05</span> <span class="mf">5.974736632197164e-05</span>
+  <span class="mf">7.798029400873929e-05</span> <span class="mf">6.312130426522344e-05</span> <span class="mf">4.356853605713695e-05</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="mf">5.974736632197164e-05</span> <span class="mf">7.798029400873929e-05</span> <span class="o">--</span>
+  <span class="mf">6.484214100055397e-05</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="mf">5.0653310609050095e-05</span> <span class="mf">0.00011710789112839848</span> <span class="o">--</span>
+  <span class="mf">6.484214100055397e-05</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="mf">4.177606024313718e-05</span> <span class="mf">3.708268195623532e-05</span> <span class="o">--</span> <span class="o">--</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="mf">4.177606024313718e-05</span> <span class="mf">3.708268195623532e-05</span>
+  <span class="mf">3.902178650605492e-05</span> <span class="o">--</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="mf">4.3274485506117344e-05</span> <span class="mf">2.5859582819975913e-05</span>
+  <span class="mf">3.902178650605492e-05</span> <span class="o">--</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="mf">7.63036441639997e-05</span> <span class="mf">6.152599962661043e-05</span><span class="p">]]</span>
 </pre></div>
 </div>
 <p>Dari output tersebut terlihat bahwa data mengandung nilai <code class="docutils literal notranslate"><span class="pre">--</span></code> yang merupakan <em>masked value</em> — kondisi umum pada data satelit akibat tutupan awan atau keterbatasan cakupan orbit.</p>
@@ -650,6 +681,12 @@ atau dapat dipantau melalui website <a class="reference external" href="https://
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah hari missing: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">missing_dates</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Daftar tanggal missing:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">missing_dates</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Jumlah</span> <span class="n">hari</span> <span class="n">missing</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">Daftar</span> <span class="n">tanggal</span> <span class="n">missing</span><span class="p">:</span>
+<span class="n">DatetimeIndex</span><span class="p">([</span><span class="s1">&#39;2025-10-06&#39;</span><span class="p">,</span> <span class="s1">&#39;2026-06-01&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Apabila ditemukan tanggal yang hilang, data dilengkapi kembali menggunakan interpolasi linear berbasis indeks waktu:</p>
@@ -733,6 +770,7 @@ IQR = Q_3 - Q_1
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+<p><img alt="Visualisasi Outlier" src="md/img/outlier.png" /></p>
 <p>Karena data bersifat time series, data outlier tidak dihapus begitu saja melainkan digantikan dengan nilai interpolasi linear agar urutan temporal tetap terjaga:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tandai outlier sebagai NaN</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;NO2_cleaned&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;NO2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span>
@@ -767,7 +805,9 @@ IQR = Q_3 - Q_1
 </section>
 </section>
 </section>
-<hr class="docutils" />
+<section id="id1">
+<h2><img alt="Visualisasi Outlier" src="md/img/outlierDone.png" /><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+</section>
 <section id="pemodelan-menggunakan-knn-regression">
 <h2>3. Pemodelan Menggunakan KNN Regression<a class="headerlink" href="#pemodelan-menggunakan-knn-regression" title="Link to this heading">#</a></h2>
 <section id="uji-korelasi-lag">
@@ -797,6 +837,25 @@ IQR = Q_3 - Q_1
 <span class="nb">print</span><span class="p">(</span><span class="n">correlations</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">15</span><span class="p">)</span>    <span class="mf">0.348152</span>
+<span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">14</span><span class="p">)</span>    <span class="mf">0.371540</span>
+<span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">13</span><span class="p">)</span>    <span class="mf">0.399174</span>
+<span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">12</span><span class="p">)</span>    <span class="mf">0.431341</span>
+<span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">11</span><span class="p">)</span>    <span class="mf">0.463730</span>
+<span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>    <span class="mf">0.483874</span>
+<span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">9</span><span class="p">)</span>     <span class="mf">0.500684</span>
+<span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span>     <span class="mf">0.527356</span>
+<span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span>     <span class="mf">0.559143</span>
+<span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">6</span><span class="p">)</span>     <span class="mf">0.596793</span>
+<span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>     <span class="mf">0.648854</span>
+<span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span>     <span class="mf">0.698740</span>
+<span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>     <span class="mf">0.767762</span>
+<span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>     <span class="mf">0.850199</span>
+<span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>     <span class="mf">0.927461</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+
+</pre></div>
+</div>
 <p>Hasil uji korelasi menunjukkan bahwa semakin pendek jarak lag, semakin tinggi nilai korelasinya terhadap nilai target. Fitur dengan lag t-1 hingga t-5 umumnya memiliki korelasi di atas 0.5, sehingga digunakan sebagai dasar pemilihan skenario eksperimen.</p>
 </section>
 <section id="pembentukan-dataset-supervised">
@@ -810,10 +869,22 @@ IQR = Q_3 - Q_1
 </pre></div>
 </div>
 <p>Contoh output:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>  <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span>  <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>  <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>  <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>    <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="mi">5</span>   <span class="mf">0.000027</span>  <span class="mf">0.000024</span>  <span class="mf">0.000024</span>  <span class="mf">0.000021</span>  <span class="mf">0.000021</span>  <span class="mf">0.000019</span>
-<span class="mi">6</span>   <span class="mf">0.000024</span>  <span class="mf">0.000024</span>  <span class="mf">0.000021</span>  <span class="mf">0.000021</span>  <span class="mf">0.000019</span>  <span class="mf">0.000022</span>
-<span class="o">...</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>  <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span>  <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>  <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>  <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>    <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="mi">5</span>    <span class="mf">0.000047</span>  <span class="mf">0.000044</span>  <span class="mf">0.000050</span>  <span class="mf">0.000051</span>  <span class="mf">0.000051</span>  <span class="mf">0.000052</span>
+<span class="mi">6</span>    <span class="mf">0.000044</span>  <span class="mf">0.000050</span>  <span class="mf">0.000051</span>  <span class="mf">0.000051</span>  <span class="mf">0.000052</span>  <span class="mf">0.000047</span>
+<span class="mi">7</span>    <span class="mf">0.000050</span>  <span class="mf">0.000051</span>  <span class="mf">0.000051</span>  <span class="mf">0.000052</span>  <span class="mf">0.000047</span>  <span class="mf">0.000047</span>
+<span class="mi">8</span>    <span class="mf">0.000051</span>  <span class="mf">0.000051</span>  <span class="mf">0.000052</span>  <span class="mf">0.000047</span>  <span class="mf">0.000047</span>  <span class="mf">0.000043</span>
+<span class="mi">9</span>    <span class="mf">0.000051</span>  <span class="mf">0.000052</span>  <span class="mf">0.000047</span>  <span class="mf">0.000047</span>  <span class="mf">0.000043</span>  <span class="mf">0.000038</span>
+<span class="o">..</span>        <span class="o">...</span>       <span class="o">...</span>       <span class="o">...</span>       <span class="o">...</span>       <span class="o">...</span>       <span class="o">...</span>
+<span class="mi">392</span>  <span class="mf">0.000067</span>  <span class="mf">0.000057</span>  <span class="mf">0.000046</span>  <span class="mf">0.000037</span>  <span class="mf">0.000039</span>  <span class="mf">0.000035</span>
+<span class="mi">393</span>  <span class="mf">0.000057</span>  <span class="mf">0.000046</span>  <span class="mf">0.000037</span>  <span class="mf">0.000039</span>  <span class="mf">0.000035</span>  <span class="mf">0.000043</span>
+<span class="mi">394</span>  <span class="mf">0.000046</span>  <span class="mf">0.000037</span>  <span class="mf">0.000039</span>  <span class="mf">0.000035</span>  <span class="mf">0.000043</span>  <span class="mf">0.000044</span>
+<span class="mi">395</span>  <span class="mf">0.000037</span>  <span class="mf">0.000039</span>  <span class="mf">0.000035</span>  <span class="mf">0.000043</span>  <span class="mf">0.000044</span>  <span class="mf">0.000044</span>
+<span class="mi">396</span>  <span class="mf">0.000039</span>  <span class="mf">0.000035</span>  <span class="mf">0.000043</span>  <span class="mf">0.000044</span>  <span class="mf">0.000044</span>  <span class="mf">0.000044</span>
+
+<span class="p">[</span><span class="mi">392</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">6</span> <span class="n">columns</span><span class="p">]</span>
+<span class="p">(</span><span class="mi">392</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
 </pre></div>
 </div>
 <p><strong>Skenario 2 — 10 Hari Sebelumnya (lag = 10)</strong></p>
@@ -821,6 +892,37 @@ IQR = Q_3 - Q_1
 
 <span class="nb">print</span><span class="p">(</span><span class="n">supervised_df10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">supervised_df10</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Contoh Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>  <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">9</span><span class="p">)</span>  <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span>  <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span>  <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">6</span><span class="p">)</span>  <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>  <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span>  \
+<span class="mi">10</span>    <span class="mf">0.000047</span>  <span class="mf">0.000044</span>  <span class="mf">0.000050</span>  <span class="mf">0.000051</span>  <span class="mf">0.000051</span>  <span class="mf">0.000052</span>  <span class="mf">0.000047</span>   
+<span class="mi">11</span>    <span class="mf">0.000044</span>  <span class="mf">0.000050</span>  <span class="mf">0.000051</span>  <span class="mf">0.000051</span>  <span class="mf">0.000052</span>  <span class="mf">0.000047</span>  <span class="mf">0.000047</span>   
+<span class="mi">12</span>    <span class="mf">0.000050</span>  <span class="mf">0.000051</span>  <span class="mf">0.000051</span>  <span class="mf">0.000052</span>  <span class="mf">0.000047</span>  <span class="mf">0.000047</span>  <span class="mf">0.000043</span>   
+<span class="mi">13</span>    <span class="mf">0.000051</span>  <span class="mf">0.000051</span>  <span class="mf">0.000052</span>  <span class="mf">0.000047</span>  <span class="mf">0.000047</span>  <span class="mf">0.000043</span>  <span class="mf">0.000038</span>   
+<span class="mi">14</span>    <span class="mf">0.000051</span>  <span class="mf">0.000052</span>  <span class="mf">0.000047</span>  <span class="mf">0.000047</span>  <span class="mf">0.000043</span>  <span class="mf">0.000038</span>  <span class="mf">0.000036</span>   
+<span class="o">..</span>         <span class="o">...</span>       <span class="o">...</span>       <span class="o">...</span>       <span class="o">...</span>       <span class="o">...</span>       <span class="o">...</span>       <span class="o">...</span>   
+<span class="mi">392</span>   <span class="mf">0.000071</span>  <span class="mf">0.000069</span>  <span class="mf">0.000068</span>  <span class="mf">0.000066</span>  <span class="mf">0.000065</span>  <span class="mf">0.000067</span>  <span class="mf">0.000057</span>   
+<span class="mi">393</span>   <span class="mf">0.000069</span>  <span class="mf">0.000068</span>  <span class="mf">0.000066</span>  <span class="mf">0.000065</span>  <span class="mf">0.000067</span>  <span class="mf">0.000057</span>  <span class="mf">0.000046</span>   
+<span class="mi">394</span>   <span class="mf">0.000068</span>  <span class="mf">0.000066</span>  <span class="mf">0.000065</span>  <span class="mf">0.000067</span>  <span class="mf">0.000057</span>  <span class="mf">0.000046</span>  <span class="mf">0.000037</span>   
+<span class="mi">395</span>   <span class="mf">0.000066</span>  <span class="mf">0.000065</span>  <span class="mf">0.000067</span>  <span class="mf">0.000057</span>  <span class="mf">0.000046</span>  <span class="mf">0.000037</span>  <span class="mf">0.000039</span>   
+<span class="mi">396</span>   <span class="mf">0.000065</span>  <span class="mf">0.000067</span>  <span class="mf">0.000057</span>  <span class="mf">0.000046</span>  <span class="mf">0.000037</span>  <span class="mf">0.000039</span>  <span class="mf">0.000035</span>   
+
+     <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>  <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>  <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>    <span class="n">NO2</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>  
+<span class="mi">10</span>   <span class="mf">0.000047</span>  <span class="mf">0.000043</span>  <span class="mf">0.000038</span>  <span class="mf">0.000036</span>  
+<span class="mi">11</span>   <span class="mf">0.000043</span>  <span class="mf">0.000038</span>  <span class="mf">0.000036</span>  <span class="mf">0.000033</span>  
+<span class="mi">12</span>   <span class="mf">0.000038</span>  <span class="mf">0.000036</span>  <span class="mf">0.000033</span>  <span class="mf">0.000031</span>  
+<span class="mi">13</span>   <span class="mf">0.000036</span>  <span class="mf">0.000033</span>  <span class="mf">0.000031</span>  <span class="mf">0.000035</span>  
+<span class="mi">14</span>   <span class="mf">0.000033</span>  <span class="mf">0.000031</span>  <span class="mf">0.000035</span>  <span class="mf">0.000039</span>  
+<span class="o">..</span>        <span class="o">...</span>       <span class="o">...</span>       <span class="o">...</span>       <span class="o">...</span>  
+<span class="mi">392</span>  <span class="mf">0.000046</span>  <span class="mf">0.000037</span>  <span class="mf">0.000039</span>  <span class="mf">0.000035</span>  
+<span class="mi">393</span>  <span class="mf">0.000037</span>  <span class="mf">0.000039</span>  <span class="mf">0.000035</span>  <span class="mf">0.000043</span>  
+<span class="mi">394</span>  <span class="mf">0.000039</span>  <span class="mf">0.000035</span>  <span class="mf">0.000043</span>  <span class="mf">0.000044</span>  
+<span class="mi">395</span>  <span class="mf">0.000035</span>  <span class="mf">0.000043</span>  <span class="mf">0.000044</span>  <span class="mf">0.000044</span>  
+<span class="mi">396</span>  <span class="mf">0.000043</span>  <span class="mf">0.000044</span>  <span class="mf">0.000044</span>  <span class="mf">0.000044</span>  
+
+<span class="p">[</span><span class="mi">387</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">11</span> <span class="n">columns</span><span class="p">]</span>
+<span class="p">(</span><span class="mi">387</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -893,6 +995,22 @@ IQR = Q_3 - Q_1
 <span class="n">knn_10</span><span class="p">,</span> <span class="n">y_test_10</span><span class="p">,</span> <span class="n">y_pred_10</span> <span class="o">=</span> <span class="n">train_knn</span><span class="p">(</span><span class="n">supervised_df10</span><span class="p">,</span> <span class="s2">&quot;KNN - 10 Hari Sebelumnya&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+=== KNN - 5 Hari Sebelumnya ===
+Train Size: 313 — Test Size: 79
+RMSE: 0.000008
+R² Score: 0.4535
+MAPE: 10.2991%
+
+=== KNN - 10 Hari Sebelumnya ===
+Train Size: 309 — Test Size: 78
+RMSE: 0.000010
+R² Score: 0.0657
+MAPE: 13.6031%
+
+</pre></div>
+</div>
 </section>
 <section id="visualisasi-hasil-prediksi">
 <h3>3.4 Visualisasi Hasil Prediksi<a class="headerlink" href="#visualisasi-hasil-prediksi" title="Link to this heading">#</a></h3>
@@ -910,7 +1028,8 @@ IQR = Q_3 - Q_1
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Skenario 2 — 10 Hari Sebelumnya</strong></p>
+<p><img alt="Visualisasi Outlier" src="md/img/5day.png" />
+<strong>Skenario 2 — 10 Hari Sebelumnya</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_test_10</span><span class="p">)),</span> <span class="n">y_test_10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Actual&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_pred_10</span><span class="p">)),</span> <span class="n">y_pred_10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Predicted&quot;</span><span class="p">)</span>
@@ -923,7 +1042,9 @@ IQR = Q_3 - Q_1
 </div>
 </section>
 </section>
-<hr class="docutils" />
+<section id="id2">
+<h2><img alt="Visualisasi Outlier" src="md/img/10day.png" /><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+</section>
 <section id="kesimpulan">
 <h2>4. Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
 <p>Berdasarkan seluruh proses yang telah dilakukan, beberapa poin penting dapat disimpulkan:</p>
@@ -1009,6 +1130,7 @@ IQR = Q_3 - Q_1
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemodelan-menggunakan-knn-regression">3. Pemodelan Menggunakan KNN Regression</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uji-korelasi-lag">3.1 Uji Korelasi Lag</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-dataset-supervised">3.2 Pembentukan Dataset Supervised</a></li>
@@ -1016,6 +1138,7 @@ IQR = Q_3 - Q_1
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi">3.4 Visualisasi Hasil Prediksi</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">4. Kesimpulan</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-drive">5. File drive</a></li>
 </ul>

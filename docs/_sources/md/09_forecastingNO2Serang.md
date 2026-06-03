@@ -143,12 +143,45 @@ print(len(no2[0]))  # 9 (baris grid)
 print(len(no2[0][0])) # 8 (kolom grid)
 ```
 
+Output:
+
+```
+📦 Variabel dalam file:
+dict_keys(['t', 'x', 'y', 'crs', 'NO2'])
+<class 'numpy.ma.MaskedArray'>
+395
+9
+8
+0.00012387814
+```
+
 Untuk memahami bentuk data, dapat dilihat 10 record pertama:
 
 ```python
 print("Contoh data pertama:")
 for i in range(0, 10):
     print(no2[i])
+```
+
+Output:
+
+```
+Contoh data pertama:
+[[0.0001238781405845657 -- -- 4.7935303882695735e-05
+  5.105010131956078e-05 6.0547299653990194e-05 4.1275794501416385e-05
+  5.8968736993847415e-05]
+ [-- -- -- 4.7935303882695735e-05 5.974736632197164e-05
+  7.798029400873929e-05 6.312130426522344e-05 4.356853605713695e-05]
+ [-- -- -- -- 5.974736632197164e-05 7.798029400873929e-05 --
+  6.484214100055397e-05]
+ [-- -- -- -- 5.0653310609050095e-05 0.00011710789112839848 --
+  6.484214100055397e-05]
+ [-- -- -- -- 4.177606024313718e-05 3.708268195623532e-05 -- --]
+ [-- -- -- -- 4.177606024313718e-05 3.708268195623532e-05
+  3.902178650605492e-05 --]
+ [-- -- -- -- 4.3274485506117344e-05 2.5859582819975913e-05
+  3.902178650605492e-05 --]
+ [-- -- -- -- 7.63036441639997e-05 6.152599962661043e-05]]
 ```
 
 Dari output tersebut terlihat bahwa data mengandung nilai `--` yang merupakan *masked value* — kondisi umum pada data satelit akibat tutupan awan atau keterbatasan cakupan orbit.
@@ -227,6 +260,14 @@ missing_dates = full_range.difference(df['date'])
 print(f"Jumlah hari missing: {len(missing_dates)}")
 print("Daftar tanggal missing:")
 print(missing_dates)
+```
+
+Output:
+
+```
+Jumlah hari missing: 2
+Daftar tanggal missing:
+DatetimeIndex(['2025-10-06', '2026-06-01'], dtype='datetime64[ns]', freq=None)
 ```
 
 Apabila ditemukan tanggal yang hilang, data dilengkapi kembali menggunakan interpolasi linear berbasis indeks waktu:
@@ -316,6 +357,7 @@ plt.xticks(
 )
 plt.show()
 ```
+![Visualisasi Outlier](img/outlier.png)
 
 Karena data bersifat time series, data outlier tidak dihapus begitu saja melainkan digantikan dengan nilai interpolasi linear agar urutan temporal tetap terjaga:
 
@@ -352,6 +394,7 @@ plt.tight_layout()
 plt.show()
 ```
 
+![Visualisasi Outlier](img/outlierDone.png)
 ---
 
 ## 3. Pemodelan Menggunakan KNN Regression
@@ -388,6 +431,26 @@ correlations = supervised_df30[lag_cols].corrwith(supervised_df30['NO2(t)'])
 print(correlations)
 ```
 
+```
+NO2(t-15)    0.348152
+NO2(t-14)    0.371540
+NO2(t-13)    0.399174
+NO2(t-12)    0.431341
+NO2(t-11)    0.463730
+NO2(t-10)    0.483874
+NO2(t-9)     0.500684
+NO2(t-8)     0.527356
+NO2(t-7)     0.559143
+NO2(t-6)     0.596793
+NO2(t-5)     0.648854
+NO2(t-4)     0.698740
+NO2(t-3)     0.767762
+NO2(t-2)     0.850199
+NO2(t-1)     0.927461
+dtype: float64
+
+```
+
 Hasil uji korelasi menunjukkan bahwa semakin pendek jarak lag, semakin tinggi nilai korelasinya terhadap nilai target. Fitur dengan lag t-1 hingga t-5 umumnya memiliki korelasi di atas 0.5, sehingga digunakan sebagai dasar pemilihan skenario eksperimen.
 
 ### 3.2 Pembentukan Dataset Supervised
@@ -406,10 +469,22 @@ print(supervised_df5.shape)
 Contoh output:
 
 ```
-   NO2(t-5)  NO2(t-4)  NO2(t-3)  NO2(t-2)  NO2(t-1)    NO2(t)
-5   0.000027  0.000024  0.000024  0.000021  0.000021  0.000019
-6   0.000024  0.000024  0.000021  0.000021  0.000019  0.000022
-...
+     NO2(t-5)  NO2(t-4)  NO2(t-3)  NO2(t-2)  NO2(t-1)    NO2(t)
+5    0.000047  0.000044  0.000050  0.000051  0.000051  0.000052
+6    0.000044  0.000050  0.000051  0.000051  0.000052  0.000047
+7    0.000050  0.000051  0.000051  0.000052  0.000047  0.000047
+8    0.000051  0.000051  0.000052  0.000047  0.000047  0.000043
+9    0.000051  0.000052  0.000047  0.000047  0.000043  0.000038
+..        ...       ...       ...       ...       ...       ...
+392  0.000067  0.000057  0.000046  0.000037  0.000039  0.000035
+393  0.000057  0.000046  0.000037  0.000039  0.000035  0.000043
+394  0.000046  0.000037  0.000039  0.000035  0.000043  0.000044
+395  0.000037  0.000039  0.000035  0.000043  0.000044  0.000044
+396  0.000039  0.000035  0.000043  0.000044  0.000044  0.000044
+
+[392 rows x 6 columns]
+(392, 6)
+
 ```
 
 **Skenario 2 — 10 Hari Sebelumnya (lag = 10)**
@@ -421,6 +496,38 @@ print(supervised_df10)
 print(supervised_df10.shape)
 ```
 
+Contoh Output:
+
+```
+     NO2(t-10)  NO2(t-9)  NO2(t-8)  NO2(t-7)  NO2(t-6)  NO2(t-5)  NO2(t-4)  \
+10    0.000047  0.000044  0.000050  0.000051  0.000051  0.000052  0.000047   
+11    0.000044  0.000050  0.000051  0.000051  0.000052  0.000047  0.000047   
+12    0.000050  0.000051  0.000051  0.000052  0.000047  0.000047  0.000043   
+13    0.000051  0.000051  0.000052  0.000047  0.000047  0.000043  0.000038   
+14    0.000051  0.000052  0.000047  0.000047  0.000043  0.000038  0.000036   
+..         ...       ...       ...       ...       ...       ...       ...   
+392   0.000071  0.000069  0.000068  0.000066  0.000065  0.000067  0.000057   
+393   0.000069  0.000068  0.000066  0.000065  0.000067  0.000057  0.000046   
+394   0.000068  0.000066  0.000065  0.000067  0.000057  0.000046  0.000037   
+395   0.000066  0.000065  0.000067  0.000057  0.000046  0.000037  0.000039   
+396   0.000065  0.000067  0.000057  0.000046  0.000037  0.000039  0.000035   
+
+     NO2(t-3)  NO2(t-2)  NO2(t-1)    NO2(t)  
+10   0.000047  0.000043  0.000038  0.000036  
+11   0.000043  0.000038  0.000036  0.000033  
+12   0.000038  0.000036  0.000033  0.000031  
+13   0.000036  0.000033  0.000031  0.000035  
+14   0.000033  0.000031  0.000035  0.000039  
+..        ...       ...       ...       ...  
+392  0.000046  0.000037  0.000039  0.000035  
+393  0.000037  0.000039  0.000035  0.000043  
+394  0.000039  0.000035  0.000043  0.000044  
+395  0.000035  0.000043  0.000044  0.000044  
+396  0.000043  0.000044  0.000044  0.000044  
+
+[387 rows x 11 columns]
+(387, 11)
+```
 ### 3.3 Pelatihan Model dan Evaluasi
 
 Model KNN Regression dilatih menggunakan pembagian data **80% training dan 20% testing** secara kronologis (tidak diacak) untuk menjaga urutan temporal data.
@@ -476,6 +583,24 @@ knn_5,  y_test_5,  y_pred_5  = train_knn(supervised_df5,  "KNN - 5 Hari Sebelumn
 knn_10, y_test_10, y_pred_10 = train_knn(supervised_df10, "KNN - 10 Hari Sebelumnya")
 ```
 
+Output:
+
+```
+
+=== KNN - 5 Hari Sebelumnya ===
+Train Size: 313 — Test Size: 79
+RMSE: 0.000008
+R² Score: 0.4535
+MAPE: 10.2991%
+
+=== KNN - 10 Hari Sebelumnya ===
+Train Size: 309 — Test Size: 78
+RMSE: 0.000010
+R² Score: 0.0657
+MAPE: 13.6031%
+
+```
+
 ### 3.4 Visualisasi Hasil Prediksi
 
 Grafik perbandingan antara nilai aktual dan prediksi ditampilkan untuk masing-masing skenario:
@@ -495,6 +620,7 @@ plt.legend()
 plt.show()
 ```
 
+![Visualisasi Outlier](img/5day.png)
 **Skenario 2 — 10 Hari Sebelumnya**
 
 ```python
@@ -508,6 +634,7 @@ plt.legend()
 plt.show()
 ```
 
+![Visualisasi Outlier](img/10day.png)
 ---
 
 ## 4. Kesimpulan
