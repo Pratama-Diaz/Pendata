@@ -357,7 +357,7 @@ plt.xticks(
 )
 plt.show()
 ```
-![Visualisasi Outlier](img/outlier.png)
+![Visualisasi Outlier](/img/outlier.png)
 
 Karena data bersifat time series, data outlier tidak dihapus begitu saja melainkan digantikan dengan nilai interpolasi linear agar urutan temporal tetap terjaga:
 
@@ -394,7 +394,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-![Visualisasi Outlier](img/outlierDone.png)
+![Visualisasi Outlier](/img/outlierDone.png)
 ---
 
 ## 3. Pemodelan Menggunakan KNN Regression
@@ -620,7 +620,7 @@ plt.legend()
 plt.show()
 ```
 
-![Visualisasi Outlier](img/5day.png)
+![Visualisasi Outlier](/img/5day.png)
 **Skenario 2 — 10 Hari Sebelumnya**
 
 ```python
@@ -634,7 +634,7 @@ plt.legend()
 plt.show()
 ```
 
-![Visualisasi Outlier](img/10day.png)
+![Visualisasi Outlier](/img/10day.png)
 ---
 
 ## 4. Kesimpulan

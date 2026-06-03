@@ -770,7 +770,7 @@ IQR = Q_3 - Q_1
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="Visualisasi Outlier" src="md/img/outlier.png" /></p>
+<p><img alt="Visualisasi Outlier" src="../_images/outlier.png" /></p>
 <p>Karena data bersifat time series, data outlier tidak dihapus begitu saja melainkan digantikan dengan nilai interpolasi linear agar urutan temporal tetap terjaga:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tandai outlier sebagai NaN</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;NO2_cleaned&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;NO2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span>
@@ -806,7 +806,7 @@ IQR = Q_3 - Q_1
 </section>
 </section>
 <section id="id1">
-<h2><img alt="Visualisasi Outlier" src="md/img/outlierDone.png" /><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2><img alt="Visualisasi Outlier" src="../_images/outlierDone.png" /><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 </section>
 <section id="pemodelan-menggunakan-knn-regression">
 <h2>3. Pemodelan Menggunakan KNN Regression<a class="headerlink" href="#pemodelan-menggunakan-knn-regression" title="Link to this heading">#</a></h2>
@@ -1028,7 +1028,7 @@ MAPE: 13.6031%
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="Visualisasi Outlier" src="md/img/5day.png" />
+<p><img alt="Visualisasi Outlier" src="../_images/5day.png" />
 <strong>Skenario 2 — 10 Hari Sebelumnya</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_test_10</span><span class="p">)),</span> <span class="n">y_test_10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Actual&quot;</span><span class="p">)</span>
@@ -1043,7 +1043,7 @@ MAPE: 13.6031%
 </section>
 </section>
 <section id="id2">
-<h2><img alt="Visualisasi Outlier" src="md/img/10day.png" /><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2><img alt="Visualisasi Outlier" src="../_images/10day.png" /><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 </section>
 <section id="kesimpulan">
 <h2>4. Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
