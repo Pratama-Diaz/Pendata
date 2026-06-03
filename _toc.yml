@@ -19,3 +19,5 @@ chapters:
   title: "Analisis data menggunakan random forest"
 - file: md/08_LinearRegression
   title: "LinearRegression"
+- file: md/09_forecastingNO2Serang
+  title: "Peramalan Kadar NOâ‚‚ di Daerah Serang Menggunakan K-Nearest Neighbors (KNN) Regression"
