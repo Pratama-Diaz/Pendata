@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Deskripsi tugas &#8212; My sample book</title>
+    <title>Analisis data dengan Linear Regression &#8212; My sample book</title>
   
   
   
@@ -188,11 +188,9 @@
 <li class="toctree-l1"><a class="reference internal" href="05_NaiveBayes.html">Analisis Data Menggunakan Naive Bayes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_DecisionTree.html">Analisis Data Menggunakan Decision Tree dengan Metode Gain Ratio pada KNIME</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_RandomForest.html">Analisis data menggunakan random forest</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Deskripsi tugas</a></li>
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Analisis data dengan Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_forecastingNO2Serang.html">Peramalan Kadar NOâ‚‚ di Daerah Serang Menggunakan K-Nearest Neighbors (KNN) Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_ExplaiabilitySKforecast.html">Model Explainability dengan Skforecast</a></li>
 </ul>
 
     </div>
@@ -375,7 +373,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Deskripsi tugas</h1>
+    <h1>Analisis data dengan Linear Regression</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -385,31 +383,30 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Deskripsi tugas</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-manual-koefisien-dan-interception">Analisis Manual Koefisien dan Interception</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-equation">Normal equation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variabel-x">Variabel X</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-y">Variable Y</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-tranpose-matriks-x-t">Hitung tranpose matriks (X^T)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-x-tx">Hitung (X^TX)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-inverse-x-tx-1">Hitung inverse ((X^TX)^{-1})</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-x-ty">Hitung (X^Ty)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-koefisien-regresi">Hitung Koefisien regresi</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-gambar-linier">Hasil akhir gambar linier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-tugas">Deskripsi tugas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-manual-koefisien-dan-interception">Analisis Manual Koefisien dan Interception</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-equation">Normal equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variabel-x">Variabel X</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-y">Variable Y</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-tranpose-matriks-x-t">Hitung tranpose matriks (X^T)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-x-tx">Hitung (X^TX)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-inverse-x-tx-1">Hitung inverse ((X^TX)^{-1})</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-x-ty">Hitung (X^Ty)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-koefisien-regresi">Hitung Koefisien regresi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-gambar-linier">Hasil akhir gambar linier</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-dengan-python">Implementasi dengan Python</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-dataset">Input Dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-1-sklearn-linearregression">Metode 1 - sklearn LinearRegression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-2-analitik-manual-hat-beta-x-top-x-1-x-top-y">Metode 2 - Analitik Manual: <span class="math notranslate nohighlight">\(\hat{\beta} = (X^\top X)^{-1} X^\top Y\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-kedua-metode-harus-sama">Verifikasi - Kedua Metode Harus Sama</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi">Visualisasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-dengan-python">Implementasi dengan Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-dataset">Input Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-1-sklearn-linearregression">Metode 1 - sklearn LinearRegression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-2-analitik-manual-hat-beta-x-top-x-1-x-top-y">Metode 2 - Analitik Manual: <span class="math notranslate nohighlight">\(\hat{\beta} = (X^\top X)^{-1} X^\top Y\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-kedua-metode-harus-sama">Verifikasi - Kedua Metode Harus Sama</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi">Visualisasi</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-akhir">Visualisasi Akhir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-akhir">Visualisasi Akhir</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -420,17 +417,18 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p>f# Analisis data dengan Linear Regression</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="analisis-data-dengan-linear-regression">
+<h1>Analisis data dengan Linear Regression<a class="headerlink" href="#analisis-data-dengan-linear-regression" title="Link to this heading">#</a></h1>
 <section id="deskripsi-tugas">
-<h1>Deskripsi tugas<a class="headerlink" href="#deskripsi-tugas" title="Link to this heading">#</a></h1>
+<h2>Deskripsi tugas<a class="headerlink" href="#deskripsi-tugas" title="Link to this heading">#</a></h2>
 <p>Pada tugas kali ini, diberikan dataset berupa</p>
 <p><img alt="dataset" src="../_images/dataset.jpeg" /></p>
 <p>Dengan dataset tersebut terdapat 1 buah variabel independent dan 1 buah variabel dependent. Tugas kali ini fokus untuk mencari nilai Koefisien (B1) dan Interception (B0). Tujuan nya adalah untuk mencari garis linier terbaik untuk keseluruhan data</p>
 </section>
 <section id="analisis-manual-koefisien-dan-interception">
-<h1>Analisis Manual Koefisien dan Interception<a class="headerlink" href="#analisis-manual-koefisien-dan-interception" title="Link to this heading">#</a></h1>
+<h2>Analisis Manual Koefisien dan Interception<a class="headerlink" href="#analisis-manual-koefisien-dan-interception" title="Link to this heading">#</a></h2>
 <section id="normal-equation">
-<h2>Normal equation<a class="headerlink" href="#normal-equation" title="Link to this heading">#</a></h2>
+<h3>Normal equation<a class="headerlink" href="#normal-equation" title="Link to this heading">#</a></h3>
 <p>Untuk mencari nilai (b_0) dan juga (b_1) digunakan rumus Normal equation yaitu:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -439,7 +437,7 @@
 <p>Rumus ini digunakan untuk menentukan nilai dari (b_0) dan juga (b_1) nantinya</p>
 </section>
 <section id="variabel-x">
-<h2>Variabel X<a class="headerlink" href="#variabel-x" title="Link to this heading">#</a></h2>
+<h3>Variabel X<a class="headerlink" href="#variabel-x" title="Link to this heading">#</a></h3>
 <p>Data diatas yang berada pada Variabel X selanjutnya akan dibuat dengan matriks, namun pada variable X ini akan terdapat kolom bias/intercept dengan nilai 1. itu adalah Dummy column placeholder for error variable b0</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -456,7 +454,7 @@ X=
 \end{split}\]</div>
 </section>
 <section id="variable-y">
-<h2>Variable Y<a class="headerlink" href="#variable-y" title="Link to this heading">#</a></h2>
+<h3>Variable Y<a class="headerlink" href="#variable-y" title="Link to this heading">#</a></h3>
 <p>Lakukan hal yang sama juga pada variable Y namun tanpa data dummy
 $<span class="math notranslate nohighlight">\(
 y=
@@ -472,7 +470,7 @@ y=
 \)</span>$</p>
 </section>
 <section id="hitung-tranpose-matriks-x-t">
-<h2>Hitung tranpose matriks (X^T)<a class="headerlink" href="#hitung-tranpose-matriks-x-t" title="Link to this heading">#</a></h2>
+<h3>Hitung tranpose matriks (X^T)<a class="headerlink" href="#hitung-tranpose-matriks-x-t" title="Link to this heading">#</a></h3>
 <p>Transpose dilakukan dengan mengubah baris menjadi kolom.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -484,7 +482,7 @@ X^T=
 \end{split}\]</div>
 </section>
 <section id="hitung-x-tx">
-<h2>Hitung (X^TX)<a class="headerlink" href="#hitung-x-tx" title="Link to this heading">#</a></h2>
+<h3>Hitung (X^TX)<a class="headerlink" href="#hitung-x-tx" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 X^TX=
@@ -513,7 +511,7 @@ X^TX=
 \end{split}\]</div>
 </section>
 <section id="hitung-inverse-x-tx-1">
-<h2>Hitung inverse ((X^TX)^{-1})<a class="headerlink" href="#hitung-inverse-x-tx-1" title="Link to this heading">#</a></h2>
+<h3>Hitung inverse ((X^TX)^{-1})<a class="headerlink" href="#hitung-inverse-x-tx-1" title="Link to this heading">#</a></h3>
 <p>Gunakan rumus inverse matriks 2x2:</p>
 <p>A^-1 = 1 / (ad - bc)</p>
 <p>[
@@ -549,7 +547,7 @@ $<span class="math notranslate nohighlight">\(
 \end{bmatrix}</p>
 </section>
 <section id="hitung-x-ty">
-<h2>Hitung (X^Ty)<a class="headerlink" href="#hitung-x-ty" title="Link to this heading">#</a></h2>
+<h3>Hitung (X^Ty)<a class="headerlink" href="#hitung-x-ty" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 X^Ty=
@@ -569,7 +567,7 @@ X^Ty=
 \end{split}\]</div>
 </section>
 <section id="hitung-koefisien-regresi">
-<h2>Hitung Koefisien regresi<a class="headerlink" href="#hitung-koefisien-regresi" title="Link to this heading">#</a></h2>
+<h3>Hitung Koefisien regresi<a class="headerlink" href="#hitung-koefisien-regresi" title="Link to this heading">#</a></h3>
 <p>Hitung Koefisien Regresi (\hat{\beta})</p>
 <div class="math notranslate nohighlight">
 \[
@@ -626,14 +624,14 @@ X^Ty=
 \end{split}\]</div>
 </section>
 <section id="hasil-akhir-gambar-linier">
-<h2>Hasil akhir gambar linier<a class="headerlink" href="#hasil-akhir-gambar-linier" title="Link to this heading">#</a></h2>
+<h3>Hasil akhir gambar linier<a class="headerlink" href="#hasil-akhir-gambar-linier" title="Link to this heading">#</a></h3>
 <p><img alt="linier" src="../_images/linier.png" /></p>
 </section>
 </section>
 <section id="implementasi-dengan-python">
-<h1>Implementasi dengan Python<a class="headerlink" href="#implementasi-dengan-python" title="Link to this heading">#</a></h1>
+<h2>Implementasi dengan Python<a class="headerlink" href="#implementasi-dengan-python" title="Link to this heading">#</a></h2>
 <section id="import-library">
-<h2>Import Library<a class="headerlink" href="#import-library" title="Link to this heading">#</a></h2>
+<h3>Import Library<a class="headerlink" href="#import-library" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -643,7 +641,7 @@ X^Ty=
 </div>
 </section>
 <section id="input-dataset">
-<h2>Input Dataset<a class="headerlink" href="#input-dataset" title="Link to this heading">#</a></h2>
+<h3>Input Dataset<a class="headerlink" href="#input-dataset" title="Link to this heading">#</a></h3>
 <p><img alt="Data input" src="img/linear-regression/data.png" /></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dataset titik A sampai G dari GeoGebra</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">]</span>
@@ -657,7 +655,7 @@ X^Ty=
 </div>
 </section>
 <section id="metode-1-sklearn-linearregression">
-<h2>Metode 1 - sklearn LinearRegression<a class="headerlink" href="#metode-1-sklearn-linearregression" title="Link to this heading">#</a></h2>
+<h3>Metode 1 - sklearn LinearRegression<a class="headerlink" href="#metode-1-sklearn-linearregression" title="Link to this heading">#</a></h3>
 <p><img alt="sklearn LinearRegression" src="../_images/sklearn.png" /></p>
 <p>sklearn memerlukan input <span class="math notranslate nohighlight">\(X\)</span> berbentuk 2D array (matriks kolom).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X_2d</span> <span class="o">=</span> <span class="n">X_raw</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># ubah jadi shape (7, 1)</span>
@@ -682,7 +680,7 @@ X^Ty=
 </div>
 </section>
 <section id="metode-2-analitik-manual-hat-beta-x-top-x-1-x-top-y">
-<h2>Metode 2 - Analitik Manual: <span class="math notranslate nohighlight">\(\hat{\beta} = (X^\top X)^{-1} X^\top Y\)</span><a class="headerlink" href="#metode-2-analitik-manual-hat-beta-x-top-x-1-x-top-y" title="Link to this heading">#</a></h2>
+<h3>Metode 2 - Analitik Manual: <span class="math notranslate nohighlight">\(\hat{\beta} = (X^\top X)^{-1} X^\top Y\)</span><a class="headerlink" href="#metode-2-analitik-manual-hat-beta-x-top-x-1-x-top-y" title="Link to this heading">#</a></h3>
 <p><img alt="Analitik normal equation" src="../_images/normaAnalyst.png" /></p>
 <p><strong>Step 1: Susun Matriks X dengan Kolom Dummy</strong></p>
 <p><img alt="Susun matriks X" src="../_images/mSusunMatriks.png" /></p>
@@ -780,7 +778,7 @@ X^Ty=
 </div>
 </section>
 <section id="verifikasi-kedua-metode-harus-sama">
-<h2>Verifikasi - Kedua Metode Harus Sama<a class="headerlink" href="#verifikasi-kedua-metode-harus-sama" title="Link to this heading">#</a></h2>
+<h3>Verifikasi - Kedua Metode Harus Sama<a class="headerlink" href="#verifikasi-kedua-metode-harus-sama" title="Link to this heading">#</a></h3>
 <p><img alt="Verifikasi hasil" src="../_images/verif.png" /></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;VERIFIKASI&#39;</span><span class="p">)</span>
@@ -797,7 +795,7 @@ X^Ty=
 </div>
 </section>
 <section id="visualisasi">
-<h2>Visualisasi<a class="headerlink" href="#visualisasi" title="Link to this heading">#</a></h2>
+<h3>Visualisasi<a class="headerlink" href="#visualisasi" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x_line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 <span class="n">y_line</span> <span class="o">=</span> <span class="n">b1_an</span> <span class="o">*</span> <span class="n">x_line</span> <span class="o">+</span> <span class="n">b0_an</span>
 
@@ -857,8 +855,9 @@ X^Ty=
 </section>
 </section>
 <section id="visualisasi-akhir">
-<h1>Visualisasi Akhir<a class="headerlink" href="#visualisasi-akhir" title="Link to this heading">#</a></h1>
+<h2>Visualisasi Akhir<a class="headerlink" href="#visualisasi-akhir" title="Link to this heading">#</a></h2>
 <p><img alt="Visualisasi regresi linier" src="img/visualisasi.png" /></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -927,31 +926,30 @@ X^Ty=
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Deskripsi tugas</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-manual-koefisien-dan-interception">Analisis Manual Koefisien dan Interception</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-equation">Normal equation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variabel-x">Variabel X</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-y">Variable Y</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-tranpose-matriks-x-t">Hitung tranpose matriks (X^T)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-x-tx">Hitung (X^TX)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-inverse-x-tx-1">Hitung inverse ((X^TX)^{-1})</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-x-ty">Hitung (X^Ty)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-koefisien-regresi">Hitung Koefisien regresi</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-gambar-linier">Hasil akhir gambar linier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-tugas">Deskripsi tugas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-manual-koefisien-dan-interception">Analisis Manual Koefisien dan Interception</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-equation">Normal equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variabel-x">Variabel X</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-y">Variable Y</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-tranpose-matriks-x-t">Hitung tranpose matriks (X^T)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-x-tx">Hitung (X^TX)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-inverse-x-tx-1">Hitung inverse ((X^TX)^{-1})</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-x-ty">Hitung (X^Ty)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-koefisien-regresi">Hitung Koefisien regresi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-gambar-linier">Hasil akhir gambar linier</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-dengan-python">Implementasi dengan Python</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-dataset">Input Dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-1-sklearn-linearregression">Metode 1 - sklearn LinearRegression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-2-analitik-manual-hat-beta-x-top-x-1-x-top-y">Metode 2 - Analitik Manual: <span class="math notranslate nohighlight">\(\hat{\beta} = (X^\top X)^{-1} X^\top Y\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-kedua-metode-harus-sama">Verifikasi - Kedua Metode Harus Sama</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi">Visualisasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-dengan-python">Implementasi dengan Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-dataset">Input Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-1-sklearn-linearregression">Metode 1 - sklearn LinearRegression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-2-analitik-manual-hat-beta-x-top-x-1-x-top-y">Metode 2 - Analitik Manual: <span class="math notranslate nohighlight">\(\hat{\beta} = (X^\top X)^{-1} X^\top Y\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-kedua-metode-harus-sama">Verifikasi - Kedua Metode Harus Sama</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi">Visualisasi</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-akhir">Visualisasi Akhir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-akhir">Visualisasi Akhir</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

@@ -1,4 +1,4 @@
-f# Analisis data dengan Linear Regression
+# Analisis data dengan Linear Regression
 
 ## Deskripsi tugas
 Pada tugas kali ini, diberikan dataset berupa 
