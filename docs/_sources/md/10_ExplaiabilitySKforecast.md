@@ -64,6 +64,7 @@ Ide di balik penggunaan lag adalah bahwa **permintaan listrik hari ini sangat di
 ```python
 !pip install shap lightgbm skforecast
 ```
+![alt](/img/library_explainSK.png)
 
 Menginstal tiga library utama yang dibutuhkan:
 - shap — library untuk menghitung dan memvisualisasikan SHAP values sebagai metode explainability.
@@ -114,6 +115,8 @@ data = fetch_dataset(name="vic_electricity")
 data.head(3)
 ```
 
+![alt](/img/download_explainSK.png)
+
 Mengunduh dataset vic_electricity yang berisi data permintaan listrik harian di Victoria, Australia. Dataset ini memiliki kolom utama Demand (permintaan listrik dalam MW) dan Temperature (suhu rata-rata di Melbourne). data.head(3) digunakan untuk melihat tiga baris pertama dataset sebagai verifikasi awal.
 
 ---
@@ -124,6 +127,8 @@ Mengunduh dataset vic_electricity yang berisi data permintaan listrik harian di 
 data = data.resample('D').agg({'Demand': 'sum', 'Temperature': 'mean'})
 data.head(3)
 ```
+
+![alt](/img/aggregation_explainSK.png)
 
 Dataset asli memiliki frekuensi setengah jam (30 menit). Cell ini melakukan resampling ke frekuensi harian ('D') dengan cara:
 - Demand dijumlahkan (sum) untuk mendapatkan total permintaan listrik per hari.
@@ -162,6 +167,8 @@ forecaster.fit(
 )
 ```
 
+![alt](/img/forecaster_explainSK.png)
+
 Membuat model forecasting rekursif multi-step menggunakan ForecasterRecursive:
 - estimator — model regresi internal yang digunakan adalah LGBMRegressor. Parameter random_state=123 memastikan hasil yang reproducible
 - lags=7 — model menggunakan 7 nilai terakhir dari deret waktu (lag_1 hingga lag_7) sebagai fitur prediktor, yang merepresentasikan data satu minggu ke belakang.
@@ -180,6 +187,8 @@ Mengambil nilai feature importance dari estimator internal menggunakan metode ge
 
 ---
 
+![alt](/img/feature_explainSK.png)
+
 ### Cell 9 — Membuat Matriks Training
 
 ```python
@@ -191,6 +200,8 @@ X_train, y_train = forecaster.create_train_X_y(
 display(X_train.head(3))
 display(y_train.head(3))
 ```
+
+![alt](/img/matrics_explainSK.png)
 
 create_train_X_y() mengekstrak matriks input (X_train) dan target (y_train) yang digunakan oleh estimator internal saat proses pelatihan. X_train berisi kolom lag_1 hingga lag_7 dan Temperature, sedangkan y_train berisi nilai Demand yang ingin diprediksi. Matriks ini dibutuhkan secara eksplisit untuk proses perhitungan SHAP values di langkah selanjutnya.
 
@@ -216,6 +227,8 @@ Membuat SHAP explainer dan menghitung SHAP values dari data training:
 shap.summary_plot(shap_values, X_train, plot_type="bar")
 ```
 
+![alt](/img/bar.png)
+
 Menampilkan summary plot dalam bentuk bar chart. Setiap bar merepresentasikan rata-rata absolut SHAP value dari masing-masing fitur di seluruh data training. Plot ini memberikan gambaran global tentang fitur mana yang paling berpengaruh terhadap prediksi model secara keseluruhan.
 
 ---
@@ -225,6 +238,8 @@ Menampilkan summary plot dalam bentuk bar chart. Setiap bar merepresentasikan ra
 ```python
 shap.summary_plot(shap_values, X_train)
 ```
+
+![alt](/img/plot2_explainSK.png)
 
 Menampilkan summary plot dalam bentuk beeswarm (default). Berbeda dengan bar chart, plot ini menunjukkan distribusi SHAP values untuk setiap fitur di seluruh observasi. Warna titik mencerminkan nilai fitur (merah = tinggi, biru = rendah), sehingga bisa terlihat bagaimana arah dan besaran pengaruh nilai fitur terhadap prediksi.
 
@@ -242,6 +257,8 @@ html_content = f"""
 """
 display(HTML(html_content))
 ```
+
+![alt](/img/plot4_explainSK.png)
 
 Menampilkan force plot untuk observasi pertama (index 0) dari data training. Force plot adalah visualisasi lokal yang menunjukkan bagaimana masing-masing fitur mendorong prediksi ke atas atau ke bawah dari nilai baseline (explainer.expected_value).
 
@@ -262,6 +279,8 @@ html_content = f"""
 display(HTML(html_content))
 ```
 
+![alt](/img/plot5_explainSK.png)
+
 Serupa dengan cell sebelumnya, namun force plot diterapkan pada 200 observasi pertama sekaligus. Hasilnya adalah visualisasi interaktif yang memungkinkan eksplorasi pola kontribusi fitur di banyak prediksi dalam satu tampilan, sering disebut sebagai "stacked force plot".
 
 ---
@@ -272,6 +291,8 @@ Serupa dengan cell sebelumnya, namun force plot diterapkan pada 200 observasi pe
 fig, ax = plt.subplots(figsize=(7, 4))
 shap.dependence_plot("Temperature", shap_values, X_train, ax=ax)
 ```
+
+![alt](/img/plot6_explainSK.png)
 
 Menampilkan dependence plot untuk fitur Temperature. Plot ini menunjukkan hubungan antara nilai fitur Temperature dengan SHAP value-nya — yaitu seberapa besar dan ke arah mana suhu memengaruhi prediksi permintaan listrik. SHAP secara otomatis memilih fitur lain untuk pewarnaan berdasarkan interaksi terkuat yang ditemukan.
 

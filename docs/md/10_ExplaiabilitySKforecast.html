@@ -529,6 +529,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">shap</span> <span class="n">lightgbm</span> <span class="n">skforecast</span>
 </pre></div>
 </div>
+<p><img alt="alt" src="../_images/library_explainSK.png" /></p>
 <p>Menginstal tiga library utama yang dibutuhkan:</p>
 <ul class="simple">
 <li><p>shap — library untuk menghitung dan memvisualisasikan SHAP values sebagai metode explainability.</p></li>
@@ -576,6 +577,7 @@
 <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><img alt="alt" src="../_images/download_explainSK.png" /></p>
 <p>Mengunduh dataset vic_electricity yang berisi data permintaan listrik harian di Victoria, Australia. Dataset ini memiliki kolom utama Demand (permintaan listrik dalam MW) dan Temperature (suhu rata-rata di Melbourne). data.head(3) digunakan untuk melihat tiga baris pertama dataset sebagai verifikasi awal.</p>
 </section>
 <hr class="docutils" />
@@ -585,6 +587,7 @@
 <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><img alt="alt" src="../_images/aggregation_explainSK.png" /></p>
 <p>Dataset asli memiliki frekuensi setengah jam (30 menit). Cell ini melakukan resampling ke frekuensi harian (‘D’) dengan cara:</p>
 <ul class="simple">
 <li><p>Demand dijumlahkan (sum) untuk mendapatkan total permintaan listrik per hari.</p></li>
@@ -620,6 +623,7 @@
 <span class="p">)</span>
 </pre></div>
 </div>
+<p><img alt="alt" src="../_images/forecaster_explainSK.png" /></p>
 <p>Membuat model forecasting rekursif multi-step menggunakan ForecasterRecursive:</p>
 <ul class="simple">
 <li><p>estimator — model regresi internal yang digunakan adalah LGBMRegressor. Parameter random_state=123 memastikan hasil yang reproducible</p></li>
@@ -634,8 +638,9 @@
 </pre></div>
 </div>
 <p>Mengambil nilai feature importance dari estimator internal menggunakan metode get_feature_importances(). Metode ini mengakses atribut feature_importances_ atau coef_ (untuk model linear) dari estimator. Hasilnya menunjukkan seberapa besar kontribusi masing-masing fitur (lag dan variabel eksogen) terhadap prediksi model.</p>
-</section>
 <hr class="docutils" />
+<p><img alt="alt" src="../_images/feature_explainSK.png" /></p>
+</section>
 <section id="cell-9-membuat-matriks-training">
 <h3>Cell 9 — Membuat Matriks Training<a class="headerlink" href="#cell-9-membuat-matriks-training" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">forecaster</span><span class="o">.</span><span class="n">create_train_X_y</span><span class="p">(</span>
@@ -647,6 +652,7 @@
 <span class="n">display</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
+<p><img alt="alt" src="../_images/matrics_explainSK.png" /></p>
 <p>create_train_X_y() mengekstrak matriks input (X_train) dan target (y_train) yang digunakan oleh estimator internal saat proses pelatihan. X_train berisi kolom lag_1 hingga lag_7 dan Temperature, sedangkan y_train berisi nilai Demand yang ingin diprediksi. Matriks ini dibutuhkan secara eksplisit untuk proses perhitungan SHAP values di langkah selanjutnya.</p>
 </section>
 <hr class="docutils" />
@@ -669,6 +675,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">shap_values</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><img alt="alt" src="../_images/bar.png" /></p>
 <p>Menampilkan summary plot dalam bentuk bar chart. Setiap bar merepresentasikan rata-rata absolut SHAP value dari masing-masing fitur di seluruh data training. Plot ini memberikan gambaran global tentang fitur mana yang paling berpengaruh terhadap prediksi model secara keseluruhan.</p>
 </section>
 <hr class="docutils" />
@@ -677,6 +684,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">shap_values</span><span class="p">,</span> <span class="n">X_train</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><img alt="alt" src="../_images/plot2_explainSK.png" /></p>
 <p>Menampilkan summary plot dalam bentuk beeswarm (default). Berbeda dengan bar chart, plot ini menunjukkan distribusi SHAP values untuk setiap fitur di seluruh observasi. Warna titik mencerminkan nilai fitur (merah = tinggi, biru = rendah), sehingga bisa terlihat bagaimana arah dan besaran pengaruh nilai fitur terhadap prediksi.</p>
 </section>
 <hr class="docutils" />
@@ -692,6 +700,7 @@
 <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">html_content</span><span class="p">))</span>
 </pre></div>
 </div>
+<p><img alt="alt" src="../_images/plot4_explainSK.png" /></p>
 <p>Menampilkan force plot untuk observasi pertama (index 0) dari data training. Force plot adalah visualisasi lokal yang menunjukkan bagaimana masing-masing fitur mendorong prediksi ke atas atau ke bawah dari nilai baseline (explainer.expected_value).</p>
 <p>Karena shap.force_plot memerlukan JavaScript untuk dirender, visualisasi dibungkus secara manual menggunakan shap.getjs() dan display(HTML(…)) agar dapat tampil dengan benar di lingkungan Colab yang tidak memuat JS SHAP secara otomatis.</p>
 </section>
@@ -708,6 +717,7 @@
 <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">html_content</span><span class="p">))</span>
 </pre></div>
 </div>
+<p><img alt="alt" src="../_images/plot5_explainSK.png" /></p>
 <p>Serupa dengan cell sebelumnya, namun force plot diterapkan pada 200 observasi pertama sekaligus. Hasilnya adalah visualisasi interaktif yang memungkinkan eksplorasi pola kontribusi fitur di banyak prediksi dalam satu tampilan, sering disebut sebagai “stacked force plot”.</p>
 </section>
 <hr class="docutils" />
@@ -717,6 +727,7 @@
 <span class="n">shap</span><span class="o">.</span><span class="n">dependence_plot</span><span class="p">(</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span> <span class="n">shap_values</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><img alt="alt" src="../_images/plot6_explainSK.png" /></p>
 <p>Menampilkan dependence plot untuk fitur Temperature. Plot ini menunjukkan hubungan antara nilai fitur Temperature dengan SHAP value-nya — yaitu seberapa besar dan ke arah mana suhu memengaruhi prediksi permintaan listrik. SHAP secara otomatis memilih fitur lain untuk pewarnaan berdasarkan interaksi terkuat yang ditemukan.</p>
 </section>
 <hr class="docutils" />
